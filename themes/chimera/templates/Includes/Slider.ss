@@ -1,25 +1,33 @@
-<% if VisibleCarouselItems %>
+<% if CurrentSliderItems %>
 <h2 class="nonvisual-indicator">Image slider, use keyboard to navigate</h2>
-<div class="slider-wrap flexslider">
-	<ul class="slides">
-		<% loop VisibleCarouselItems %>
-			<li class="$FirstLast slide-{$Pos} <% if First %>flex-active-slide<% end_if %>">
-				<% if Link %><a href="$Link.Link" class="slide-link"><% end_if %>
-					<div class="image-wrap">
-						<img src="$Image.CroppedImage(1200, 350).URL" alt="$Caption.LimitCharacters(255)">
-					</div> 
+	<div class="flexslider">
+		<!-- Carousel items -->
+		<ul class="slides unstyled">
+			<% loop CurrentSliderItems %>
+				<li class="<% if First %>flex-active-slide <% end_if %>item item-{$Modulus(5)}">
+					<% if Link %><a href="$Link.Link"><% end_if %>
+						<div class="image-wrap">
+							<img src="$Image.URL" alt="$Title" />
+						</div>
+					<% if Link %>	</a><% end_if %>
+					<% if $Caption || $Attribution %>
+						<div class="caption">
+							<% if $Attribution %>
+								<small class="attribution"><em>Photo credit: $Attribution</em></small>
+							<% end_if %>
 
-					<% if Caption %>
-					<div class="text">
-						<% if Title %>
-						<h3>$Title</h3>
-						<% end_if %>
-						<p>$Caption.LimitCharacters(255)</p>
-					</div>
+							<% if Title %>
+								<h4>
+								<% if Link %><a href="$Link.Link"><% end_if %>
+								$Title</h4>
+								<% if Link %>	</a><% end_if %>
+
+							<% end_if %>
+							<p>$Caption</p>
+						</div>
 					<% end_if %>
-				<% if Link %></a><% end_if %>
-			</li>
-		<% end_loop %>
-	</ul>
-</div>
+				</li>
+			<% end_loop %>
+		</ul>
+	</div>
 <% end_if %>
