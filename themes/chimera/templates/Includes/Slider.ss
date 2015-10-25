@@ -7,7 +7,7 @@
 				<li class="<% if First %>flex-active-slide <% end_if %>item item-{$Modulus(5)}">
 					<% if Link %><a href="$Link.Link"><% end_if %>
 						<div class="image-wrap">
-							<img src="$Image.URL" alt="$Title" />
+							<img src="$Image.SetHeight(300).URL" alt="$Title" />
 						</div>
 					<% if Link %>	</a><% end_if %>
 					<% if $Caption || $Attribution %>
