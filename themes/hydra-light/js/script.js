@@ -17776,8 +17776,8 @@ var tooltip = $.widget( "ui.tooltip", {
 					// For embedded pages, remove the dialog hash key as in getFilePath(),
 					// otherwise the Data Url won't match the id of the embedded Page.
 					return u.hash.split( dialogHashKey )[0].replace( /^#/, "" );
-				} else if ( path.isSameDomain( u, documentBase ) ) {
-					return u.hrefNoHash.replace( documentBase.domain, "" );
+				} else if ( path.isSameDomain( u, document ) ) {
+					return u.hrefNoHash.replace( document.domain, "" );
 				}
 				return absUrl;
 			},
@@ -17809,7 +17809,7 @@ var tooltip = $.widget( "ui.tooltip", {
 
 			//return a url path with the window's location protocol/hostname/pathname removed
 			clean: function( url ) {
-				return url.replace( documentBase.domain, "" );
+				return url.replace( document.domain, "" );
 			},
 
 			//just return the url without an initial #
@@ -17826,7 +17826,7 @@ var tooltip = $.widget( "ui.tooltip", {
 			//could be mailto, etc
 			isExternal: function( url ) {
 				var u = path.parseUrl( url );
-				return u.protocol && u.domain !== documentUrl.domain ? true : false;
+				return u.protocol && u.domain !== document.domain ? true : false;
 			},
 
 			hasProtocol: function( url ) {
@@ -18274,7 +18274,78 @@ var tooltip = $.widget( "ui.tooltip", {
 
 	});
 })(jQuery);
-;/**
+;/*!
+ * Isotope PACKAGED v2.0.1
+ * Filter & sort magical layouts
+ * http://isotope.metafizzy.co
+ */
+
+(function(t){function e(){}function i(t){function i(e){e.prototype.option||(e.prototype.option=function(e){t.isPlainObject(e)&&(this.options=t.extend(!0,this.options,e))})}function n(e,i){t.fn[e]=function(n){if("string"==typeof n){for(var s=o.call(arguments,1),a=0,u=this.length;u>a;a++){var p=this[a],h=t.data(p,e);if(h)if(t.isFunction(h[n])&&"_"!==n.charAt(0)){var f=h[n].apply(h,s);if(void 0!==f)return f}else r("no such method '"+n+"' for "+e+" instance");else r("cannot call methods on "+e+" prior to initialization; "+"attempted to call '"+n+"'")}return this}return this.each(function(){var o=t.data(this,e);o?(o.option(n),o._init()):(o=new i(this,n),t.data(this,e,o))})}}if(t){var r="undefined"==typeof console?e:function(t){console.error(t)};return t.bridget=function(t,e){i(e),n(t,e)},t.bridget}}var o=Array.prototype.slice;"function"==typeof define&&define.amd?define("jquery-bridget/jquery.bridget",["jquery"],i):i(t.jQuery)})(window),function(t){function e(e){var i=t.event;return i.target=i.target||i.srcElement||e,i}var i=document.documentElement,o=function(){};i.addEventListener?o=function(t,e,i){t.addEventListener(e,i,!1)}:i.attachEvent&&(o=function(t,i,o){t[i+o]=o.handleEvent?function(){var i=e(t);o.handleEvent.call(o,i)}:function(){var i=e(t);o.call(t,i)},t.attachEvent("on"+i,t[i+o])});var n=function(){};i.removeEventListener?n=function(t,e,i){t.removeEventListener(e,i,!1)}:i.detachEvent&&(n=function(t,e,i){t.detachEvent("on"+e,t[e+i]);try{delete t[e+i]}catch(o){t[e+i]=void 0}});var r={bind:o,unbind:n};"function"==typeof define&&define.amd?define("eventie/eventie",r):"object"==typeof exports?module.exports=r:t.eventie=r}(this),function(t){function e(t){"function"==typeof t&&(e.isReady?t():r.push(t))}function i(t){var i="readystatechange"===t.type&&"complete"!==n.readyState;if(!e.isReady&&!i){e.isReady=!0;for(var o=0,s=r.length;s>o;o++){var a=r[o];a()}}}function o(o){return o.bind(n,"DOMContentLoaded",i),o.bind(n,"readystatechange",i),o.bind(t,"load",i),e}var n=t.document,r=[];e.isReady=!1,"function"==typeof define&&define.amd?(e.isReady="function"==typeof requirejs,define("doc-ready/doc-ready",["eventie/eventie"],o)):t.docReady=o(t.eventie)}(this),function(){function t(){}function e(t,e){for(var i=t.length;i--;)if(t[i].listener===e)return i;return-1}function i(t){return function(){return this[t].apply(this,arguments)}}var o=t.prototype,n=this,r=n.EventEmitter;o.getListeners=function(t){var e,i,o=this._getEvents();if(t instanceof RegExp){e={};for(i in o)o.hasOwnProperty(i)&&t.test(i)&&(e[i]=o[i])}else e=o[t]||(o[t]=[]);return e},o.flattenListeners=function(t){var e,i=[];for(e=0;t.length>e;e+=1)i.push(t[e].listener);return i},o.getListenersAsObject=function(t){var e,i=this.getListeners(t);return i instanceof Array&&(e={},e[t]=i),e||i},o.addListener=function(t,i){var o,n=this.getListenersAsObject(t),r="object"==typeof i;for(o in n)n.hasOwnProperty(o)&&-1===e(n[o],i)&&n[o].push(r?i:{listener:i,once:!1});return this},o.on=i("addListener"),o.addOnceListener=function(t,e){return this.addListener(t,{listener:e,once:!0})},o.once=i("addOnceListener"),o.defineEvent=function(t){return this.getListeners(t),this},o.defineEvents=function(t){for(var e=0;t.length>e;e+=1)this.defineEvent(t[e]);return this},o.removeListener=function(t,i){var o,n,r=this.getListenersAsObject(t);for(n in r)r.hasOwnProperty(n)&&(o=e(r[n],i),-1!==o&&r[n].splice(o,1));return this},o.off=i("removeListener"),o.addListeners=function(t,e){return this.manipulateListeners(!1,t,e)},o.removeListeners=function(t,e){return this.manipulateListeners(!0,t,e)},o.manipulateListeners=function(t,e,i){var o,n,r=t?this.removeListener:this.addListener,s=t?this.removeListeners:this.addListeners;if("object"!=typeof e||e instanceof RegExp)for(o=i.length;o--;)r.call(this,e,i[o]);else for(o in e)e.hasOwnProperty(o)&&(n=e[o])&&("function"==typeof n?r.call(this,o,n):s.call(this,o,n));return this},o.removeEvent=function(t){var e,i=typeof t,o=this._getEvents();if("string"===i)delete o[t];else if(t instanceof RegExp)for(e in o)o.hasOwnProperty(e)&&t.test(e)&&delete o[e];else delete this._events;return this},o.removeAllListeners=i("removeEvent"),o.emitEvent=function(t,e){var i,o,n,r,s=this.getListenersAsObject(t);for(n in s)if(s.hasOwnProperty(n))for(o=s[n].length;o--;)i=s[n][o],i.once===!0&&this.removeListener(t,i.listener),r=i.listener.apply(this,e||[]),r===this._getOnceReturnValue()&&this.removeListener(t,i.listener);return this},o.trigger=i("emitEvent"),o.emit=function(t){var e=Array.prototype.slice.call(arguments,1);return this.emitEvent(t,e)},o.setOnceReturnValue=function(t){return this._onceReturnValue=t,this},o._getOnceReturnValue=function(){return this.hasOwnProperty("_onceReturnValue")?this._onceReturnValue:!0},o._getEvents=function(){return this._events||(this._events={})},t.noConflict=function(){return n.EventEmitter=r,t},"function"==typeof define&&define.amd?define("eventEmitter/EventEmitter",[],function(){return t}):"object"==typeof module&&module.exports?module.exports=t:this.EventEmitter=t}.call(this),function(t){function e(t){if(t){if("string"==typeof o[t])return t;t=t.charAt(0).toUpperCase()+t.slice(1);for(var e,n=0,r=i.length;r>n;n++)if(e=i[n]+t,"string"==typeof o[e])return e}}var i="Webkit Moz ms Ms O".split(" "),o=document.documentElement.style;"function"==typeof define&&define.amd?define("get-style-property/get-style-property",[],function(){return e}):"object"==typeof exports?module.exports=e:t.getStyleProperty=e}(window),function(t){function e(t){var e=parseFloat(t),i=-1===t.indexOf("%")&&!isNaN(e);return i&&e}function i(){for(var t={width:0,height:0,innerWidth:0,innerHeight:0,outerWidth:0,outerHeight:0},e=0,i=s.length;i>e;e++){var o=s[e];t[o]=0}return t}function o(t){function o(t){if("string"==typeof t&&(t=document.querySelector(t)),t&&"object"==typeof t&&t.nodeType){var o=r(t);if("none"===o.display)return i();var n={};n.width=t.offsetWidth,n.height=t.offsetHeight;for(var h=n.isBorderBox=!(!p||!o[p]||"border-box"!==o[p]),f=0,d=s.length;d>f;f++){var l=s[f],c=o[l];c=a(t,c);var y=parseFloat(c);n[l]=isNaN(y)?0:y}var m=n.paddingLeft+n.paddingRight,g=n.paddingTop+n.paddingBottom,v=n.marginLeft+n.marginRight,_=n.marginTop+n.marginBottom,I=n.borderLeftWidth+n.borderRightWidth,L=n.borderTopWidth+n.borderBottomWidth,z=h&&u,S=e(o.width);S!==!1&&(n.width=S+(z?0:m+I));var b=e(o.height);return b!==!1&&(n.height=b+(z?0:g+L)),n.innerWidth=n.width-(m+I),n.innerHeight=n.height-(g+L),n.outerWidth=n.width+v,n.outerHeight=n.height+_,n}}function a(t,e){if(n||-1===e.indexOf("%"))return e;var i=t.style,o=i.left,r=t.runtimeStyle,s=r&&r.left;return s&&(r.left=t.currentStyle.left),i.left=e,e=i.pixelLeft,i.left=o,s&&(r.left=s),e}var u,p=t("boxSizing");return function(){if(p){var t=document.createElement("div");t.style.width="200px",t.style.padding="1px 2px 3px 4px",t.style.borderStyle="solid",t.style.borderWidth="1px 2px 3px 4px",t.style[p]="border-box";var i=document.body||document.documentElement;i.appendChild(t);var o=r(t);u=200===e(o.width),i.removeChild(t)}}(),o}var n=t.getComputedStyle,r=n?function(t){return n(t,null)}:function(t){return t.currentStyle},s=["paddingLeft","paddingRight","paddingTop","paddingBottom","marginLeft","marginRight","marginTop","marginBottom","borderLeftWidth","borderRightWidth","borderTopWidth","borderBottomWidth"];"function"==typeof define&&define.amd?define("get-size/get-size",["get-style-property/get-style-property"],o):"object"==typeof exports?module.exports=o(require("get-style-property")):t.getSize=o(t.getStyleProperty)}(window),function(t,e){function i(t,e){return t[a](e)}function o(t){if(!t.parentNode){var e=document.createDocumentFragment();e.appendChild(t)}}function n(t,e){o(t);for(var i=t.parentNode.querySelectorAll(e),n=0,r=i.length;r>n;n++)if(i[n]===t)return!0;return!1}function r(t,e){return o(t),i(t,e)}var s,a=function(){if(e.matchesSelector)return"matchesSelector";for(var t=["webkit","moz","ms","o"],i=0,o=t.length;o>i;i++){var n=t[i],r=n+"MatchesSelector";if(e[r])return r}}();if(a){var u=document.createElement("div"),p=i(u,"div");s=p?i:r}else s=n;"function"==typeof define&&define.amd?define("matches-selector/matches-selector",[],function(){return s}):window.matchesSelector=s}(this,Element.prototype),function(t){function e(t,e){for(var i in e)t[i]=e[i];return t}function i(t){for(var e in t)return!1;return e=null,!0}function o(t){return t.replace(/([A-Z])/g,function(t){return"-"+t.toLowerCase()})}function n(t,n,r){function a(t,e){t&&(this.element=t,this.layout=e,this.position={x:0,y:0},this._create())}var u=r("transition"),p=r("transform"),h=u&&p,f=!!r("perspective"),d={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"otransitionend",transition:"transitionend"}[u],l=["transform","transition","transitionDuration","transitionProperty"],c=function(){for(var t={},e=0,i=l.length;i>e;e++){var o=l[e],n=r(o);n&&n!==o&&(t[o]=n)}return t}();e(a.prototype,t.prototype),a.prototype._create=function(){this._transn={ingProperties:{},clean:{},onEnd:{}},this.css({position:"absolute"})},a.prototype.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},a.prototype.getSize=function(){this.size=n(this.element)},a.prototype.css=function(t){var e=this.element.style;for(var i in t){var o=c[i]||i;e[o]=t[i]}},a.prototype.getPosition=function(){var t=s(this.element),e=this.layout.options,i=e.isOriginLeft,o=e.isOriginTop,n=parseInt(t[i?"left":"right"],10),r=parseInt(t[o?"top":"bottom"],10);n=isNaN(n)?0:n,r=isNaN(r)?0:r;var a=this.layout.size;n-=i?a.paddingLeft:a.paddingRight,r-=o?a.paddingTop:a.paddingBottom,this.position.x=n,this.position.y=r},a.prototype.layoutPosition=function(){var t=this.layout.size,e=this.layout.options,i={};e.isOriginLeft?(i.left=this.position.x+t.paddingLeft+"px",i.right=""):(i.right=this.position.x+t.paddingRight+"px",i.left=""),e.isOriginTop?(i.top=this.position.y+t.paddingTop+"px",i.bottom=""):(i.bottom=this.position.y+t.paddingBottom+"px",i.top=""),this.css(i),this.emitEvent("layout",[this])};var y=f?function(t,e){return"translate3d("+t+"px, "+e+"px, 0)"}:function(t,e){return"translate("+t+"px, "+e+"px)"};a.prototype._transitionTo=function(t,e){this.getPosition();var i=this.position.x,o=this.position.y,n=parseInt(t,10),r=parseInt(e,10),s=n===this.position.x&&r===this.position.y;if(this.setPosition(t,e),s&&!this.isTransitioning)return this.layoutPosition(),void 0;var a=t-i,u=e-o,p={},h=this.layout.options;a=h.isOriginLeft?a:-a,u=h.isOriginTop?u:-u,p.transform=y(a,u),this.transition({to:p,onTransitionEnd:{transform:this.layoutPosition},isCleaning:!0})},a.prototype.goTo=function(t,e){this.setPosition(t,e),this.layoutPosition()},a.prototype.moveTo=h?a.prototype._transitionTo:a.prototype.goTo,a.prototype.setPosition=function(t,e){this.position.x=parseInt(t,10),this.position.y=parseInt(e,10)},a.prototype._nonTransition=function(t){this.css(t.to),t.isCleaning&&this._removeStyles(t.to);for(var e in t.onTransitionEnd)t.onTransitionEnd[e].call(this)},a.prototype._transition=function(t){if(!parseFloat(this.layout.options.transitionDuration))return this._nonTransition(t),void 0;var e=this._transn;for(var i in t.onTransitionEnd)e.onEnd[i]=t.onTransitionEnd[i];for(i in t.to)e.ingProperties[i]=!0,t.isCleaning&&(e.clean[i]=!0);if(t.from){this.css(t.from);var o=this.element.offsetHeight;o=null}this.enableTransition(t.to),this.css(t.to),this.isTransitioning=!0};var m=p&&o(p)+",opacity";a.prototype.enableTransition=function(){this.isTransitioning||(this.css({transitionProperty:m,transitionDuration:this.layout.options.transitionDuration}),this.element.addEventListener(d,this,!1))},a.prototype.transition=a.prototype[u?"_transition":"_nonTransition"],a.prototype.onwebkitTransitionEnd=function(t){this.ontransitionend(t)},a.prototype.onotransitionend=function(t){this.ontransitionend(t)};var g={"-webkit-transform":"transform","-moz-transform":"transform","-o-transform":"transform"};a.prototype.ontransitionend=function(t){if(t.target===this.element){var e=this._transn,o=g[t.propertyName]||t.propertyName;if(delete e.ingProperties[o],i(e.ingProperties)&&this.disableTransition(),o in e.clean&&(this.element.style[t.propertyName]="",delete e.clean[o]),o in e.onEnd){var n=e.onEnd[o];n.call(this),delete e.onEnd[o]}this.emitEvent("transitionEnd",[this])}},a.prototype.disableTransition=function(){this.removeTransitionStyles(),this.element.removeEventListener(d,this,!1),this.isTransitioning=!1},a.prototype._removeStyles=function(t){var e={};for(var i in t)e[i]="";this.css(e)};var v={transitionProperty:"",transitionDuration:""};return a.prototype.removeTransitionStyles=function(){this.css(v)},a.prototype.removeElem=function(){this.element.parentNode.removeChild(this.element),this.emitEvent("remove",[this])},a.prototype.remove=function(){if(!u||!parseFloat(this.layout.options.transitionDuration))return this.removeElem(),void 0;var t=this;this.on("transitionEnd",function(){return t.removeElem(),!0}),this.hide()},a.prototype.reveal=function(){delete this.isHidden,this.css({display:""});var t=this.layout.options;this.transition({from:t.hiddenStyle,to:t.visibleStyle,isCleaning:!0})},a.prototype.hide=function(){this.isHidden=!0,this.css({display:""});var t=this.layout.options;this.transition({from:t.visibleStyle,to:t.hiddenStyle,isCleaning:!0,onTransitionEnd:{opacity:function(){this.isHidden&&this.css({display:"none"})}}})},a.prototype.destroy=function(){this.css({position:"",left:"",right:"",top:"",bottom:"",transition:"",transform:""})},a}var r=t.getComputedStyle,s=r?function(t){return r(t,null)}:function(t){return t.currentStyle};"function"==typeof define&&define.amd?define("outlayer/item",["eventEmitter/EventEmitter","get-size/get-size","get-style-property/get-style-property"],n):(t.Outlayer={},t.Outlayer.Item=n(t.EventEmitter,t.getSize,t.getStyleProperty))}(window),function(t){function e(t,e){for(var i in e)t[i]=e[i];return t}function i(t){return"[object Array]"===f.call(t)}function o(t){var e=[];if(i(t))e=t;else if(t&&"number"==typeof t.length)for(var o=0,n=t.length;n>o;o++)e.push(t[o]);else e.push(t);return e}function n(t,e){var i=l(e,t);-1!==i&&e.splice(i,1)}function r(t){return t.replace(/(.)([A-Z])/g,function(t,e,i){return e+"-"+i}).toLowerCase()}function s(i,s,f,l,c,y){function m(t,i){if("string"==typeof t&&(t=a.querySelector(t)),!t||!d(t))return u&&u.error("Bad "+this.constructor.namespace+" element: "+t),void 0;this.element=t,this.options=e({},this.constructor.defaults),this.option(i);var o=++g;this.element.outlayerGUID=o,v[o]=this,this._create(),this.options.isInitLayout&&this.layout()}var g=0,v={};return m.namespace="outlayer",m.Item=y,m.defaults={containerStyle:{position:"relative"},isInitLayout:!0,isOriginLeft:!0,isOriginTop:!0,isResizeBound:!0,isResizingContainer:!0,transitionDuration:"0.4s",hiddenStyle:{opacity:0,transform:"scale(0.001)"},visibleStyle:{opacity:1,transform:"scale(1)"}},e(m.prototype,f.prototype),m.prototype.option=function(t){e(this.options,t)},m.prototype._create=function(){this.reloadItems(),this.stamps=[],this.stamp(this.options.stamp),e(this.element.style,this.options.containerStyle),this.options.isResizeBound&&this.bindResize()},m.prototype.reloadItems=function(){this.items=this._itemize(this.element.children)},m.prototype._itemize=function(t){for(var e=this._filterFindItemElements(t),i=this.constructor.Item,o=[],n=0,r=e.length;r>n;n++){var s=e[n],a=new i(s,this);o.push(a)}return o},m.prototype._filterFindItemElements=function(t){t=o(t);for(var e=this.options.itemSelector,i=[],n=0,r=t.length;r>n;n++){var s=t[n];if(d(s))if(e){c(s,e)&&i.push(s);for(var a=s.querySelectorAll(e),u=0,p=a.length;p>u;u++)i.push(a[u])}else i.push(s)}return i},m.prototype.getItemElements=function(){for(var t=[],e=0,i=this.items.length;i>e;e++)t.push(this.items[e].element);return t},m.prototype.layout=function(){this._resetLayout(),this._manageStamps();var t=void 0!==this.options.isLayoutInstant?this.options.isLayoutInstant:!this._isLayoutInited;this.layoutItems(this.items,t),this._isLayoutInited=!0},m.prototype._init=m.prototype.layout,m.prototype._resetLayout=function(){this.getSize()},m.prototype.getSize=function(){this.size=l(this.element)},m.prototype._getMeasurement=function(t,e){var i,o=this.options[t];o?("string"==typeof o?i=this.element.querySelector(o):d(o)&&(i=o),this[t]=i?l(i)[e]:o):this[t]=0},m.prototype.layoutItems=function(t,e){t=this._getItemsForLayout(t),this._layoutItems(t,e),this._postLayout()},m.prototype._getItemsForLayout=function(t){for(var e=[],i=0,o=t.length;o>i;i++){var n=t[i];n.isIgnored||e.push(n)}return e},m.prototype._layoutItems=function(t,e){function i(){o.emitEvent("layoutComplete",[o,t])}var o=this;if(!t||!t.length)return i(),void 0;this._itemsOn(t,"layout",i);for(var n=[],r=0,s=t.length;s>r;r++){var a=t[r],u=this._getItemLayoutPosition(a);u.item=a,u.isInstant=e||a.isLayoutInstant,n.push(u)}this._processLayoutQueue(n)},m.prototype._getItemLayoutPosition=function(){return{x:0,y:0}},m.prototype._processLayoutQueue=function(t){for(var e=0,i=t.length;i>e;e++){var o=t[e];this._positionItem(o.item,o.x,o.y,o.isInstant)}},m.prototype._positionItem=function(t,e,i,o){o?t.goTo(e,i):t.moveTo(e,i)},m.prototype._postLayout=function(){this.resizeContainer()},m.prototype.resizeContainer=function(){if(this.options.isResizingContainer){var t=this._getContainerSize();t&&(this._setContainerMeasure(t.width,!0),this._setContainerMeasure(t.height,!1))}},m.prototype._getContainerSize=h,m.prototype._setContainerMeasure=function(t,e){if(void 0!==t){var i=this.size;i.isBorderBox&&(t+=e?i.paddingLeft+i.paddingRight+i.borderLeftWidth+i.borderRightWidth:i.paddingBottom+i.paddingTop+i.borderTopWidth+i.borderBottomWidth),t=Math.max(t,0),this.element.style[e?"width":"height"]=t+"px"}},m.prototype._itemsOn=function(t,e,i){function o(){return n++,n===r&&i.call(s),!0}for(var n=0,r=t.length,s=this,a=0,u=t.length;u>a;a++){var p=t[a];p.on(e,o)}},m.prototype.ignore=function(t){var e=this.getItem(t);e&&(e.isIgnored=!0)},m.prototype.unignore=function(t){var e=this.getItem(t);e&&delete e.isIgnored},m.prototype.stamp=function(t){if(t=this._find(t)){this.stamps=this.stamps.concat(t);for(var e=0,i=t.length;i>e;e++){var o=t[e];this.ignore(o)}}},m.prototype.unstamp=function(t){if(t=this._find(t))for(var e=0,i=t.length;i>e;e++){var o=t[e];n(o,this.stamps),this.unignore(o)}},m.prototype._find=function(t){return t?("string"==typeof t&&(t=this.element.querySelectorAll(t)),t=o(t)):void 0},m.prototype._manageStamps=function(){if(this.stamps&&this.stamps.length){this._getBoundingRect();for(var t=0,e=this.stamps.length;e>t;t++){var i=this.stamps[t];this._manageStamp(i)}}},m.prototype._getBoundingRect=function(){var t=this.element.getBoundingClientRect(),e=this.size;this._boundingRect={left:t.left+e.paddingLeft+e.borderLeftWidth,top:t.top+e.paddingTop+e.borderTopWidth,right:t.right-(e.paddingRight+e.borderRightWidth),bottom:t.bottom-(e.paddingBottom+e.borderBottomWidth)}},m.prototype._manageStamp=h,m.prototype._getElementOffset=function(t){var e=t.getBoundingClientRect(),i=this._boundingRect,o=l(t),n={left:e.left-i.left-o.marginLeft,top:e.top-i.top-o.marginTop,right:i.right-e.right-o.marginRight,bottom:i.bottom-e.bottom-o.marginBottom};return n},m.prototype.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},m.prototype.bindResize=function(){this.isResizeBound||(i.bind(t,"resize",this),this.isResizeBound=!0)},m.prototype.unbindResize=function(){this.isResizeBound&&i.unbind(t,"resize",this),this.isResizeBound=!1},m.prototype.onresize=function(){function t(){e.resize(),delete e.resizeTimeout}this.resizeTimeout&&clearTimeout(this.resizeTimeout);var e=this;this.resizeTimeout=setTimeout(t,100)},m.prototype.resize=function(){this.isResizeBound&&this.needsResizeLayout()&&this.layout()},m.prototype.needsResizeLayout=function(){var t=l(this.element),e=this.size&&t;return e&&t.innerWidth!==this.size.innerWidth},m.prototype.addItems=function(t){var e=this._itemize(t);return e.length&&(this.items=this.items.concat(e)),e},m.prototype.appended=function(t){var e=this.addItems(t);e.length&&(this.layoutItems(e,!0),this.reveal(e))},m.prototype.prepended=function(t){var e=this._itemize(t);if(e.length){var i=this.items.slice(0);this.items=e.concat(i),this._resetLayout(),this._manageStamps(),this.layoutItems(e,!0),this.reveal(e),this.layoutItems(i)}},m.prototype.reveal=function(t){var e=t&&t.length;if(e)for(var i=0;e>i;i++){var o=t[i];o.reveal()}},m.prototype.hide=function(t){var e=t&&t.length;if(e)for(var i=0;e>i;i++){var o=t[i];o.hide()}},m.prototype.getItem=function(t){for(var e=0,i=this.items.length;i>e;e++){var o=this.items[e];if(o.element===t)return o}},m.prototype.getItems=function(t){if(t&&t.length){for(var e=[],i=0,o=t.length;o>i;i++){var n=t[i],r=this.getItem(n);r&&e.push(r)}return e}},m.prototype.remove=function(t){t=o(t);var e=this.getItems(t);if(e&&e.length){this._itemsOn(e,"remove",function(){this.emitEvent("removeComplete",[this,e])});for(var i=0,r=e.length;r>i;i++){var s=e[i];s.remove(),n(s,this.items)}}},m.prototype.destroy=function(){var t=this.element.style;t.height="",t.position="",t.width="";for(var e=0,i=this.items.length;i>e;e++){var o=this.items[e];o.destroy()}this.unbindResize(),delete this.element.outlayerGUID,p&&p.removeData(this.element,this.constructor.namespace)},m.data=function(t){var e=t&&t.outlayerGUID;return e&&v[e]},m.create=function(t,i){function o(){m.apply(this,arguments)}return Object.create?o.prototype=Object.create(m.prototype):e(o.prototype,m.prototype),o.prototype.constructor=o,o.defaults=e({},m.defaults),e(o.defaults,i),o.prototype.settings={},o.namespace=t,o.data=m.data,o.Item=function(){y.apply(this,arguments)},o.Item.prototype=new y,s(function(){for(var e=r(t),i=a.querySelectorAll(".js-"+e),n="data-"+e+"-options",s=0,h=i.length;h>s;s++){var f,d=i[s],l=d.getAttribute(n);try{f=l&&JSON.parse(l)}catch(c){u&&u.error("Error parsing "+n+" on "+d.nodeName.toLowerCase()+(d.id?"#"+d.id:"")+": "+c);continue}var y=new o(d,f);p&&p.data(d,t,y)}}),p&&p.bridget&&p.bridget(t,o),o},m.Item=y,m}var a=t.document,u=t.console,p=t.jQuery,h=function(){},f=Object.prototype.toString,d="object"==typeof HTMLElement?function(t){return t instanceof HTMLElement}:function(t){return t&&"object"==typeof t&&1===t.nodeType&&"string"==typeof t.nodeName},l=Array.prototype.indexOf?function(t,e){return t.indexOf(e)}:function(t,e){for(var i=0,o=t.length;o>i;i++)if(t[i]===e)return i;return-1};"function"==typeof define&&define.amd?define("outlayer/outlayer",["eventie/eventie","doc-ready/doc-ready","eventEmitter/EventEmitter","get-size/get-size","matches-selector/matches-selector","./item"],s):t.Outlayer=s(t.eventie,t.docReady,t.EventEmitter,t.getSize,t.matchesSelector,t.Outlayer.Item)}(window),function(t){function e(t){function e(){t.Item.apply(this,arguments)}e.prototype=new t.Item,e.prototype._create=function(){this.id=this.layout.itemGUID++,t.Item.prototype._create.call(this),this.sortData={}},e.prototype.updateSortData=function(){if(!this.isIgnored){this.sortData.id=this.id,this.sortData["original-order"]=this.id,this.sortData.random=Math.random();var t=this.layout.options.getSortData,e=this.layout._sorters;for(var i in t){var o=e[i];this.sortData[i]=o(this.element,this)}}};var i=e.prototype.destroy;return e.prototype.destroy=function(){i.apply(this,arguments),this.css({display:""})},e}"function"==typeof define&&define.amd?define("isotope/js/item",["outlayer/outlayer"],e):(t.Isotope=t.Isotope||{},t.Isotope.Item=e(t.Outlayer))}(window),function(t){function e(t,e){function i(t){this.isotope=t,t&&(this.options=t.options[this.namespace],this.element=t.element,this.items=t.filteredItems,this.size=t.size)}return function(){function t(t){return function(){return e.prototype[t].apply(this.isotope,arguments)}}for(var o=["_resetLayout","_getItemLayoutPosition","_manageStamp","_getContainerSize","_getElementOffset","needsResizeLayout"],n=0,r=o.length;r>n;n++){var s=o[n];i.prototype[s]=t(s)}}(),i.prototype.needsVerticalResizeLayout=function(){var e=t(this.isotope.element),i=this.isotope.size&&e;return i&&e.innerHeight!==this.isotope.size.innerHeight},i.prototype._getMeasurement=function(){this.isotope._getMeasurement.apply(this,arguments)},i.prototype.getColumnWidth=function(){this.getSegmentSize("column","Width")},i.prototype.getRowHeight=function(){this.getSegmentSize("row","Height")},i.prototype.getSegmentSize=function(t,e){var i=t+e,o="outer"+e;if(this._getMeasurement(i,o),!this[i]){var n=this.getFirstItemSize();this[i]=n&&n[o]||this.isotope.size["inner"+e]}},i.prototype.getFirstItemSize=function(){var e=this.isotope.filteredItems[0];return e&&e.element&&t(e.element)},i.prototype.layout=function(){this.isotope.layout.apply(this.isotope,arguments)},i.prototype.getSize=function(){this.isotope.getSize(),this.size=this.isotope.size},i.modes={},i.create=function(t,e){function o(){i.apply(this,arguments)}return o.prototype=new i,e&&(o.options=e),o.prototype.namespace=t,i.modes[t]=o,o},i}"function"==typeof define&&define.amd?define("isotope/js/layout-mode",["get-size/get-size","outlayer/outlayer"],e):(t.Isotope=t.Isotope||{},t.Isotope.LayoutMode=e(t.getSize,t.Outlayer))}(window),function(t){function e(t,e){var o=t.create("masonry");return o.prototype._resetLayout=function(){this.getSize(),this._getMeasurement("columnWidth","outerWidth"),this._getMeasurement("gutter","outerWidth"),this.measureColumns();var t=this.cols;for(this.colYs=[];t--;)this.colYs.push(0);this.maxY=0},o.prototype.measureColumns=function(){if(this.getContainerWidth(),!this.columnWidth){var t=this.items[0],i=t&&t.element;this.columnWidth=i&&e(i).outerWidth||this.containerWidth}this.columnWidth+=this.gutter,this.cols=Math.floor((this.containerWidth+this.gutter)/this.columnWidth),this.cols=Math.max(this.cols,1)},o.prototype.getContainerWidth=function(){var t=this.options.isFitWidth?this.element.parentNode:this.element,i=e(t);this.containerWidth=i&&i.innerWidth},o.prototype._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth%this.columnWidth,o=e&&1>e?"round":"ceil",n=Math[o](t.size.outerWidth/this.columnWidth);n=Math.min(n,this.cols);for(var r=this._getColGroup(n),s=Math.min.apply(Math,r),a=i(r,s),u={x:this.columnWidth*a,y:s},p=s+t.size.outerHeight,h=this.cols+1-r.length,f=0;h>f;f++)this.colYs[a+f]=p;return u},o.prototype._getColGroup=function(t){if(2>t)return this.colYs;for(var e=[],i=this.cols+1-t,o=0;i>o;o++){var n=this.colYs.slice(o,o+t);e[o]=Math.max.apply(Math,n)}return e},o.prototype._manageStamp=function(t){var i=e(t),o=this._getElementOffset(t),n=this.options.isOriginLeft?o.left:o.right,r=n+i.outerWidth,s=Math.floor(n/this.columnWidth);s=Math.max(0,s);var a=Math.floor(r/this.columnWidth);a-=r%this.columnWidth?0:1,a=Math.min(this.cols-1,a);for(var u=(this.options.isOriginTop?o.top:o.bottom)+i.outerHeight,p=s;a>=p;p++)this.colYs[p]=Math.max(u,this.colYs[p])},o.prototype._getContainerSize=function(){this.maxY=Math.max.apply(Math,this.colYs);var t={height:this.maxY};return this.options.isFitWidth&&(t.width=this._getContainerFitWidth()),t},o.prototype._getContainerFitWidth=function(){for(var t=0,e=this.cols;--e&&0===this.colYs[e];)t++;return(this.cols-t)*this.columnWidth-this.gutter},o.prototype.needsResizeLayout=function(){var t=this.containerWidth;return this.getContainerWidth(),t!==this.containerWidth},o}var i=Array.prototype.indexOf?function(t,e){return t.indexOf(e)}:function(t,e){for(var i=0,o=t.length;o>i;i++){var n=t[i];if(n===e)return i}return-1};"function"==typeof define&&define.amd?define("masonry/masonry",["outlayer/outlayer","get-size/get-size"],e):t.Masonry=e(t.Outlayer,t.getSize)}(window),function(t){function e(t,e){for(var i in e)t[i]=e[i];return t}function i(t,i){var o=t.create("masonry"),n=o.prototype._getElementOffset,r=o.prototype.layout,s=o.prototype._getMeasurement;e(o.prototype,i.prototype),o.prototype._getElementOffset=n,o.prototype.layout=r,o.prototype._getMeasurement=s;var a=o.prototype.measureColumns;o.prototype.measureColumns=function(){this.items=this.isotope.filteredItems,a.call(this)};var u=o.prototype._manageStamp;return o.prototype._manageStamp=function(){this.options.isOriginLeft=this.isotope.options.isOriginLeft,this.options.isOriginTop=this.isotope.options.isOriginTop,u.apply(this,arguments)},o}"function"==typeof define&&define.amd?define("isotope/js/layout-modes/masonry",["../layout-mode","masonry/masonry"],i):i(t.Isotope.LayoutMode,t.Masonry)}(window),function(t){function e(t){var e=t.create("fitRows");return e.prototype._resetLayout=function(){this.x=0,this.y=0,this.maxY=0},e.prototype._getItemLayoutPosition=function(t){t.getSize(),0!==this.x&&t.size.outerWidth+this.x>this.isotope.size.innerWidth&&(this.x=0,this.y=this.maxY);var e={x:this.x,y:this.y};return this.maxY=Math.max(this.maxY,this.y+t.size.outerHeight),this.x+=t.size.outerWidth,e},e.prototype._getContainerSize=function(){return{height:this.maxY}},e}"function"==typeof define&&define.amd?define("isotope/js/layout-modes/fit-rows",["../layout-mode"],e):e(t.Isotope.LayoutMode)}(window),function(t){function e(t){var e=t.create("vertical",{horizontalAlignment:0});return e.prototype._resetLayout=function(){this.y=0},e.prototype._getItemLayoutPosition=function(t){t.getSize();var e=(this.isotope.size.innerWidth-t.size.outerWidth)*this.options.horizontalAlignment,i=this.y;return this.y+=t.size.outerHeight,{x:e,y:i}},e.prototype._getContainerSize=function(){return{height:this.y}},e}"function"==typeof define&&define.amd?define("isotope/js/layout-modes/vertical",["../layout-mode"],e):e(t.Isotope.LayoutMode)}(window),function(t){function e(t,e){for(var i in e)t[i]=e[i];return t}function i(t){return"[object Array]"===h.call(t)}function o(t){var e=[];if(i(t))e=t;else if(t&&"number"==typeof t.length)for(var o=0,n=t.length;n>o;o++)e.push(t[o]);else e.push(t);return e}function n(t,e){var i=f(e,t);-1!==i&&e.splice(i,1)}function r(t,i,r,u,h){function f(t,e){return function(i,o){for(var n=0,r=t.length;r>n;n++){var s=t[n],a=i.sortData[s],u=o.sortData[s];if(a>u||u>a){var p=void 0!==e[s]?e[s]:e,h=p?1:-1;return(a>u?1:-1)*h}}return 0}}var d=t.create("isotope",{layoutMode:"masonry",isJQueryFiltering:!0,sortAscending:!0});d.Item=u,d.LayoutMode=h,d.prototype._create=function(){this.itemGUID=0,this._sorters={},this._getSorters(),t.prototype._create.call(this),this.modes={},this.filteredItems=this.items,this.sortHistory=["original-order"];for(var e in h.modes)this._initLayoutMode(e)},d.prototype.reloadItems=function(){this.itemGUID=0,t.prototype.reloadItems.call(this)},d.prototype._itemize=function(){for(var e=t.prototype._itemize.apply(this,arguments),i=0,o=e.length;o>i;i++){var n=e[i];n.id=this.itemGUID++}return this._updateItemsSortData(e),e},d.prototype._initLayoutMode=function(t){var i=h.modes[t],o=this.options[t]||{};this.options[t]=i.options?e(i.options,o):o,this.modes[t]=new i(this)},d.prototype.layout=function(){return!this._isLayoutInited&&this.options.isInitLayout?(this.arrange(),void 0):(this._layout(),void 0)},d.prototype._layout=function(){var t=this._getIsInstant();this._resetLayout(),this._manageStamps(),this.layoutItems(this.filteredItems,t),this._isLayoutInited=!0},d.prototype.arrange=function(t){this.option(t),this._getIsInstant(),this.filteredItems=this._filter(this.items),this._sort(),this._layout()},d.prototype._init=d.prototype.arrange,d.prototype._getIsInstant=function(){var t=void 0!==this.options.isLayoutInstant?this.options.isLayoutInstant:!this._isLayoutInited;return this._isInstant=t,t},d.prototype._filter=function(t){function e(){f.reveal(n),f.hide(r)}var i=this.options.filter;i=i||"*";for(var o=[],n=[],r=[],s=this._getFilterTest(i),a=0,u=t.length;u>a;a++){var p=t[a];if(!p.isIgnored){var h=s(p);h&&o.push(p),h&&p.isHidden?n.push(p):h||p.isHidden||r.push(p)}}var f=this;return this._isInstant?this._noTransition(e):e(),o},d.prototype._getFilterTest=function(t){return s&&this.options.isJQueryFiltering?function(e){return s(e.element).is(t)}:"function"==typeof t?function(e){return t(e.element)}:function(e){return r(e.element,t)}},d.prototype.updateSortData=function(t){this._getSorters(),t=o(t);
+var e=this.getItems(t);e=e.length?e:this.items,this._updateItemsSortData(e)},d.prototype._getSorters=function(){var t=this.options.getSortData;for(var e in t){var i=t[e];this._sorters[e]=l(i)}},d.prototype._updateItemsSortData=function(t){for(var e=0,i=t.length;i>e;e++){var o=t[e];o.updateSortData()}};var l=function(){function t(t){if("string"!=typeof t)return t;var i=a(t).split(" "),o=i[0],n=o.match(/^\[(.+)\]$/),r=n&&n[1],s=e(r,o),u=d.sortDataParsers[i[1]];return t=u?function(t){return t&&u(s(t))}:function(t){return t&&s(t)}}function e(t,e){var i;return i=t?function(e){return e.getAttribute(t)}:function(t){var i=t.querySelector(e);return i&&p(i)}}return t}();d.sortDataParsers={parseInt:function(t){return parseInt(t,10)},parseFloat:function(t){return parseFloat(t)}},d.prototype._sort=function(){var t=this.options.sortBy;if(t){var e=[].concat.apply(t,this.sortHistory),i=f(e,this.options.sortAscending);this.filteredItems.sort(i),t!==this.sortHistory[0]&&this.sortHistory.unshift(t)}},d.prototype._mode=function(){var t=this.options.layoutMode,e=this.modes[t];if(!e)throw Error("No layout mode: "+t);return e.options=this.options[t],e},d.prototype._resetLayout=function(){t.prototype._resetLayout.call(this),this._mode()._resetLayout()},d.prototype._getItemLayoutPosition=function(t){return this._mode()._getItemLayoutPosition(t)},d.prototype._manageStamp=function(t){this._mode()._manageStamp(t)},d.prototype._getContainerSize=function(){return this._mode()._getContainerSize()},d.prototype.needsResizeLayout=function(){return this._mode().needsResizeLayout()},d.prototype.appended=function(t){var e=this.addItems(t);if(e.length){var i=this._filterRevealAdded(e);this.filteredItems=this.filteredItems.concat(i)}},d.prototype.prepended=function(t){var e=this._itemize(t);if(e.length){var i=this.items.slice(0);this.items=e.concat(i),this._resetLayout(),this._manageStamps();var o=this._filterRevealAdded(e);this.layoutItems(i),this.filteredItems=o.concat(this.filteredItems)}},d.prototype._filterRevealAdded=function(t){var e=this._noTransition(function(){return this._filter(t)});return this.layoutItems(e,!0),this.reveal(e),t},d.prototype.insert=function(t){var e=this.addItems(t);if(e.length){var i,o,n=e.length;for(i=0;n>i;i++)o=e[i],this.element.appendChild(o.element);var r=this._filter(e);for(this._noTransition(function(){this.hide(r)}),i=0;n>i;i++)e[i].isLayoutInstant=!0;for(this.arrange(),i=0;n>i;i++)delete e[i].isLayoutInstant;this.reveal(r)}};var c=d.prototype.remove;return d.prototype.remove=function(t){t=o(t);var e=this.getItems(t);if(c.call(this,t),e&&e.length)for(var i=0,r=e.length;r>i;i++){var s=e[i];n(s,this.filteredItems)}},d.prototype.shuffle=function(){for(var t=0,e=this.items.length;e>t;t++){var i=this.items[t];i.sortData.random=Math.random()}this.options.sortBy="random",this._sort(),this._layout()},d.prototype._noTransition=function(t){var e=this.options.transitionDuration;this.options.transitionDuration=0;var i=t.call(this);return this.options.transitionDuration=e,i},d.prototype.getFilteredItemElements=function(){for(var t=[],e=0,i=this.filteredItems.length;i>e;e++)t.push(this.filteredItems[e].element);return t},d}var s=t.jQuery,a=String.prototype.trim?function(t){return t.trim()}:function(t){return t.replace(/^\s+|\s+$/g,"")},u=document.documentElement,p=u.textContent?function(t){return t.textContent}:function(t){return t.innerText},h=Object.prototype.toString,f=Array.prototype.indexOf?function(t,e){return t.indexOf(e)}:function(t,e){for(var i=0,o=t.length;o>i;i++)if(t[i]===e)return i;return-1};"function"==typeof define&&define.amd?define(["outlayer/outlayer","get-size/get-size","matches-selector/matches-selector","isotope/js/item","isotope/js/layout-mode","isotope/js/layout-modes/masonry","isotope/js/layout-modes/fit-rows","isotope/js/layout-modes/vertical"],r):t.Isotope=r(t.Outlayer,t.getSize,t.matchesSelector,t.Isotope.Item,t.Isotope.LayoutMode)}(window);;/*!
+ * fitColumns layout mode for Isotope
+ * http://isotope.metafizzy.co
+ */
+
+( function( window ) {
+
+'use strict';
+
+function fitColumnsDefinition( LayoutMode ) {
+
+  var FitColumns = LayoutMode.create('fitColumns');
+
+  FitColumns.prototype._resetLayout = function() {
+    this.x = 0;
+    this.y = 0;
+    this.maxX = 0;
+  };
+
+  FitColumns.prototype._getItemLayoutPosition = function( item ) {
+    item.getSize();
+
+    // if this element cannot fit in the current row
+    if ( this.y !== 0 && item.size.outerHeight + this.y > this.isotope.size.innerHeight ) {
+      this.y = 0;
+      this.x = this.maxX;
+    }
+
+    var position = {
+      x: this.x,
+      y: this.y
+    };
+
+    this.maxX = Math.max( this.maxX, this.x + item.size.outerWidth );
+    this.y += item.size.outerHeight;
+
+    return position;
+  };
+
+  FitColumns.prototype._getContainerSize = function() {
+    return { width: this.maxX };
+  };
+
+  FitColumns.prototype.needsResizeLayout = function() {
+    return this.needsVerticalResizeLayout();
+  };
+
+  return FitColumns;
+
+}
+
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( [
+      'isotope/js/layout-mode'
+    ],
+    fitColumnsDefinition );
+} else {
+  // browser global
+  fitColumnsDefinition(
+    window.Isotope.LayoutMode
+  );
+}
+
+})( window );;/**
 * Gumby Framework
 * ---------------
 *
@@ -19851,6 +19922,1910 @@ var tooltip = $.widget( "ui.tooltip", {
 		define(window.Gumby);
 	}
 }(jQuery);
+;function MediumEditor(elements, options) {
+    'use strict';
+    return this.init(elements, options);
+}
+
+if (typeof module === 'object') {
+    module.exports = MediumEditor;
+}
+
+(function (window, document) {
+    'use strict';
+
+    function extend(b, a) {
+        var prop;
+        if (b === undefined) {
+            return a;
+        }
+        for (prop in a) {
+            if (a.hasOwnProperty(prop) && b.hasOwnProperty(prop) === false) {
+                b[prop] = a[prop];
+            }
+        }
+        return b;
+    }
+
+    function isDescendant(parent, child) {
+         var node = child.parentNode;
+         while (node !== null) {
+             if (node === parent) {
+                 return true;
+             }
+             node = node.parentNode;
+         }
+         return false;
+    }
+
+    // http://stackoverflow.com/questions/5605401/insert-link-in-contenteditable-element
+    // by Tim Down
+    function saveSelection() {
+        var i,
+            len,
+            ranges,
+            sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+            ranges = [];
+            for (i = 0, len = sel.rangeCount; i < len; i += 1) {
+                ranges.push(sel.getRangeAt(i));
+            }
+            return ranges;
+        }
+        return null;
+    }
+
+    function restoreSelection(savedSel) {
+        var i,
+            len,
+            sel = window.getSelection();
+        if (savedSel) {
+            sel.removeAllRanges();
+            for (i = 0, len = savedSel.length; i < len; i += 1) {
+                sel.addRange(savedSel[i]);
+            }
+        }
+    }
+
+    // http://stackoverflow.com/questions/1197401/how-can-i-get-the-element-the-caret-is-in-with-javascript-when-using-contentedi
+    // by You
+    function getSelectionStart() {
+        var node = document.getSelection().anchorNode,
+            startNode = (node && node.nodeType === 3 ? node.parentNode : node);
+        return startNode;
+    }
+
+    // http://stackoverflow.com/questions/4176923/html-of-selected-text
+    // by Tim Down
+    function getSelectionHtml() {
+        var i,
+            html = '',
+            sel,
+            len,
+            container;
+        if (window.getSelection !== undefined) {
+            sel = window.getSelection();
+            if (sel.rangeCount) {
+                container = document.createElement('div');
+                for (i = 0, len = sel.rangeCount; i < len; i += 1) {
+                    container.appendChild(sel.getRangeAt(i).cloneContents());
+                }
+                html = container.innerHTML;
+            }
+        } else if (document.selection !== undefined) {
+            if (document.selection.type === 'Text') {
+                html = document.selection.createRange().htmlText;
+            }
+        }
+        return html;
+    }
+
+    // https://github.com/jashkenas/underscore
+    function isElement(obj) {
+        return !!(obj && obj.nodeType === 1);
+    }
+
+    MediumEditor.prototype = {
+        defaults: {
+            allowMultiParagraphSelection: true,
+            anchorInputPlaceholder: 'Paste or type a link',
+            anchorPreviewHideDelay: 500,
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote'],
+            buttonLabels: false,
+            checkLinkFormat: false,
+            cleanPastedHTML: false,
+            delay: 0,
+            diffLeft: 0,
+            diffTop: -10,
+            disableReturn: false,
+            disableDoubleReturn: false,
+            disableToolbar: false,
+            disableEditing: false,
+            elementsContainer: false,
+            firstHeader: 'h3',
+            forcePlainText: true,
+            placeholder: 'Type your text',
+            secondHeader: 'h4',
+            targetBlank: false,
+            anchorTarget: false,
+            anchorButton: false,
+            anchorButtonClass: 'btn',
+            extensions: {},
+            activeButtonClass: 'medium-editor-button-active',
+            firstButtonClass: 'medium-editor-button-first',
+            lastButtonClass: 'medium-editor-button-last'
+        },
+
+        // http://stackoverflow.com/questions/17907445/how-to-detect-ie11#comment30165888_17907562
+        // by rg89
+        isIE: ((navigator.appName === 'Microsoft Internet Explorer') || ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) !== null))),
+
+        init: function (elements, options) {
+            this.setElementSelection(elements);
+            if (this.elements.length === 0) {
+                return;
+            }
+            this.parentElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre'];
+            this.id = document.querySelectorAll('.medium-editor-toolbar').length + 1;
+            this.options = extend(options, this.defaults);
+            return this.setup();
+        },
+
+        setup: function () {
+            this.isActive = true;
+            this.initElements()
+                .bindSelect()
+                .bindPaste()
+                .setPlaceholders()
+                .bindWindowActions()
+                .passInstance();
+        },
+
+        initElements: function () {
+            this.updateElementList();
+            var i,
+                addToolbar = false;
+            for (i = 0; i < this.elements.length; i += 1) {
+                if (!this.options.disableEditing && !this.elements[i].getAttribute('data-disable-editing')) {
+                    this.elements[i].setAttribute('contentEditable', true);
+                }
+                if (!this.elements[i].getAttribute('data-placeholder')) {
+                    this.elements[i].setAttribute('data-placeholder', this.options.placeholder);
+                }
+                this.elements[i].setAttribute('data-medium-element', true);
+                this.bindParagraphCreation(i).bindReturn(i).bindTab(i);
+                if (!this.options.disableToolbar && !this.elements[i].getAttribute('data-disable-toolbar')) {
+                    addToolbar = true;
+                }
+            }
+            // Init toolbar
+            if (addToolbar) {
+                if (!this.options.elementsContainer) {
+                    this.options.elementsContainer = document.body;
+                }
+                this.initToolbar()
+                    .bindButtons()
+                    .bindAnchorForm()
+                    .bindAnchorPreview();
+            }
+            return this;
+        },
+
+        setElementSelection: function (selector) {
+            this.elementSelection = selector;
+            this.updateElementList();
+        },
+
+        updateElementList: function () {
+            this.elements = typeof this.elementSelection === 'string' ? document.querySelectorAll(this.elementSelection) : this.elementSelection;
+            if (this.elements.nodeType === 1) {
+                this.elements = [this.elements];
+            }
+        },
+
+        serialize: function () {
+            var i,
+                elementid,
+                content = {};
+            for (i = 0; i < this.elements.length; i += 1) {
+                elementid = (this.elements[i].id !== '') ? this.elements[i].id : 'element-' + i;
+                content[elementid] = {
+                    value: this.elements[i].innerHTML.trim()
+                };
+            }
+            return content;
+        },
+
+        /**
+         * Helper function to call a method with a number of parameters on all registered extensions.
+         * The function assures that the function exists before calling.
+         *
+         * @param {string} funcName name of the function to call
+         * @param [args] arguments passed into funcName
+         */
+        callExtensions: function (funcName) {
+            if (arguments.length < 1) {
+                return;
+            }
+
+            var args = Array.prototype.slice.call(arguments, 1),
+                ext,
+                name;
+
+            for (name in this.options.extensions) {
+                if (this.options.extensions.hasOwnProperty(name)) {
+                    ext = this.options.extensions[name];
+                    if (ext[funcName] !== undefined) {
+                        ext[funcName].apply(ext, args);
+                    }
+                }
+            }
+        },
+
+        /**
+         * Pass current Medium Editor instance to all extensions
+         * if extension constructor has 'parent' attribute set to 'true'
+         *
+         */
+        passInstance: function () {
+            var self = this,
+                ext,
+                name;
+
+            for (name in self.options.extensions) {
+                if (self.options.extensions.hasOwnProperty(name)) {
+                    ext = self.options.extensions[name];
+
+                    if (ext.parent) {
+                        ext.base = self;
+                    }
+                }
+            }
+
+            return self;
+        },
+
+        bindParagraphCreation: function (index) {
+            var self = this;
+            this.elements[index].addEventListener('keypress', function (e) {
+                var node = getSelectionStart(),
+                    tagName;
+                if (e.which === 32) {
+                    tagName = node.tagName.toLowerCase();
+                    if (tagName === 'a') {
+                        document.execCommand('unlink', false, null);
+                    }
+                }
+            });
+
+            this.elements[index].addEventListener('keyup', function (e) {
+                var node = getSelectionStart(),
+                    tagName;
+                if (node && node.getAttribute('data-medium-element') && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute('data-disable-return'))) {
+                    document.execCommand('formatBlock', false, 'p');
+                }
+                if (e.which === 13) {
+                    node = getSelectionStart();
+                    tagName = node.tagName.toLowerCase();
+                    if (!(self.options.disableReturn || this.getAttribute('data-disable-return')) &&
+                        tagName !== 'li' && !self.isListItemChild(node)) {
+                        if (!e.shiftKey) {
+                            document.execCommand('formatBlock', false, 'p');
+                        }
+                        if (tagName === 'a') {
+                            document.execCommand('unlink', false, null);
+                        }
+                    }
+                }
+            });
+            return this;
+        },
+
+        isListItemChild: function (node) {
+            var parentNode = node.parentNode,
+                tagName = parentNode.tagName.toLowerCase();
+            while (this.parentElements.indexOf(tagName) === -1 && tagName !== 'div') {
+                if (tagName === 'li') {
+                    return true;
+                }
+                parentNode = parentNode.parentNode;
+                if (parentNode && parentNode.tagName) {
+                    tagName = parentNode.tagName.toLowerCase();
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        },
+
+        bindReturn: function (index) {
+            var self = this;
+            this.elements[index].addEventListener('keypress', function (e) {
+                if (e.which === 13) {
+                    if (self.options.disableReturn || this.getAttribute('data-disable-return')) {
+                        e.preventDefault();
+                    } else if (self.options.disableDoubleReturn || this.getAttribute('data-disable-double-return')) {
+                        var node = getSelectionStart();
+                        if (node && node.innerText === '\n') {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+            return this;
+        },
+
+        bindTab: function (index) {
+            this.elements[index].addEventListener('keydown', function (e) {
+                if (e.which === 9) {
+                    // Override tab only for pre nodes
+                    var tag = getSelectionStart().tagName.toLowerCase();
+                    if (tag === 'pre') {
+                        e.preventDefault();
+                        document.execCommand('insertHtml', null, '    ');
+                    }
+
+                    // Tab to indent list structures!
+                    if (tag === 'li') {
+                        e.preventDefault();
+
+                        // If Shift is down, outdent, otherwise indent
+                        if (e.shiftKey) {
+                            document.execCommand('outdent', e);
+                        } else {
+                            document.execCommand('indent', e);
+                        }
+                    }
+                }
+            });
+            return this;
+        },
+
+        buttonTemplate: function (btnType) {
+            var buttonLabels = this.getButtonLabels(this.options.buttonLabels),
+                buttonTemplates = {
+                    'bold': '<button class="medium-editor-action medium-editor-action-bold" data-action="bold" data-element="b">' + buttonLabels.bold + '</button>',
+                    'italic': '<button class="medium-editor-action medium-editor-action-italic" data-action="italic" data-element="i">' + buttonLabels.italic + '</button>',
+                    'underline': '<button class="medium-editor-action medium-editor-action-underline" data-action="underline" data-element="u">' + buttonLabels.underline + '</button>',
+                    'strikethrough': '<button class="medium-editor-action medium-editor-action-strikethrough" data-action="strikethrough" data-element="strike"><strike>A</strike></button>',
+                    'superscript': '<button class="medium-editor-action medium-editor-action-superscript" data-action="superscript" data-element="sup">' + buttonLabels.superscript + '</button>',
+                    'subscript': '<button class="medium-editor-action medium-editor-action-subscript" data-action="subscript" data-element="sub">' + buttonLabels.subscript + '</button>',
+                    'anchor': '<button class="medium-editor-action medium-editor-action-anchor" data-action="anchor" data-element="a">' + buttonLabels.anchor + '</button>',
+                    'image': '<button class="medium-editor-action medium-editor-action-image" data-action="image" data-element="img">' + buttonLabels.image + '</button>',
+                    'header1': '<button class="medium-editor-action medium-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '">' + buttonLabels.header1 + '</button>',
+                    'header2': '<button class="medium-editor-action medium-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">' + buttonLabels.header2 + '</button>',
+                    'quote': '<button class="medium-editor-action medium-editor-action-quote" data-action="append-blockquote" data-element="blockquote">' + buttonLabels.quote + '</button>',
+                    'orderedlist': '<button class="medium-editor-action medium-editor-action-orderedlist" data-action="insertorderedlist" data-element="ol">' + buttonLabels.orderedlist + '</button>',
+                    'unorderedlist': '<button class="medium-editor-action medium-editor-action-unorderedlist" data-action="insertunorderedlist" data-element="ul">' + buttonLabels.unorderedlist + '</button>',
+                    'pre': '<button class="medium-editor-action medium-editor-action-pre" data-action="append-pre" data-element="pre">' + buttonLabels.pre + '</button>',
+                    'indent': '<button class="medium-editor-action medium-editor-action-indent" data-action="indent" data-element="ul">' + buttonLabels.indent + '</button>',
+                    'outdent': '<button class="medium-editor-action medium-editor-action-outdent" data-action="outdent" data-element="ul">' + buttonLabels.outdent + '</button>'
+                };
+            return buttonTemplates[btnType] || false;
+        },
+
+        // TODO: break method
+        getButtonLabels: function (buttonLabelType) {
+            var customButtonLabels,
+                attrname,
+                buttonLabels = {
+                    'bold': '<b>B</b>',
+                    'italic': '<b><i>I</i></b>',
+                    'underline': '<b><u>U</u></b>',
+                    'superscript': '<b>x<sup>1</sup></b>',
+                    'subscript': '<b>x<sub>1</sub></b>',
+                    'anchor': '<b>#</b>',
+                    'image': '<b>image</b>',
+                    'header1': '<b>H1</b>',
+                    'header2': '<b>H2</b>',
+                    'quote': '<b>&ldquo;</b>',
+                    'orderedlist': '<b>1.</b>',
+                    'unorderedlist': '<b>&bull;</b>',
+                    'pre': '<b>0101</b>',
+                    'indent': '<b>&rarr;</b>',
+                    'outdent': '<b>&larr;</b>'
+                };
+            if (buttonLabelType === 'fontawesome') {
+                customButtonLabels = {
+                    'bold': '<i class="fa fa-bold"></i>',
+                    'italic': '<i class="fa fa-italic"></i>',
+                    'underline': '<i class="fa fa-underline"></i>',
+                    'superscript': '<i class="fa fa-superscript"></i>',
+                    'subscript': '<i class="fa fa-subscript"></i>',
+                    'anchor': '<i class="fa fa-link"></i>',
+                    'image': '<i class="fa fa-picture-o"></i>',
+                    'quote': '<i class="fa fa-quote-right"></i>',
+                    'orderedlist': '<i class="fa fa-list-ol"></i>',
+                    'unorderedlist': '<i class="fa fa-list-ul"></i>',
+                    'pre': '<i class="fa fa-code fa-lg"></i>',
+                    'indent': '<i class="fa fa-indent"></i>',
+                    'outdent': '<i class="fa fa-outdent"></i>'
+                };
+            } else if (typeof buttonLabelType === 'object') {
+                customButtonLabels = buttonLabelType;
+            }
+            if (typeof customButtonLabels === 'object') {
+                for (attrname in customButtonLabels) {
+                    if (customButtonLabels.hasOwnProperty(attrname)) {
+                        buttonLabels[attrname] = customButtonLabels[attrname];
+                    }
+                }
+            }
+            return buttonLabels;
+        },
+
+        initToolbar: function () {
+            if (this.toolbar) {
+                return this;
+            }
+            this.toolbar = this.createToolbar();
+            this.keepToolbarAlive = false;
+            this.anchorForm = this.toolbar.querySelector('.medium-editor-toolbar-form-anchor');
+            this.anchorInput = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-input');
+            this.anchorTarget = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-target');
+            this.anchorButton = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-button');
+            this.toolbarActions = this.toolbar.querySelector('.medium-editor-toolbar-actions');
+            this.anchorPreview = this.createAnchorPreview();
+
+            return this;
+        },
+
+        createToolbar: function () {
+            var toolbar = document.createElement('div');
+            toolbar.id = 'medium-editor-toolbar-' + this.id;
+            toolbar.className = 'medium-editor-toolbar';
+            toolbar.appendChild(this.toolbarButtons());
+            toolbar.appendChild(this.toolbarFormAnchor());
+            this.options.elementsContainer.appendChild(toolbar);
+            return toolbar;
+        },
+
+        //TODO: actionTemplate
+        toolbarButtons: function () {
+            var btns = this.options.buttons,
+                ul = document.createElement('ul'),
+                li,
+                i,
+                btn,
+                ext;
+
+            ul.id = 'medium-editor-toolbar-actions';
+            ul.className = 'medium-editor-toolbar-actions clearfix';
+
+            for (i = 0; i < btns.length; i += 1) {
+                if (this.options.extensions.hasOwnProperty(btns[i])) {
+                    ext = this.options.extensions[btns[i]];
+                    btn = ext.getButton !== undefined ? ext.getButton() : null;
+                } else {
+                    btn = this.buttonTemplate(btns[i]);
+                }
+
+                if (btn) {
+                    li = document.createElement('li');
+                    if (isElement(btn)) {
+                        li.appendChild(btn);
+                    } else {
+                        li.innerHTML = btn;
+                    }
+                    ul.appendChild(li);
+                }
+            }
+
+            return ul;
+        },
+
+        toolbarFormAnchor: function () {
+            var anchor = document.createElement('div'),
+                input = document.createElement('input'),
+                target_label = document.createElement('label'),
+                target = document.createElement('input'),
+                button_label = document.createElement('label'),
+                button = document.createElement('input'),
+                close = document.createElement('a'),
+                save = document.createElement('a');
+
+            close.setAttribute('href', '#');
+            close.className = 'medium-editor-toobar-anchor-close';
+            close.innerHTML = '&times;';
+
+            save.setAttribute('href', '#');
+            save.className = 'medium-editor-toobar-anchor-save';
+            save.innerHTML = '&#10003;';
+
+            input.setAttribute('type', 'text');
+            input.className = 'medium-editor-toolbar-anchor-input';
+            input.setAttribute('placeholder', this.options.anchorInputPlaceholder);
+
+
+            target.setAttribute('type', 'checkbox');
+            target.className = 'medium-editor-toolbar-anchor-target';
+            target_label.innerHTML = "Open in New Window?";
+            target_label.insertBefore(target, target_label.firstChild);
+
+            button.setAttribute('type', 'checkbox');
+            button.className = 'medium-editor-toolbar-anchor-button';
+            button_label.innerHTML = "Button";
+            button_label.insertBefore(button, button_label.firstChild);
+
+
+            anchor.className = 'medium-editor-toolbar-form-anchor';
+            anchor.id = 'medium-editor-toolbar-form-anchor';
+            anchor.appendChild(input);
+
+            anchor.appendChild(save);
+            anchor.appendChild(close);
+
+            if (this.options.anchorTarget) {
+                anchor.appendChild(target_label);
+            }
+
+            if (this.options.anchorButton) {
+                anchor.appendChild(button_label);
+            }
+
+            return anchor;
+        },
+
+        bindSelect: function () {
+            var self = this,
+                timer = '',
+                i;
+
+            this.checkSelectionWrapper = function (e) {
+
+                // Do not close the toolbar when bluring the editable area and clicking into the anchor form
+                if (e && self.clickingIntoArchorForm(e)) {
+                    return false;
+                }
+
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    self.checkSelection();
+                }, self.options.delay);
+            };
+
+            document.documentElement.addEventListener('mouseup', this.checkSelectionWrapper);
+
+            for (i = 0; i < this.elements.length; i += 1) {
+                this.elements[i].addEventListener('keyup', this.checkSelectionWrapper);
+                this.elements[i].addEventListener('blur', this.checkSelectionWrapper);
+            }
+            return this;
+        },
+
+        checkSelection: function () {
+            var newSelection,
+                selectionElement;
+
+            if (this.keepToolbarAlive !== true && !this.options.disableToolbar) {
+
+                newSelection = window.getSelection();
+                if (newSelection.toString().trim() === '' ||
+                    (this.options.allowMultiParagraphSelection === false && this.hasMultiParagraphs()) ||
+                    this.selectionInContentEditableFalse()) {
+                    this.hideToolbarActions();
+                } else {
+                    selectionElement = this.getSelectionElement();
+                    if (!selectionElement || selectionElement.getAttribute('data-disable-toolbar')) {
+                        this.hideToolbarActions();
+                    } else {
+                        this.checkSelectionElement(newSelection, selectionElement);
+                    }
+                }
+            }
+            return this;
+        },
+
+        clickingIntoArchorForm: function (e) {
+            var self = this;
+
+            if (e.type && e.type.toLowerCase() === 'blur' && e.relatedTarget && e.relatedTarget === self.anchorInput) {
+                return true;
+            }
+
+            return false;
+        },
+
+        hasMultiParagraphs: function () {
+            var selectionHtml = getSelectionHtml().replace(/<[\S]+><\/[\S]+>/gim, ''),
+                hasMultiParagraphs = selectionHtml.match(/<(p|h[0-6]|blockquote)>([\s\S]*?)<\/(p|h[0-6]|blockquote)>/g);
+
+            return (hasMultiParagraphs ? hasMultiParagraphs.length : 0);
+        },
+
+        checkSelectionElement: function (newSelection, selectionElement) {
+            var i;
+            this.selection = newSelection;
+            this.selectionRange = this.selection.getRangeAt(0);
+            for (i = 0; i < this.elements.length; i += 1) {
+                if (this.elements[i] === selectionElement) {
+                    this.setToolbarButtonStates()
+                        .setToolbarPosition()
+                        .showToolbarActions();
+                    return;
+                }
+            }
+            this.hideToolbarActions();
+        },
+
+        findMatchingSelectionParent: function(testElementFunction) {
+            var selection = window.getSelection(),
+                range, current, parent,
+                result,
+                getElement = function (e) {
+                    var localParent = e;
+                    try {
+                        while (!testElementFunction(localParent)) {
+                            localParent = localParent.parentNode;
+                        }
+                    } catch (errb) {
+                        return false;
+                    }
+                    return localParent;
+                };
+            // First try on current node
+            try {
+                range = selection.getRangeAt(0);
+                current = range.commonAncestorContainer;
+                parent = current.parentNode;
+
+                if (testElementFunction(current)) {
+                    result = current;
+                } else {
+                    result = getElement(parent);
+                }
+                // If not search in the parent nodes.
+            } catch (err) {
+                result = getElement(parent);
+            }
+            return result;
+        },
+
+        getSelectionElement: function () {
+            return this.findMatchingSelectionParent(function(el) {
+                return el.getAttribute('data-medium-element');
+            });
+        },
+
+        selectionInContentEditableFalse: function () {
+            return this.findMatchingSelectionParent(function(el) {
+                return (el && el.nodeName !== '#text' && el.getAttribute('contenteditable') === 'false');
+            });
+        },
+
+        setToolbarPosition: function () {
+            var buttonHeight = 50,
+                selection = window.getSelection(),
+                range = selection.getRangeAt(0),
+                boundary = range.getBoundingClientRect(),
+                defaultLeft = (this.options.diffLeft) - (this.toolbar.offsetWidth / 2),
+                middleBoundary = (boundary.left + boundary.right) / 2,
+                halfOffsetWidth = this.toolbar.offsetWidth / 2;
+            if (boundary.top < buttonHeight) {
+                this.toolbar.classList.add('medium-toolbar-arrow-over');
+                this.toolbar.classList.remove('medium-toolbar-arrow-under');
+                this.toolbar.style.top = buttonHeight + boundary.bottom - this.options.diffTop + window.pageYOffset - this.toolbar.offsetHeight + 'px';
+            } else {
+                this.toolbar.classList.add('medium-toolbar-arrow-under');
+                this.toolbar.classList.remove('medium-toolbar-arrow-over');
+                this.toolbar.style.top = boundary.top + this.options.diffTop + window.pageYOffset - this.toolbar.offsetHeight + 'px';
+            }
+            if (middleBoundary < halfOffsetWidth) {
+                this.toolbar.style.left = defaultLeft + halfOffsetWidth + 'px';
+            } else if ((window.innerWidth - middleBoundary) < halfOffsetWidth) {
+                this.toolbar.style.left = window.innerWidth + defaultLeft - halfOffsetWidth + 'px';
+            } else {
+                this.toolbar.style.left = defaultLeft + middleBoundary + 'px';
+            }
+
+            this.hideAnchorPreview();
+
+            return this;
+        },
+
+        setToolbarButtonStates: function () {
+            var buttons = this.toolbarActions.querySelectorAll('button'),
+                i;
+            for (i = 0; i < buttons.length; i += 1) {
+                buttons[i].classList.remove(this.options.activeButtonClass);
+            }
+            this.checkActiveButtons();
+            return this;
+        },
+
+        checkActiveButtons: function () {
+            var elements = Array.prototype.slice.call(this.elements),
+                parentNode = this.getSelectedParentElement();
+            while (parentNode.tagName !== undefined && this.parentElements.indexOf(parentNode.tagName.toLowerCase) === -1) {
+                this.activateButton(parentNode.tagName.toLowerCase());
+                this.callExtensions('checkState', parentNode);
+
+                // we can abort the search upwards if we leave the contentEditable element
+                if (elements.indexOf(parentNode) !== -1) {
+                    break;
+                }
+                parentNode = parentNode.parentNode;
+            }
+        },
+
+        activateButton: function (tag) {
+            var el = this.toolbar.querySelector('[data-element="' + tag + '"]');
+            if (el !== null && el.className.indexOf(this.options.activeButtonClass) === -1) {
+                el.className += ' ' + this.options.activeButtonClass;
+            }
+        },
+
+        bindButtons: function () {
+            var buttons = this.toolbar.querySelectorAll('button'),
+                i,
+                self = this,
+                triggerAction = function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (self.selection === undefined) {
+                        self.checkSelection();
+                    }
+                    if (this.className.indexOf(self.options.activeButtonClass) > -1) {
+                        this.classList.remove(self.options.activeButtonClass);
+                    } else {
+                        this.className += ' ' + self.options.activeButtonClass;
+                    }
+                    if (this.hasAttribute('data-action')) {
+                        self.execAction(this.getAttribute('data-action'), e);
+                    }
+                };
+            for (i = 0; i < buttons.length; i += 1) {
+                buttons[i].addEventListener('click', triggerAction);
+            }
+            this.setFirstAndLastItems(buttons);
+            return this;
+        },
+
+        setFirstAndLastItems: function (buttons) {
+            if (buttons.length > 0) {
+                buttons[0].className += ' ' + this.options.firstButtonClass;
+                buttons[buttons.length - 1].className += ' ' + this.options.lastButtonClass;
+            }
+            return this;
+        },
+
+        execAction: function (action, e) {
+            if (action.indexOf('append-') > -1) {
+                this.execFormatBlock(action.replace('append-', ''));
+                this.setToolbarPosition();
+                this.setToolbarButtonStates();
+            } else if (action === 'anchor') {
+                this.triggerAnchorAction(e);
+            } else if (action === 'image') {
+                document.execCommand('insertImage', false, window.getSelection());
+            } else {
+                document.execCommand(action, false, null);
+                this.setToolbarPosition();
+            }
+        },
+
+        // http://stackoverflow.com/questions/15867542/range-object-get-selection-parent-node-chrome-vs-firefox
+        rangeSelectsSingleNode: function (range) {
+            var startNode = range.startContainer;
+            return startNode === range.endContainer &&
+                startNode.hasChildNodes() &&
+                range.endOffset === range.startOffset + 1;
+        },
+
+        getSelectedParentElement: function () {
+            var selectedParentElement = null,
+                range = this.selectionRange;
+            if (this.rangeSelectsSingleNode(range)) {
+                selectedParentElement = range.startContainer.childNodes[range.startOffset];
+            } else if (range.startContainer.nodeType === 3) {
+                selectedParentElement = range.startContainer.parentNode;
+            } else {
+                selectedParentElement = range.startContainer;
+            }
+            return selectedParentElement;
+        },
+
+        triggerAnchorAction: function () {
+            var selectedParentElement = this.getSelectedParentElement();
+            if (selectedParentElement.tagName &&
+                    selectedParentElement.tagName.toLowerCase() === 'a') {
+                document.execCommand('unlink', false, null);
+            } else {
+                if (this.anchorForm.style.display === 'block') {
+                    this.showToolbarActions();
+                } else {
+                    this.showAnchorForm();
+                }
+            }
+            return this;
+        },
+
+        execFormatBlock: function (el) {
+            var selectionData = this.getSelectionData(this.selection.anchorNode);
+            // FF handles blockquote differently on formatBlock
+            // allowing nesting, we need to use outdent
+            // https://developer.mozilla.org/en-US/docs/Rich-Text_Editing_in_Mozilla
+            if (el === 'blockquote' && selectionData.el &&
+                selectionData.el.parentNode.tagName.toLowerCase() === 'blockquote') {
+                return document.execCommand('outdent', false, null);
+            }
+            if (selectionData.tagName === el) {
+                el = 'p';
+            }
+            // When IE we need to add <> to heading elements and
+            //  blockquote needs to be called as indent
+            // http://stackoverflow.com/questions/10741831/execcommand-formatblock-headings-in-ie
+            // http://stackoverflow.com/questions/1816223/rich-text-editor-with-blockquote-function/1821777#1821777
+            if (this.isIE) {
+                if (el === 'blockquote') {
+                    return document.execCommand('indent', false, el);
+                }
+                el = '<' + el + '>';
+            }
+            return document.execCommand('formatBlock', false, el);
+        },
+
+        getSelectionData: function (el) {
+            var tagName;
+
+            if (el && el.tagName) {
+                tagName = el.tagName.toLowerCase();
+            }
+
+            while (el && this.parentElements.indexOf(tagName) === -1) {
+                el = el.parentNode;
+                if (el && el.tagName) {
+                    tagName = el.tagName.toLowerCase();
+                }
+            }
+
+            return {
+                el: el,
+                tagName: tagName
+            };
+        },
+
+        getFirstChild: function (el) {
+            var firstChild = el.firstChild;
+            while (firstChild !== null && firstChild.nodeType !== 1) {
+                firstChild = firstChild.nextSibling;
+            }
+            return firstChild;
+        },
+
+        hideToolbarActions: function () {
+            this.keepToolbarAlive = false;
+            if (this.toolbar !== undefined) {
+                this.toolbar.classList.remove('medium-editor-toolbar-active');
+            }
+        },
+
+        showToolbarActions: function () {
+            var self = this,
+                timer;
+            this.anchorForm.style.display = 'none';
+            this.toolbarActions.style.display = 'block';
+            this.keepToolbarAlive = false;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (self.toolbar && !self.toolbar.classList.contains('medium-editor-toolbar-active')) {
+                    self.toolbar.classList.add('medium-editor-toolbar-active');
+                }
+            }, 100);
+        },
+
+        saveSelection: function() {
+            this.savedSelection = saveSelection();
+        },
+
+        restoreSelection: function() {
+            restoreSelection(this.savedSelection);
+        },
+
+        showAnchorForm: function (link_value) {
+            this.toolbarActions.style.display = 'none';
+            this.saveSelection();
+            this.anchorForm.style.display = 'block';
+            this.setToolbarPosition();
+            this.keepToolbarAlive = true;
+            this.anchorInput.focus();
+            this.anchorInput.value = link_value || '';
+        },
+
+        bindAnchorForm: function () {
+            var linkCancel = this.anchorForm.querySelector('a.medium-editor-toobar-anchor-close'),
+                linkSave = this.anchorForm.querySelector('a.medium-editor-toobar-anchor-save'),
+                self = this;
+
+            this.anchorForm.addEventListener('click', function (e) {
+                e.stopPropagation();
+                self.keepToolbarAlive = true;
+            });
+
+            this.anchorInput.addEventListener('keyup', function (e) {
+                var button = null,
+                    target;
+
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    if (self.options.anchorTarget && self.anchorTarget.checked) {
+                        target = "_blank";
+                    }
+                    else {
+                        target = "_self";
+                    }
+
+                    if (self.options.anchorButton && self.anchorButton.checked) {
+                        button = self.options.anchorButtonClass;
+                    }
+
+                    self.createLink(this, target, button);
+                }
+            });
+
+            linkSave.addEventListener('click', function(e) {
+                var button = null,
+                    target;
+                e.preventDefault();
+                if ( self.options.anchorTarget && self.anchorTarget.checked) {
+                    target = "_blank";
+                }
+                else {
+                    target = "_self";
+                }
+
+                if (self.options.anchorButton && self.anchorButton.checked) {
+                    button = self.options.anchorButtonClass;
+                }
+
+                self.createLink(self.anchorInput, target, button);
+            }, true);
+
+            this.anchorInput.addEventListener('click', function (e) {
+                // make sure not to hide form when cliking into the input
+                e.stopPropagation();
+                self.keepToolbarAlive = true;
+            });
+
+            // Hide the anchor form when focusing outside of it.
+            document.body.addEventListener('click', function (e) {
+                if (e.target !== self.anchorForm && !isDescendant(self.anchorForm, e.target) && !isDescendant(self.toolbarActions, e.target)) {
+                    self.keepToolbarAlive = false;
+                    self.checkSelection();
+                }
+            }, true);
+            document.body.addEventListener('focus', function (e) {
+                if (e.target !== self.anchorForm && !isDescendant(self.anchorForm, e.target) && !isDescendant(self.toolbarActions, e.target)) {
+                    self.keepToolbarAlive = false;
+                    self.checkSelection();
+                }
+            }, true);
+
+            linkCancel.addEventListener('click', function (e) {
+                e.preventDefault();
+                self.showToolbarActions();
+                restoreSelection(self.savedSelection);
+            });
+            return this;
+        },
+
+
+        hideAnchorPreview: function () {
+            this.anchorPreview.classList.remove('medium-editor-anchor-preview-active');
+        },
+
+        // TODO: break method
+        showAnchorPreview: function (anchorEl) {
+            if (this.anchorPreview.classList.contains('medium-editor-anchor-preview-active')
+                || anchorEl.getAttribute('data-disable-preview')) {
+                return true;
+            }
+
+            var self = this,
+                buttonHeight = 40,
+                boundary = anchorEl.getBoundingClientRect(),
+                middleBoundary = (boundary.left + boundary.right) / 2,
+                halfOffsetWidth,
+                defaultLeft,
+                timer;
+
+            self.anchorPreview.querySelector('i').textContent = anchorEl.href;
+            halfOffsetWidth = self.anchorPreview.offsetWidth / 2;
+            defaultLeft = self.options.diffLeft - halfOffsetWidth;
+
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (self.anchorPreview && !self.anchorPreview.classList.contains('medium-editor-anchor-preview-active')) {
+                    self.anchorPreview.classList.add('medium-editor-anchor-preview-active');
+                }
+            }, 100);
+
+            self.observeAnchorPreview(anchorEl);
+
+            self.anchorPreview.classList.add('medium-toolbar-arrow-over');
+            self.anchorPreview.classList.remove('medium-toolbar-arrow-under');
+            self.anchorPreview.style.top = Math.round(buttonHeight + boundary.bottom - self.options.diffTop + window.pageYOffset - self.anchorPreview.offsetHeight) + 'px';
+            if (middleBoundary < halfOffsetWidth) {
+                self.anchorPreview.style.left = defaultLeft + halfOffsetWidth + 'px';
+            } else if ((window.innerWidth - middleBoundary) < halfOffsetWidth) {
+                self.anchorPreview.style.left = window.innerWidth + defaultLeft - halfOffsetWidth + 'px';
+            } else {
+                self.anchorPreview.style.left = defaultLeft + middleBoundary + 'px';
+            }
+
+            return this;
+        },
+
+        // TODO: break method
+        observeAnchorPreview: function (anchorEl) {
+            var self = this,
+                lastOver = (new Date()).getTime(),
+                over = true,
+                stamp = function () {
+                    lastOver = (new Date()).getTime();
+                    over = true;
+                },
+                unstamp = function (e) {
+                    if (!e.relatedTarget || !/anchor-preview/.test(e.relatedTarget.className)) {
+                        over = false;
+                    }
+                },
+                interval_timer = setInterval(function () {
+                    if (over) {
+                        return true;
+                    }
+                    var durr = (new Date()).getTime() - lastOver;
+                    if (durr > self.options.anchorPreviewHideDelay) {
+                        // hide the preview 1/2 second after mouse leaves the link
+                        self.hideAnchorPreview();
+
+                        // cleanup
+                        clearInterval(interval_timer);
+                        self.anchorPreview.removeEventListener('mouseover', stamp);
+                        self.anchorPreview.removeEventListener('mouseout', unstamp);
+                        anchorEl.removeEventListener('mouseover', stamp);
+                        anchorEl.removeEventListener('mouseout', unstamp);
+
+                    }
+                }, 200);
+
+            self.anchorPreview.addEventListener('mouseover', stamp);
+            self.anchorPreview.addEventListener('mouseout', unstamp);
+            anchorEl.addEventListener('mouseover', stamp);
+            anchorEl.addEventListener('mouseout', unstamp);
+        },
+
+        createAnchorPreview: function () {
+            var self = this,
+                anchorPreview = document.createElement('div');
+
+            anchorPreview.id = 'medium-editor-anchor-preview-' + this.id;
+            anchorPreview.className = 'medium-editor-anchor-preview';
+            anchorPreview.innerHTML = this.anchorPreviewTemplate();
+            this.options.elementsContainer.appendChild(anchorPreview);
+
+            anchorPreview.addEventListener('click', function () {
+                self.anchorPreviewClickHandler();
+            });
+
+            return anchorPreview;
+        },
+
+        anchorPreviewTemplate: function () {
+            return '<div class="medium-editor-toolbar-anchor-preview" id="medium-editor-toolbar-anchor-preview">' +
+                '    <i class="medium-editor-toolbar-anchor-preview-inner"></i>' +
+                '</div>';
+        },
+
+        anchorPreviewClickHandler: function (e) {
+            if (this.activeAnchor) {
+
+                var self = this,
+                    range = document.createRange(),
+                    sel = window.getSelection();
+
+                range.selectNodeContents(self.activeAnchor);
+                sel.removeAllRanges();
+                sel.addRange(range);
+                setTimeout(function () {
+                    if (self.activeAnchor) {
+                        self.showAnchorForm(self.activeAnchor.href);
+                    }
+                    self.keepToolbarAlive = false;
+                }, 100 + self.options.delay);
+
+            }
+
+            this.hideAnchorPreview();
+        },
+
+        editorAnchorObserver: function (e) {
+            var self = this,
+                overAnchor = true,
+                leaveAnchor = function () {
+                    // mark the anchor as no longer hovered, and stop listening
+                    overAnchor = false;
+                    self.activeAnchor.removeEventListener('mouseout', leaveAnchor);
+                };
+
+            if (e.target && e.target.tagName.toLowerCase() === 'a') {
+
+                // Detect empty href attributes
+                // The browser will make href="" or href="#top"
+                // into absolute urls when accessed as e.targed.href, so check the html
+                if (!/href=["']\S+["']/.test(e.target.outerHTML) || /href=["']#\S+["']/.test(e.target.outerHTML)) {
+                    return true;
+                }
+
+                // only show when hovering on anchors
+                if (this.toolbar.classList.contains('medium-editor-toolbar-active')) {
+                    // only show when toolbar is not present
+                    return true;
+                }
+                this.activeAnchor = e.target;
+                this.activeAnchor.addEventListener('mouseout', leaveAnchor);
+                // show the anchor preview according to the configured delay
+                // if the mouse has not left the anchor tag in that time
+                setTimeout(function () {
+                    if (overAnchor) {
+                        self.showAnchorPreview(e.target);
+                    }
+                }, self.options.delay);
+
+
+            }
+        },
+
+        bindAnchorPreview: function (index) {
+            var i, self = this;
+            this.editorAnchorObserverWrapper = function (e) {
+                self.editorAnchorObserver(e);
+            };
+            for (i = 0; i < this.elements.length; i += 1) {
+                this.elements[i].addEventListener('mouseover', this.editorAnchorObserverWrapper);
+            }
+            return this;
+        },
+
+        checkLinkFormat: function (value) {
+            var re = /^(https?|ftps?|rtmpt?):\/\/|mailto:/;
+            return (re.test(value) ? '' : 'http://') + value;
+        },
+
+        setTargetBlank: function () {
+            var el = getSelectionStart(),
+                i;
+            if (el.tagName.toLowerCase() === 'a') {
+                el.target = '_blank';
+            } else {
+                el = el.getElementsByTagName('a');
+                for (i = 0; i < el.length; i += 1) {
+                    el[i].target = '_blank';
+                }
+            }
+        },
+
+        setButtonClass: function (buttonClass) {
+            var el = getSelectionStart(),
+                classes = buttonClass.split(' '),
+                i, j;
+            if (el.tagName.toLowerCase() === 'a') {
+                for (j = 0; j < classes.length; j += 1) {
+                    el.classList.add(classes[j]);
+                }
+            } else {
+                el = el.getElementsByTagName('a');
+                for (i = 0; i < el.length; i += 1) {
+                    for (j = 0; j < classes.length; j += 1) {
+                        el[i].classList.add(classes[j]);
+                    }
+                }
+            }
+        },
+
+        createLink: function (input, target, buttonClass) {
+            var i, event;
+
+            if (input.value.trim().length === 0) {
+                this.hideToolbarActions();
+                return;
+            }
+
+            restoreSelection(this.savedSelection);
+
+            if (this.options.checkLinkFormat) {
+                input.value = this.checkLinkFormat(input.value);
+            }
+
+            document.execCommand('createLink', false, input.value);
+
+            if (this.options.targetBlank || target === "_blank") {
+                this.setTargetBlank();
+            }
+
+            if (buttonClass) {
+                this.setButtonClass(buttonClass);
+            }
+
+            if (this.options.targetBlank || target === "_blank" || buttonClass) {
+                event = document.createEvent("HTMLEvents");
+                event.initEvent("input", true, true, window);
+                for (i = 0; i < this.elements.length; i += 1) {
+                    this.elements[i].dispatchEvent(event);
+                }
+            }
+
+            this.checkSelection();
+            this.showToolbarActions();
+            input.value = '';
+        },
+
+        bindWindowActions: function () {
+            var timerResize,
+                self = this;
+            this.windowResizeHandler = function () {
+                clearTimeout(timerResize);
+                timerResize = setTimeout(function () {
+                    if (self.toolbar && self.toolbar.classList.contains('medium-editor-toolbar-active')) {
+                        self.setToolbarPosition();
+                    }
+                }, 100);
+            };
+            window.addEventListener('resize', this.windowResizeHandler);
+            return this;
+        },
+
+        activate: function () {
+            if (this.isActive) {
+                return;
+            }
+
+            this.setup();
+        },
+
+        // TODO: break method
+        deactivate: function () {
+            var i;
+            if (!this.isActive) {
+                return;
+            }
+            this.isActive = false;
+
+            if (this.toolbar !== undefined) {
+                this.options.elementsContainer.removeChild(this.anchorPreview);
+                this.options.elementsContainer.removeChild(this.toolbar);
+                delete this.toolbar;
+                delete this.anchorPreview;
+            }
+
+            document.documentElement.removeEventListener('mouseup', this.checkSelectionWrapper);
+            window.removeEventListener('resize', this.windowResizeHandler);
+
+            for (i = 0; i < this.elements.length; i += 1) {
+                this.elements[i].removeEventListener('mouseover', this.editorAnchorObserverWrapper);
+                this.elements[i].removeEventListener('keyup', this.checkSelectionWrapper);
+                this.elements[i].removeEventListener('blur', this.checkSelectionWrapper);
+                this.elements[i].removeEventListener('paste', this.pasteWrapper);
+                this.elements[i].removeAttribute('contentEditable');
+                this.elements[i].removeAttribute('data-medium-element');
+            }
+
+        },
+
+        htmlEntities: function (str) {
+            // converts special characters (like <) into their escaped/encoded values (like &lt;).
+            // This allows you to show to display the string without the browser reading it as HTML.
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        },
+
+        bindPaste: function () {
+            var i, self = this;
+            this.pasteWrapper = function (e) {
+                var paragraphs,
+                    html = '',
+                    p;
+
+                this.classList.remove('medium-editor-placeholder');
+                if (!self.options.forcePlainText && !self.options.cleanPastedHTML) {
+                    return this;
+                }
+
+                if (e.clipboardData && e.clipboardData.getData && !e.defaultPrevented) {
+                    e.preventDefault();
+
+                    if (self.options.cleanPastedHTML && e.clipboardData.getData('text/html')) {
+                        return self.cleanPaste(e.clipboardData.getData('text/html'));
+                    }
+                    if (!(self.options.disableReturn || this.getAttribute('data-disable-return'))) {
+                        paragraphs = e.clipboardData.getData('text/plain').split(/[\r\n]/g);
+                        for (p = 0; p < paragraphs.length; p += 1) {
+                            if (paragraphs[p] !== '') {
+                                if (navigator.userAgent.match(/firefox/i) && p === 0) {
+                                    html += self.htmlEntities(paragraphs[p]);
+                                } else {
+                                    html += '<p>' + self.htmlEntities(paragraphs[p]) + '</p>';
+                                }
+                            }
+                        }
+                        document.execCommand('insertHTML', false, html);
+                    } else {
+                        document.execCommand('insertHTML', false, e.clipboardData.getData('text/plain'));
+                    }
+                }
+            };
+            for (i = 0; i < this.elements.length; i += 1) {
+                this.elements[i].addEventListener('paste', this.pasteWrapper);
+            }
+            return this;
+        },
+
+        setPlaceholders: function () {
+            var i,
+                activatePlaceholder = function (el) {
+                    if (!(el.querySelector('img')) &&
+                            !(el.querySelector('blockquote')) &&
+                            el.textContent.replace(/^\s+|\s+$/g, '') === '') {
+                        el.classList.add('medium-editor-placeholder');
+                    }
+                },
+                placeholderWrapper = function (e) {
+                    this.classList.remove('medium-editor-placeholder');
+                    if (e.type !== 'keypress') {
+                        activatePlaceholder(this);
+                    }
+                };
+            for (i = 0; i < this.elements.length; i += 1) {
+                activatePlaceholder(this.elements[i]);
+                this.elements[i].addEventListener('blur', placeholderWrapper);
+                this.elements[i].addEventListener('keypress', placeholderWrapper);
+            }
+            return this;
+        },
+
+        cleanPaste: function (text) {
+
+            /*jslint regexp: true*/
+            /*
+                jslint does not allow character negation, because the negation
+                will not match any unicode characters. In the regexes in this
+                block, negation is used specifically to match the end of an html
+                tag, and in fact unicode characters *should* be allowed.
+            */
+            var i, elList, workEl,
+                el = this.getSelectionElement(),
+                multiline = /<p|<br|<div/.test(text),
+                replacements = [
+
+                    // replace two bogus tags that begin pastes from google docs
+                    [new RegExp(/<[^>]*docs-internal-guid[^>]*>/gi), ""],
+                    [new RegExp(/<\/b>(<br[^>]*>)?$/gi), ""],
+
+                     // un-html spaces and newlines inserted by OS X
+                    [new RegExp(/<span class="Apple-converted-space">\s+<\/span>/g), ' '],
+                    [new RegExp(/<br class="Apple-interchange-newline">/g), '<br>'],
+
+                    // replace google docs italics+bold with a span to be replaced once the html is inserted
+                    [new RegExp(/<span[^>]*(font-style:italic;font-weight:bold|font-weight:bold;font-style:italic)[^>]*>/gi), '<span class="replace-with italic bold">'],
+
+                    // replace google docs italics with a span to be replaced once the html is inserted
+                    [new RegExp(/<span[^>]*font-style:italic[^>]*>/gi), '<span class="replace-with italic">'],
+
+                    //[replace google docs bolds with a span to be replaced once the html is inserted
+                    [new RegExp(/<span[^>]*font-weight:bold[^>]*>/gi), '<span class="replace-with bold">'],
+
+                     // replace manually entered b/i/a tags with real ones
+                    [new RegExp(/&lt;(\/?)(i|b|a)&gt;/gi), '<$1$2>'],
+
+                     // replace manually a tags with real ones, converting smart-quotes from google docs
+                    [new RegExp(/&lt;a\s+href=(&quot;|&rdquo;|&ldquo;|“|”)([^&]+)(&quot;|&rdquo;|&ldquo;|“|”)&gt;/gi), '<a href="$2">']
+
+                ];
+            /*jslint regexp: false*/
+
+            for (i = 0; i < replacements.length; i += 1) {
+                text = text.replace(replacements[i][0], replacements[i][1]);
+            }
+
+            if (multiline) {
+
+                // double br's aren't converted to p tags, but we want paragraphs.
+                elList = text.split('<br><br>');
+
+                this.pasteHTML('<p>' + elList.join('</p><p>') + '</p>');
+                document.execCommand('insertText', false, "\n");
+
+                // block element cleanup
+                elList = el.querySelectorAll('p,div,br');
+                for (i = 0; i < elList.length; i += 1) {
+
+                    workEl = elList[i];
+
+                    switch (workEl.tagName.toLowerCase()) {
+                    case 'p':
+                    case 'div':
+                        this.filterCommonBlocks(workEl);
+                        break;
+                    case 'br':
+                        this.filterLineBreak(workEl);
+                        break;
+                    }
+
+                }
+
+
+            } else {
+
+                this.pasteHTML(text);
+
+            }
+
+        },
+
+        pasteHTML: function (html) {
+            var elList, workEl, i, fragmentBody, pasteBlock = document.createDocumentFragment();
+
+            pasteBlock.appendChild(document.createElement('body'));
+
+            fragmentBody = pasteBlock.querySelector('body');
+            fragmentBody.innerHTML = html;
+
+            this.cleanupSpans(fragmentBody);
+
+            elList = fragmentBody.querySelectorAll('*');
+            for (i = 0; i < elList.length; i += 1) {
+
+                workEl = elList[i];
+
+                // delete ugly attributes
+                workEl.removeAttribute('class');
+                workEl.removeAttribute('style');
+                workEl.removeAttribute('dir');
+
+                if (workEl.tagName.toLowerCase() === 'meta') {
+                    workEl.parentNode.removeChild(workEl);
+                }
+
+            }
+            document.execCommand('insertHTML', false, fragmentBody.innerHTML.replace(/&nbsp;/g, ' '));
+        },
+        isCommonBlock: function (el) {
+            return (el && (el.tagName.toLowerCase() === 'p' || el.tagName.toLowerCase() === 'div'));
+        },
+        filterCommonBlocks: function (el) {
+            if (/^\s*$/.test(el.innerText)) {
+                el.parentNode.removeChild(el);
+            }
+        },
+        filterLineBreak: function (el) {
+            if (this.isCommonBlock(el.previousElementSibling)) {
+
+                // remove stray br's following common block elements
+                el.parentNode.removeChild(el);
+
+            } else if (this.isCommonBlock(el.parentNode) && (el.parentNode.firstChild === el || el.parentNode.lastChild === el)) {
+
+                // remove br's just inside open or close tags of a div/p
+                el.parentNode.removeChild(el);
+
+            } else if (el.parentNode.childElementCount === 1) {
+
+                // and br's that are the only child of a div/p
+                this.removeWithParent(el);
+
+            }
+
+        },
+
+        // remove an element, including its parent, if it is the only element within its parent
+        removeWithParent: function (el) {
+            if (el && el.parentNode) {
+                if (el.parentNode.parentNode && el.parentNode.childElementCount === 1) {
+                    el.parentNode.parentNode.removeChild(el.parentNode);
+                } else {
+                    el.parentNode.removeChild(el.parentNode);
+                }
+            }
+        },
+
+        cleanupSpans: function (container_el) {
+
+            var i,
+                el,
+                new_el,
+                spans = container_el.querySelectorAll('.replace-with');
+
+            for (i = 0; i < spans.length; i += 1) {
+
+                el = spans[i];
+                new_el = document.createElement(el.classList.contains('bold') ? 'b' : 'i');
+
+                if (el.classList.contains('bold') && el.classList.contains('italic')) {
+
+                    // add an i tag as well if this has both italics and bold
+                    new_el.innerHTML = '<i>' + el.innerHTML + '</i>';
+
+                } else {
+
+                    new_el.innerHTML = el.innerHTML;
+
+                }
+                el.parentNode.replaceChild(new_el, el);
+
+            }
+
+            spans = container_el.querySelectorAll('span');
+            for (i = 0; i < spans.length; i += 1) {
+
+                el = spans[i];
+
+                // remove empty spans, replace others with their contents
+                if (/^\s*$/.test()) {
+                    el.parentNode.removeChild(el);
+                } else {
+                    el.parentNode.replaceChild(document.createTextNode(el.innerText), el);
+                }
+
+            }
+
+        }
+
+    };
+
+}(window, document));
+;/*
+
+	jQuery Tags Input Plugin 1.3.3
+	
+	Copyright (c) 2011 XOXCO, Inc
+	
+	Documentation for this plugin lives here:
+	http://xoxco.com/clickable/jquery-tags-input
+	
+	Licensed under the MIT license:
+	http://www.opensource.org/licenses/mit-license.php
+
+	ben@xoxco.com
+
+*/
+
+(function($) {
+
+	var delimiter = new Array();
+	var tags_callbacks = new Array();
+	$.fn.doAutosize = function(o){
+	    var minWidth = $(this).data('minwidth'),
+	        maxWidth = $(this).data('maxwidth'),
+	        val = '',
+	        input = $(this),
+	        testSubject = $('#'+$(this).data('tester_id'));
+	
+	    if (val === (val = input.val())) {return;}
+	
+	    // Enter new content into testSubject
+	    var escaped = val.replace(/&/g, '&amp;').replace(/\s/g,' ').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	    testSubject.html(escaped);
+	    // Calculate new width + whether to change
+	    var testerWidth = testSubject.width(),
+	        newWidth = (testerWidth + o.comfortZone) >= minWidth ? testerWidth + o.comfortZone : minWidth,
+	        currentWidth = input.width(),
+	        isValidWidthChange = (newWidth < currentWidth && newWidth >= minWidth)
+	                             || (newWidth > minWidth && newWidth < maxWidth);
+	
+	    // Animate width
+	    if (isValidWidthChange) {
+	        input.width(newWidth);
+	    }
+
+
+  };
+  $.fn.resetAutosize = function(options){
+    // alert(JSON.stringify(options));
+    var minWidth =  $(this).data('minwidth') || options.minInputWidth || $(this).width(),
+        maxWidth = $(this).data('maxwidth') || options.maxInputWidth || ($(this).closest('.tagsinput').width() - options.inputPadding),
+        val = '',
+        input = $(this),
+        testSubject = $('<tester/>').css({
+            position: 'absolute',
+            top: -9999,
+            left: -9999,
+            width: 'auto',
+            fontSize: input.css('fontSize'),
+            fontFamily: input.css('fontFamily'),
+            fontWeight: input.css('fontWeight'),
+            letterSpacing: input.css('letterSpacing'),
+            whiteSpace: 'nowrap'
+        }),
+        testerId = $(this).attr('id')+'_autosize_tester';
+    if(! $('#'+testerId).length > 0){
+      testSubject.attr('id', testerId);
+      testSubject.appendTo('body');
+    }
+
+    input.data('minwidth', minWidth);
+    input.data('maxwidth', maxWidth);
+    input.data('tester_id', testerId);
+    input.css('width', minWidth);
+  };
+  
+	$.fn.addTag = function(value,options) {
+			options = jQuery.extend({focus:false,callback:true},options);
+			this.each(function() { 
+				var id = $(this).attr('id');
+
+				var tagslist = $(this).val().split(delimiter[id]);
+				if (tagslist[0] == '') { 
+					tagslist = new Array();
+				}
+
+				value = jQuery.trim(value);
+		
+				if (options.unique) {
+					var skipTag = $(this).tagExist(value);
+					if(skipTag == true) {
+					    //Marks fake input as not_valid to let styling it
+    				    $('#'+id+'_tag').addClass('not_valid');
+    				}
+				} else {
+					var skipTag = false; 
+				}
+				
+				if (value !='' && skipTag != true) { 
+                    $('<span>').addClass('tag').append(
+                        $('<span>').text(value).append('&nbsp;&nbsp;'),
+                        $('<a>', {
+                            href  : '#',
+                            title : 'Removing tag',
+                            text  : '×'
+                        }).click(function () {
+                            return $('#' + id).removeTag(escape(value));
+                        })
+                    ).insertBefore('#' + id + '_addTag');
+
+					tagslist.push(value);
+				
+					$('#'+id+'_tag').val('');
+					if (options.focus) {
+						$('#'+id+'_tag').focus();
+					} else {		
+						$('#'+id+'_tag').blur();
+					}
+					
+					$.fn.tagsInput.updateTagsField(this,tagslist);
+					
+					if (options.callback && tags_callbacks[id] && tags_callbacks[id]['onAddTag']) {
+						var f = tags_callbacks[id]['onAddTag'];
+						f.call(this, value);
+					}
+					if(tags_callbacks[id] && tags_callbacks[id]['onChange'])
+					{
+						var i = tagslist.length;
+						var f = tags_callbacks[id]['onChange'];
+						f.call(this, $(this), tagslist[i-1]);
+					}					
+				}
+		
+			});		
+			
+			return false;
+		};
+		
+	$.fn.removeTag = function(value) { 
+			value = unescape(value);
+			this.each(function() { 
+				var id = $(this).attr('id');
+	
+				var old = $(this).val().split(delimiter[id]);
+					
+				$('#'+id+'_tagsinput .tag').remove();
+				str = '';
+				for (i=0; i< old.length; i++) { 
+					if (old[i]!=value) { 
+						str = str + delimiter[id] +old[i];
+					}
+				}
+				
+				$.fn.tagsInput.importTags(this,str);
+
+				if (tags_callbacks[id] && tags_callbacks[id]['onRemoveTag']) {
+					var f = tags_callbacks[id]['onRemoveTag'];
+					f.call(this, value);
+				}
+			});
+					
+			return false;
+		};
+	
+	$.fn.tagExist = function(val) {
+		var id = $(this).attr('id');
+		var tagslist = $(this).val().split(delimiter[id]);
+		return (jQuery.inArray(val, tagslist) >= 0); //true when tag exists, false when not
+	};
+	
+	// clear all existing tags and import new ones from a string
+	$.fn.importTags = function(str) {
+                id = $(this).attr('id');
+		$('#'+id+'_tagsinput .tag').remove();
+		$.fn.tagsInput.importTags(this,str);
+	}
+		
+	$.fn.tagsInput = function(options) { 
+    var settings = jQuery.extend({
+      interactive:true,
+      defaultText:'add a tag',
+      minChars:0,
+      width:'300px',
+      height:'100px',
+      autocomplete: {selectFirst: false },
+      'hide':true,
+      'delimiter':',',
+      'unique':true,
+      removeWithBackspace:true,
+      placeholderColor:'#666666',
+      autosize: true,
+      comfortZone: 20,
+      inputPadding: 6*2
+    },options);
+
+		this.each(function() { 
+			if (settings.hide) { 
+				$(this).hide();				
+			}
+			var id = $(this).attr('id');
+			if (!id || delimiter[$(this).attr('id')]) {
+				id = $(this).attr('id', 'tags' + new Date().getTime()).attr('id');
+			}
+			
+			var data = jQuery.extend({
+				pid:id,
+				real_input: '#'+id,
+				holder: '#'+id+'_tagsinput',
+				input_wrapper: '#'+id+'_addTag',
+				fake_input: '#'+id+'_tag'
+			},settings);
+	
+			delimiter[id] = data.delimiter;
+			
+			if (settings.onAddTag || settings.onRemoveTag || settings.onChange) {
+				tags_callbacks[id] = new Array();
+				tags_callbacks[id]['onAddTag'] = settings.onAddTag;
+				tags_callbacks[id]['onRemoveTag'] = settings.onRemoveTag;
+				tags_callbacks[id]['onChange'] = settings.onChange;
+			}
+	
+			var markup = '<div id="'+id+'_tagsinput" class="tagsinput"><div id="'+id+'_addTag">';
+			
+			if (settings.interactive) {
+				markup = markup + '<input id="'+id+'_tag" value="" data-default="'+settings.defaultText+'" />';
+			}
+			
+			markup = markup + '</div><div class="tags_clear"></div></div>';
+			
+			$(markup).insertAfter(this);
+
+			$(data.holder).css('width',settings.width);
+			$(data.holder).css('min-height',settings.height);
+			$(data.holder).css('height','100%');
+	
+			if ($(data.real_input).val()!='') { 
+				$.fn.tagsInput.importTags($(data.real_input),$(data.real_input).val());
+			}		
+			if (settings.interactive) { 
+				$(data.fake_input).val($(data.fake_input).attr('data-default'));
+				$(data.fake_input).css('color',settings.placeholderColor);
+		        $(data.fake_input).resetAutosize(settings);
+		
+				$(data.holder).bind('click',data,function(event) {
+					$(event.data.fake_input).focus();
+				});
+			
+				$(data.fake_input).bind('focus',data,function(event) {
+					if ($(event.data.fake_input).val()==$(event.data.fake_input).attr('data-default')) { 
+						$(event.data.fake_input).val('');
+					}
+					$(event.data.fake_input).css('color','#000000');		
+				});
+						
+				if (settings.autocomplete_url != undefined) {
+					autocomplete_options = {source: settings.autocomplete_url};
+					for (attrname in settings.autocomplete) { 
+						autocomplete_options[attrname] = settings.autocomplete[attrname]; 
+					}
+				
+					if (jQuery.Autocompleter !== undefined) {
+						$(data.fake_input).autocomplete(settings.autocomplete_url, settings.autocomplete);
+						$(data.fake_input).bind('result',data,function(event,data,formatted) {
+							if (data) {
+								$('#'+id).addTag(data[0] + "",{focus:true,unique:(settings.unique)});
+							}
+					  	});
+					} else if (jQuery.ui.autocomplete !== undefined) {
+						$(data.fake_input).autocomplete(autocomplete_options);
+						$(data.fake_input).bind('autocompleteselect',data,function(event,ui) {
+							$(event.data.real_input).addTag(ui.item.value,{focus:true,unique:(settings.unique)});
+							return false;
+						});
+					}
+				
+					
+				} else {
+						// if a user tabs out of the field, create a new tag
+						// this is only available if autocomplete is not used.
+						$(data.fake_input).bind('blur',data,function(event) { 
+							var d = $(this).attr('data-default');
+							if ($(event.data.fake_input).val()!='' && $(event.data.fake_input).val()!=d) { 
+								if( (event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) )
+									$(event.data.real_input).addTag($(event.data.fake_input).val(),{focus:true,unique:(settings.unique)});
+							} else {
+								$(event.data.fake_input).val($(event.data.fake_input).attr('data-default'));
+								$(event.data.fake_input).css('color',settings.placeholderColor);
+							}
+							return false;
+						});
+				
+				}
+				// if user types a comma, create a new tag
+				$(data.fake_input).bind('keypress',data,function(event) {
+					if (event.which==event.data.delimiter.charCodeAt(0) || event.which==13 ) {
+					    event.preventDefault();
+						if( (event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) )
+							$(event.data.real_input).addTag($(event.data.fake_input).val(),{focus:true,unique:(settings.unique)});
+					  	$(event.data.fake_input).resetAutosize(settings);
+						return false;
+					} else if (event.data.autosize) {
+			            $(event.data.fake_input).doAutosize(settings);
+            
+          			}
+				});
+				//Delete last tag on backspace
+				data.removeWithBackspace && $(data.fake_input).bind('keydown', function(event)
+				{
+					if(event.keyCode == 8 && $(this).val() == '')
+					{
+						 event.preventDefault();
+						 var last_tag = $(this).closest('.tagsinput').find('.tag:last').text();
+						 var id = $(this).attr('id').replace(/_tag$/, '');
+						 last_tag = last_tag.replace(/[\s]+x$/, '');
+						 $('#' + id).removeTag(escape(last_tag));
+						 $(this).trigger('focus');
+					}
+				});
+				$(data.fake_input).blur();
+				
+				//Removes the not_valid class when user changes the value of the fake input
+				if(data.unique) {
+				    $(data.fake_input).keydown(function(event){
+				        if(event.keyCode == 8 || String.fromCharCode(event.which).match(/\w+|[áéíóúÁÉÍÓÚñÑ,/]+/)) {
+				            $(this).removeClass('not_valid');
+				        }
+				    });
+				}
+			} // if settings.interactive
+		});
+			
+		return this;
+	
+	};
+	
+	$.fn.tagsInput.updateTagsField = function(obj,tagslist) { 
+		var id = $(obj).attr('id');
+		$(obj).val(tagslist.join(delimiter[id]));
+	};
+	
+	$.fn.tagsInput.importTags = function(obj,val) {			
+		$(obj).val('');
+		var id = $(obj).attr('id');
+		var tags = val.split(delimiter[id]);
+		for (i=0; i<tags.length; i++) { 
+			$(obj).addTag(tags[i],{focus:false,callback:false});
+		}
+		if(tags_callbacks[id] && tags_callbacks[id]['onChange'])
+		{
+			var f = tags_callbacks[id]['onChange'];
+			f.call(obj, obj, tags[i]);
+		}
+	};
+
+})(jQuery);
 ;/*
  * jQuery FlexSlider v2.2.0
  * Copyright 2012 WooThemes
@@ -20978,198 +22953,2358 @@ var tooltip = $.widget( "ui.tooltip", {
       }
     }
   }
-})(jQuery);;!function(t){"use strict";function i(){this.$dom=t(document),this.$html=this.$dom.find("html"),this.isOldie=!!this.$html.hasClass("oldie"),this.click="click",this.onReady=this.onOldie=this.onTouch=!1,this.autoInit="false"===t("script[gumby-init]").attr("gumby-init")?!1:!0,this.debugMode=Boolean(t("script[gumby-debug]").length),this.touchDevice=!!(Modernizr.touch||window.navigator.userAgent.indexOf("Windows Phone")>0),this.gumbyTouch=!1,this.touchEvents="js/libs",this.breakpoint=Number(t("script[gumby-breakpoint]").attr("gumby-breakpoint"))||768,this.touchEventsLoaded=!1,this.uiModulesReady=!1,this.uiModules={},this.inits={};var i=t("script[gumby-touch]").attr("gumby-touch"),e=t("script[gumby-path]").attr("gumby-path");"false"===i?this.touchEvents=!1:i?this.touchEvents=i:e&&(this.touchEvents=e),this.touchDevice&&(this.click+=" tap"),this.touchDevice&&t(window).width()<this.breakpoint?(this.$html.addClass("gumby-touch"),this.gumbyTouch=!0):this.$html.addClass("gumby-no-touch"),this.debugMode&&this.debug("Gumby is in debug mode")}i.prototype.init=function(t){var i=this,e=t?t:{};return this.$dom.ready(function(){e.debug&&(i.debugMode=!0),i.debug("Initializing Gumby");var t=e.uiModules?e.uiModules:!1;i.initUIModules(t),i.onReady&&i.onReady(),i.isOldie&&i.onOldie&&i.onOldie(),Modernizr.touch&&i.onTouch&&i.onTouch()}),this},i.prototype.helpers=function(){this.onReady&&this.onReady(),this.isOldie&&this.onOldie&&this.onOldie(),Modernizr.touch&&this.onTouch&&this.onTouch()},i.prototype.ready=function(t){return t&&"function"==typeof t&&(this.onReady=t),this},i.prototype.oldie=function(t){return t&&"function"==typeof t&&(this.onOldie=t),this},i.prototype.touch=function(t){return t&&"function"==typeof t&&(this.onTouch=t),this},i.prototype.console=function(t,i){this.debugMode&&window.console&&console[console[t]?t:"log"](i.length>1?Array.prototype.slice.call(i):i[0])},i.prototype.log=function(){this.console("log",arguments)},i.prototype.debug=function(){this.console("debug",arguments)},i.prototype.warn=function(){this.console("warn",arguments)},i.prototype.error=function(){this.console("error",arguments)},i.prototype.dump=function(){return{$dom:this.$dom,isOldie:this.isOldie,touchEvents:this.touchEvents,debugMode:this.debugMode,autoInit:this.autoInit,uiModules:this.uiModules,click:this.click}},i.prototype.selectAttr=function(){for(var t=0;t<arguments.length;t++){var i=arguments[t],e="data-"+arguments[t],n="gumby-"+arguments[t];if(this.is("["+e+"]"))return this.attr(e)?this.attr(e):!0;if(this.is("["+n+"]"))return this.attr(n)?this.attr(n):!0;if(this.is("["+i+"]"))return this.attr(i)?this.attr(i):!0}return!1},i.prototype.addInitalisation=function(t,i){this.inits[t]=i},i.prototype.initialize=function(t,i){if("object"==typeof t){var e=0;for(e;e<t.length;e++)this.inits[t[e]]&&"function"==typeof this.inits[t[e]]?this.inits[t[e]](i):this.error("Error initializing module: "+t[e])}else this.inits[t]&&"function"==typeof this.inits[t]?this.inits[t](i):this.error("Error initializing module: "+t);return this},i.prototype.UIModule=function(t){var i=t.module;this.uiModules[i]=t},i.prototype.initUIModules=function(t){var i,e,n=this.uiModules;t&&(n=t);for(i in n)e=t?n[i]:i,this.uiModules[e].init()},window.Gumby=new i}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Checkbox",t),this.$el=t,this.$input=this.$el.find("input[type=checkbox]");var i=this;this.$el.on(Gumby.click,function(t){t.preventDefault(),i.$input.is("[disabled]")||(i.$el.hasClass("checked")?i.update(!1):i.update(!0))}).on("gumby.check",function(){Gumby.debug("Check event triggered",i.$el),i.update(!0)}).on("gumby.uncheck",function(){Gumby.debug("Uncheck event triggered",i.$el),i.update(!1)}),(this.$input.prop("checked")||this.$el.hasClass("checked"))&&i.update(!0)}i.prototype.update=function(t){var i=this.$el.find("span");t?(Gumby.debug("Checking Checkbox",this.$el),i.append('<i class="icon-check" />'),this.$input.prop("checked",!0),Gumby.debug("Triggering onCheck event",this.$el),Gumby.debug("Triggering onChange event",this.$el),this.$el.addClass("checked").trigger("gumby.onCheck").trigger("gumby.onChange")):(Gumby.debug("Unchecking Checkbox",this.$el),this.$input.prop("checked",!1),i.find("i").remove(),Gumby.debug("Triggering onUncheck event",this.$el),Gumby.debug("Triggering onChange event",this.$el),this.$el.removeClass("checked").trigger("gumby.onUncheck").trigger("gumby.onChange"))},Gumby.addInitalisation("checkbox",function(){t(".checkbox").each(function(){var e=t(this);return e.data("isCheckbox")?!0:(e.data("isCheckbox",!0),new i(e),void 0)})}),Gumby.UIModule({module:"checkbox",events:["onCheck","onUncheck","onChange","check","uncheck"],init:function(){Gumby.initialize("checkbox")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Fixed Position",i),this.$el=i,this.$window=t(window),this.fixedPoint="",this.pinPoint=!1,this.fixedPointjQ=!1,this.pinPointjQ=!1,this.offset=0,this.pinOffset=0,this.top=0,this.constrainEl=!0,this.state=!1,this.measurements={left:0,width:0},this.setup();var e=this;this.$window.on("scroll load",function(){e.monitorScroll()}),this.$el.on("gumby.initialize",function(){Gumby.debug("Re-initializing Fixed Position",i),e.setup(),e.monitorScroll()})}i.prototype.setup=function(){var t=this;this.fixedPoint=this.parseAttrValue(Gumby.selectAttr.apply(this.$el,["fixed"])),this.pinPoint=Gumby.selectAttr.apply(this.$el,["pin"])||!1,this.offset=Number(Gumby.selectAttr.apply(this.$el,["offset"]))||0,this.pinOffset=Number(Gumby.selectAttr.apply(this.$el,["pinoffset"]))||0,this.top=Number(Gumby.selectAttr.apply(this.$el,["top"]))||0,this.constrainEl=Gumby.selectAttr.apply(this.$el,["constrain"])||!0,"false"===this.constrainEl&&(this.constrainEl=!1),this.$parent=this.$el.parents(".columns, .column, .row"),this.$parent=this.$parent.length?this.$parent.first():!1,this.parentRow=this.$parent?!!this.$parent.hasClass("row"):!1,this.pinPoint&&(this.pinPoint=this.parseAttrValue(this.pinPoint)),this.fixedPointjQ=this.fixedPoint instanceof jQuery,this.pinPointjQ=this.pinPoint instanceof jQuery,this.$parent&&this.constrainEl&&(this.measure(),this.$window.resize(function(){t.state&&(t.measure(),t.constrain())}))},i.prototype.monitorScroll=function(){var t=this.$window.scrollTop(),i=this.fixedPointjQ?this.fixedPoint.offset().top:this.fixedPoint,e=!1;this.pinPoint&&(e=this.pinPointjQ?this.pinPoint.offset().top:this.pinPoint),this.offset&&(i-=this.offset),this.pinOffset&&(e-=this.pinOffset),t>=i&&"fixed"!==this.state?(!e||e>t)&&this.fix():i>t&&"fixed"===this.state?this.unfix():e&&t>=e&&"pinned"!==this.state&&this.pin()},i.prototype.fix=function(){Gumby.debug("Element has been fixed",this.$el),Gumby.debug("Triggering onFixed event",this.$el),this.state="fixed",this.$el.css({top:this.top}).addClass("fixed").removeClass("unfixed pinned").trigger("gumby.onFixed"),this.$parent&&this.constrain()},i.prototype.unfix=function(){Gumby.debug("Element has been unfixed",this.$el),Gumby.debug("Triggering onUnfixed event",this.$el),this.state="unfixed",this.$el.addClass("unfixed").removeClass("fixed pinned").trigger("gumby.onUnfixed")},i.prototype.pin=function(){Gumby.debug("Element has been pinned",this.$el),Gumby.debug("Triggering onPinned event",this.$el),this.state="pinned",this.$el.css({top:this.$el.offset().top}).addClass("pinned fixed").removeClass("unfixed").trigger("gumby.onPinned")},i.prototype.constrain=function(){Gumby.debug("Constraining element",this.$el),this.$el.css({left:this.measurements.left,width:this.measurements.width})},i.prototype.measure=function(){var t;this.measurements.left=this.$parent.offset().left,this.measurements.width=this.$parent.width(),this.parentRow&&(t=Number(this.$parent.css("paddingLeft").replace(/px/,"")),t&&(this.measurements.left+=t))},i.prototype.parseAttrValue=function(i){if(t.isNumeric(i))return Number(i);if("top"===i)return this.$el.offset().top;var e=t(i);return e.length?e:(Gumby.error("Cannot find Fixed target: "+i),!1)},Gumby.addInitalisation("fixed",function(e){t("[data-fixed],[gumby-fixed],[fixed]").each(function(){var n=t(this);return n.data("isFixed")&&!e?!0:n.data("isFixed")&&e?(n.trigger("gumby.initialize"),!0):(n.data("isFixed",!0),new i(n),void 0)})}),Gumby.UIModule({module:"fixed",events:["initialize","onFixed","onUnfixed"],init:function(){Gumby.initialize("fixed")}})}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Navbar",t),this.$el=t,this.$dropDowns=this.$el.find("li:has(.dropdown)");var i=this,e=this.$el.attr("gumby-persist");"undefined"==typeof e&&"false"!==e&&this.$el.find("li:not(:has(.dropdown)) a").on(Gumby.click,function(){i.$el.find("ul").removeClass("active")}),this.$dropDowns.on(Gumby.click,this.toggleDropdown).on("swiperight",this.openLink),"#"!==this.$dropDowns.children("a").attr("href")&&this.$dropDowns.children("a").append('<i class="icon-popup"></i>').children("i").on(Gumby.click,this.openLink),this.$el.find("li:not(:has(.dropdown)) a[href]").on(Gumby.click,this.openLink)}Gumby.gumbyTouch&&(i.prototype.toggleDropdown=function(i){if(i.preventDefault(),t(this).parents(".dropdown")&&i.stopImmediatePropagation(),!t(i.target).is("i")){var e=t(this);e.hasClass("active")?e.removeClass("active"):e.addClass("active")}},i.prototype.openLink=function(i){i.preventDefault();var e,n=t(this),s=n;n.is("i")?s=n.parent("a"):n.is("li")&&(s=n.children("a")),e=s.attr("href"),"blank"==s.attr("target")?window.open(e):window.location=e},Gumby.addInitalisation("navbar",function(){t(".navbar").each(function(){var e=t(this);return e.data("isNavbar")?!0:(e.data("isNavbar",!0),new i(e),void 0)})}),Gumby.UIModule({module:"navbar",events:[],init:function(){Gumby.initialize("navbar")}}))}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Radio Button",t),this.$el=t,this.$input=this.$el.find("input[type=radio]");var i=this;this.$el.on(Gumby.click,function(t){t.preventDefault(),i.$input.is("[disabled]")||i.update()}).on("gumby.check",function(){Gumby.debug("Check event triggered",i.$el),i.update()}),(this.$input.prop("checked")||this.$el.hasClass("checked"))&&i.update(!0)}i.prototype.update=function(){if(!(this.$el.hasClass("checked")&&this.$input.prop("checked")&&this.$el.find("i.icon-dot").length)){Gumby.debug("Updating Radio Button group",this.$el);var i=this.$el.find("span"),e='input[name="'+this.$input.attr("name")+'"]';t(".radio").has(e).removeClass("checked").find("input").prop("checked",!1).end().find("i").remove(),this.$input.prop("checked",!0),i.append('<i class="icon-dot" />'),Gumby.debug("Triggering onCheck event",this.$el),this.$el.addClass("checked").trigger("gumby.onCheck")}},Gumby.addInitalisation("radiobtn",function(){t(".radio").each(function(){var e=t(this);return e.data("isRadioBtn")?!0:(e.data("isRadioBtn",!0),new i(e),void 0)})}),Gumby.UIModule({module:"radiobtn",events:["onCheck","check"],init:function(){Gumby.initialize("radiobtn")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Retina",i),this.$el=i,this.imageSrc=this.$el.attr("src"),this.retinaSrc=this.fetchRetinaImage(),this.$retinaImg=t(new Image);var e=this;return this.retinaSrc?(this.$retinaImg.attr("src",this.retinaSrc).load(function(){e.retinaImageLoaded()}).error(function(){Gumby.error("Couln't load retina image: "+e.retinaSrc)}),void 0):!1}i.prototype.fetchRetinaImage=function(){var t=this.imageSrc,i=this.imageSrc.search(/(\.|\/)(gif|jpe?g|png)$/i);return 0>i?!1:t.substr(0,i)+"@2x"+t.substr(i,t.length)},i.prototype.retinaImageLoaded=function(){Gumby.debug("Swapping image for retina version",this.$el),Gumby.debug("Triggering onRetina event",this.$el),this.$el.attr("src",this.$retinaImg.attr("src")).trigger("gumby.onRetina")},Gumby.addInitalisation("retina",function(){!window.devicePixelRatio||window.devicePixelRatio<=1||t("img[data-retina],img[gumby-retina],img[retina]").each(function(){var e=t(this);return e.data("isRetina")?!0:(e.data("isRetina",!0),new i(e),void 0)})}),Gumby.UIModule({module:"retina",events:["onRetina"],init:function(){Gumby.initialize("retina")}})}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Skiplink",t),this.$el=t,this.targetPos=0,this.duration=0,this.offset=!1,this.easing="",this.update=!1,this.setup();var i=this;this.$el.on(Gumby.click+" gumby.skip",function(t){t.preventDefault(),"skip"===t.namespace&&Gumby.debug("Skip event triggered",i.$el),i.update?i.calculateTarget(i.skipTo):i.skipTo()}).on("gumby.initialize",function(){Gumby.debug("Re-initializing Skiplink",i.$el),i.setup()})}i.prototype.setup=function(){this.duration=Number(Gumby.selectAttr.apply(this.$el,["duration"]))||200,this.offset=Gumby.selectAttr.apply(this.$el,["offset"])||!1,this.easing=Gumby.selectAttr.apply(this.$el,["easing"])||"swing",this.update=Gumby.selectAttr.apply(this.$el,["update"])?!0:!1,this.calculateTarget()},i.prototype.calculateTarget=function(i){var e,n=Gumby.selectAttr.apply(this.$el,["goto"]);if("top"==n)this.targetPos=0;else if(t.isNumeric(n))this.targetPos=Number(n);else{if(e=t(n),!e.length)return Gumby.error("Cannot find skiplink target: "+n),!1;this.targetPos=e.offset().top}i&&i.apply(this)},i.prototype.skipTo=function(){Gumby.debug("Skipping to target",this.$el);var i=this;t("html,body").animate({scrollTop:this.calculateOffset()},this.duration,this.easing).promise().done(function(){Gumby.debug("Triggering onComplete event",i.$el),i.$el.trigger("gumby.onComplete")})},i.prototype.calculateOffset=function(){if(!this.offset)return this.targetPos;var t=this.offset.substr(0,1),i=Number(this.offset.substr(1,this.offset.length));return"-"===t?this.targetPos-i:"+"===t?this.targetPos+i:void 0},Gumby.addInitalisation("skiplink",function(e){t(".skiplink > a, .skip").each(function(){var n=t(this);return n.data("isSkipLink")&&!e?!0:n.data("isSkipLink")&&e?(n.trigger("gumby.initialize"),!0):(n.data("isSkipLink",!0),new i(n),void 0)})}),Gumby.UIModule({module:"skiplink",events:["initialize","onComplete","skip"],init:function(){Gumby.initialize("skiplink")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Tabs",i),this.$el=i,this.$nav=this.$el.find("> ul.tab-nav > li"),this.$content=this.$el.children(".tab-content");var e=this;this.$nav.children("a").on(Gumby.click,function(i){i.preventDefault(),e.click(t(this))}),this.$el.on("gumby.set",function(t,i){Gumby.debug("Set event triggered",e.$el),e.set(t,i)})}i.prototype.click=function(t){var i=t.parent().index();this.$nav.eq(i).add(this.$content.eq(i)).hasClass("active")||(Gumby.debug("Setting active tab to "+i,this.$el),this.$nav.add(this.$content).removeClass("active"),this.$nav.eq(i).add(this.$content.eq(i)).addClass("active"),Gumby.debug("Triggering onChange event",this.$el),this.$el.trigger("gumby.onChange",i))},i.prototype.set=function(t,i){this.$nav.eq(i).find("a").trigger(Gumby.click)},Gumby.addInitalisation("tabs",function(){t(".tabs").each(function(){var e=t(this);return e.data("isTabs")?!0:(e.data("isTabs",!0),new i(e),void 0)})}),Gumby.UIModule({module:"tabs",events:["onChange","set"],init:function(){Gumby.initialize("tabs")}})}(jQuery),!function(t){"use strict";function i(i){this.$el=t(i),this.targets=[],this.on="",this.className="",this.self=!1,this.$el.length&&(Gumby.debug("Initializing Toggle",i),this.init())}function e(i){this.$el=t(i),this.targets=[],this.on="",this.className="",this.self=!1,this.$el.length&&(Gumby.debug("Initializing Switch",i),this.init())}i.prototype.init=function(){var t=this;this.setup(),this.$el.on(this.on,function(i){i.preventDefault(),t.trigger(t.triggered)}).on("gumby.trigger",function(){Gumby.debug("Trigger event triggered",t.$el),t.trigger(t.triggered)}).on("gumby.initialize",function(){Gumby.debug("Re-initializing "+t.constructor,$el),t.setup()})},i.prototype.setup=function(){this.targets=this.parseTargets(),this.on=Gumby.selectAttr.apply(this.$el,["on"])||Gumby.click,this.className=Gumby.selectAttr.apply(this.$el,["classname"])||"active",this.self="false"===Gumby.selectAttr.apply(this.$el,["self"])},i.prototype.parseTargets=function(){var i=Gumby.selectAttr.apply(this.$el,["trigger"]),e=0,n=[];return i?(e=i.indexOf("|"),-1===e?this.checkTargets([i])?[t(i)]:!1:(n=i.split("|"),this.checkTargets(n)?n.length>1?[t(n[0]),t(n[1])]:[t(n[0])]:!1)):!1},i.prototype.checkTargets=function(i){var e=0;for(e;e<i.length;e++)if(i[e]&&!t(i[e]).length)return Gumby.error("Cannot find "+this.constructor.name+" target: "+i[e]),!1;return!0},i.prototype.triggered=function(){Gumby.debug("Triggering onTrigger event",this.$el),this.$el.trigger("gumby.onTrigger",[this.$el.hasClass(this.className)])},e.prototype=new i,e.prototype.constructor=e,i.prototype.trigger=function(t){Gumby.debug("Triggering Toggle",this.$el);var i;this.targets?1==this.targets.length?this.$el.add(this.targets[0]).toggleClass(this.className):this.targets.length>1&&(this.targets[0].hasClass(this.className)?(i=this.targets[0],this.self||(i=i.add(this.$el)),i.removeClass(this.className),this.targets[1].addClass(this.className)):(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className),this.targets[1].removeClass(this.className))):this.$el.toggleClass(this.className),t&&"function"==typeof t&&t.apply(this)},e.prototype.trigger=function(t){Gumby.debug("Triggering Switch",this.$el);var i;this.targets?1==this.targets.length?(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className)):this.targets.length>1&&(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className),this.targets[1].removeClass(this.className)):this.$el.addClass(this.className),t&&"function"==typeof t&&t.apply(this)},Gumby.addInitalisation("toggles",function(e){t(".toggle").each(function(){var n=t(this);return n.data("isToggle")&&!e?!0:(n.data("isToggle")&&e&&n.trigger("gumby.initialize"),n.data("isToggle",!0),new i(n),void 0)})}),Gumby.addInitalisation("switches",function(i){t(".switch").each(function(){var n=t(this);return n.data("isSwitch")&&!i?!0:n.data("isSwitch")&&i?(n.trigger("gumby.initialize"),!0):(n.data("isSwitch",!0),new e(n),void 0)})}),Gumby.UIModule({module:"toggleswitch",events:["initialize","trigger","onTrigger"],init:function(){Gumby.initialize("switches"),Gumby.initialize("toggles")}})}(jQuery),!function(t){"use strict";function i(t,i){Gumby&&Gumby.debug("Initializing Validation",t),this.$this=t,this.$field=this.$this.parents(".field"),this.req=i||function(){return!!this.$this.val().length};var e=this;this.$this.is("[type=checkbox], [type=radio]")?(this.$field=this.$this.parent("label"),this.$field.on("gumby.onChange",function(){e.validate()})):this.$this.is("select")?(this.$field=this.$this.parents(".picker"),this.$field.on("change",function(){e.validate()})):this.$this.on("blur",function(t){9!==t.which&&e.validate()})}i.prototype.validate=function(){var t=this.req(this.$this);return t?this.$field.removeClass("danger").addClass("success"):this.$field.removeClass("success").addClass("danger"),t},t.fn.validation=function(e){var n=t.extend({submit:!1,fail:!1,required:[]},e),s=[];return this.each(function(){if(!n.required.length)return!1;var e,o=t(this),a=n.required.length;for(e=0;a>e;e++)s.push(new i(o.find('[name="'+n.required[e].name+'"]'),n.required[e].validate||!1));o.on("submit",function(t){var i=!1;if(!o.data("passed")){t.preventDefault();var e,a=s.length;for(e=0;a>e;e++)s[e].validate()||(i=!0);if(i){if(n.fail&&"function"==typeof n.fail)return n.fail(),void 0}else{if(n.submit&&"function"==typeof n.submit)return n.submit(o.serializeArray()),void 0;o.data("passed",!0).submit()}}})})}}(jQuery),!function(t){"use strict";Gumby.touchDevice&&Gumby.touchEvents||!Gumby.autoInit?Gumby.touchEvents&&Gumby.touchDevice&&(Gumby.debug("Loading jQuery mobile touch events"),yepnope.errorTimeout=2e3,Modernizr.load({test:Modernizr.touch,yep:Gumby.touchEvents+"/jquery.mobile.custom.min.js",complete:function(){t.mobile||Gumby.error("Error loading jQuery mobile touch events"),Gumby.touchEventsLoaded=!0,Gumby.autoInit?window.Gumby.init():Gumby.uiModulesReady&&Gumby.helpers()}})):window.Gumby.init(),"function"==typeof define&&define.amd&&define(window.Gumby)}(jQuery);
+})(jQuery);;/*!
+* Parsleyjs
+* Guillaume Potier - <guillaume@wisembly.com>
+* Version 2.0.5 - built Thu Aug 28 2014 11:27:36
+* MIT Licensed
+*
+*/
+!(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module depending on jQuery.
+    define(['jquery'], factory);
+  } else {
+    // No AMD. Register plugin with global jQuery object.
+    factory(jQuery);
+  }
+}(function ($) {
+  // small hack for requirejs if jquery is loaded through map and not path
+  // see http://requirejs.org/docs/jquery.html
+  if ('undefined' === typeof $ && 'undefined' !== typeof window.jQuery)
+    $ = window.jQuery;
+  var ParsleyUtils = {
+    // Parsley DOM-API
+    // returns object from dom attributes and values
+    // if attr is given, returns bool if attr present in DOM or not
+    attr: function ($element, namespace, checkAttr) {
+      var
+        attribute,
+        obj = {},
+        msie = this.msieversion(),
+        regex = new RegExp('^' + namespace, 'i');
+      if ('undefined' === typeof $element || 'undefined' === typeof $element[0])
+        return {};
+      for (var i in $element[0].attributes) {
+        attribute = $element[0].attributes[i];
+        if ('undefined' !== typeof attribute && null !== attribute && (!msie || msie >= 8 || attribute.specified) && regex.test(attribute.name)) {
+          if ('undefined' !== typeof checkAttr && new RegExp(checkAttr + '$', 'i').test(attribute.name))
+            return true;
+          obj[this.camelize(attribute.name.replace(namespace, ''))] = this.deserializeValue(attribute.value);
+        }
+      }
+      return 'undefined' === typeof checkAttr ? obj : false;
+    },
+    setAttr: function ($element, namespace, attr, value) {
+      $element[0].setAttribute(this.dasherize(namespace + attr), String(value));
+    },
+    // Recursive object / array getter
+    get: function (obj, path) {
+      var
+        i = 0,
+        paths = (path || '').split('.');
+      while (this.isObject(obj) || this.isArray(obj)) {
+        obj = obj[paths[i++]];
+        if (i === paths.length)
+          return obj;
+      }
+      return undefined;
+    },
+    hash: function (length) {
+      return String(Math.random()).substring(2, length ? length + 2 : 9);
+    },
+    /** Third party functions **/
+    // Underscore isArray
+    isArray: function (mixed) {
+      return Object.prototype.toString.call(mixed) === '[object Array]';
+    },
+    // Underscore isObject
+    isObject: function (mixed) {
+      return mixed === Object(mixed);
+    },
+    // Zepto deserialize function
+    deserializeValue: function (value) {
+      var num;
+      try {
+        return value ?
+          value == "true" ||
+          (value == "false" ? false :
+          value == "null" ? null :
+          !isNaN(num = Number(value)) ? num :
+          /^[\[\{]/.test(value) ? $.parseJSON(value) :
+          value)
+          : value;
+      } catch (e) { return value; }
+    },
+    // Zepto camelize function
+    camelize: function (str) {
+      return str.replace(/-+(.)?/g, function(match, chr) {
+        return chr ? chr.toUpperCase() : '';
+      });
+    },
+    // Zepto dasherize function
+    dasherize: function (str) {
+      return str.replace(/::/g, '/')
+        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+        .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+        .replace(/_/g, '-')
+        .toLowerCase();
+    },
+    // http://support.microsoft.com/kb/167820
+    // http://stackoverflow.com/questions/19999388/jquery-check-if-user-is-using-ie
+    msieversion: function () {
+      var
+        ua = window.navigator.userAgent,
+        msie = ua.indexOf('MSIE ');
+      if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+      return 0;
+   }
+  };
+// All these options could be overriden and specified directly in DOM using
+// `data-parsley-` default DOM-API
+// eg: `inputs` can be set in DOM using `data-parsley-inputs="input, textarea"`
+// eg: `data-parsley-stop-on-first-failing-constraint="false"`
+  var ParsleyDefaults = {
+    // ### General
+    // Default data-namespace for DOM API
+    namespace: 'data-parsley-',
+    // Supported inputs by default
+    inputs: 'input, textarea, select',
+    // Excluded inputs by default
+    excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden]',
+    // Stop validating field on highest priority failing constraint
+    priorityEnabled: true,
+    // ### UI
+    // Enable\Disable error messages
+    uiEnabled: true,
+    // Key events threshold before validation
+    validationThreshold: 3,
+    // Focused field on form validation error. 'fist'|'last'|'none'
+    focus: 'first',
+    // `$.Event()` that will trigger validation. eg: `keyup`, `change`..
+    trigger: false,
+    // Class that would be added on every failing validation Parsley field
+    errorClass: 'parsley-error',
+    // Same for success validation
+    successClass: 'parsley-success',
+    // Return the `$element` that will receive these above success or error classes
+    // Could also be (and given directly from DOM) a valid selector like `'#div'`
+    classHandler: function (ParsleyField) {},
+    // Return the `$element` where errors will be appended
+    // Could also be (and given directly from DOM) a valid selector like `'#div'`
+    errorsContainer: function (ParsleyField) {},
+    // ul elem that would receive errors' list
+    errorsWrapper: '<ul class="parsley-errors-list"></ul>',
+    // li elem that would receive error message
+    errorTemplate: '<li></li>'
+  };
+
+  var ParsleyAbstract = function() {};
+  ParsleyAbstract.prototype = {
+    asyncSupport: false,
+    actualizeOptions: function () {
+      this.options = this.OptionsFactory.get(this);
+      return this;
+    },
+    // ParsleyValidator validate proxy function . Could be replaced by third party scripts
+    validateThroughValidator: function (value, constraints, priority) {
+      return window.ParsleyValidator.validate.apply(window.ParsleyValidator, [value, constraints, priority]);
+    },
+    // Subscribe an event and a handler for a specific field or a specific form
+    // If on a ParsleyForm instance, it will be attached to form instance and also
+    // To every field instance for this form
+    subscribe: function (name, fn) {
+      $.listenTo(this, name.toLowerCase(), fn);
+      return this;
+    },
+    // Same as subscribe above. Unsubscribe an event for field, or form + its fields
+    unsubscribe: function (name) {
+      $.unsubscribeTo(this, name.toLowerCase());
+      return this;
+    },
+    // Reset UI
+    reset: function () {
+      // Field case: just emit a reset event for UI
+      if ('ParsleyForm' !== this.__class__)
+        return $.emit('parsley:field:reset', this);
+      // Form case: emit a reset event for each field
+      for (var i = 0; i < this.fields.length; i++)
+        $.emit('parsley:field:reset', this.fields[i]);
+      $.emit('parsley:form:reset', this);
+    },
+    // Destroy Parsley instance (+ UI)
+    destroy: function () {
+      // Field case: emit destroy event to clean UI and then destroy stored instance
+      if ('ParsleyForm' !== this.__class__) {
+        this.$element.removeData('Parsley');
+        this.$element.removeData('ParsleyFieldMultiple');
+        $.emit('parsley:field:destroy', this);
+        return;
+      }
+      // Form case: destroy all its fields and then destroy stored instance
+      for (var i = 0; i < this.fields.length; i++)
+        this.fields[i].destroy();
+      this.$element.removeData('Parsley');
+      $.emit('parsley:form:destroy', this);
+    }
+  };
+/*!
+* validator.js
+* Guillaume Potier - <guillaume@wisembly.com>
+* Version 1.0.0 - built Sun Aug 03 2014 17:42:31
+* MIT Licensed
+*
+*/
+var Validator = ( function ( ) {
+  var exports = {};
+  /**
+  * Validator
+  */
+  var Validator = function ( options ) {
+    this.__class__ = 'Validator';
+    this.__version__ = '1.0.0';
+    this.options = options || {};
+    this.bindingKey = this.options.bindingKey || '_validatorjsConstraint';
+  };
+  Validator.prototype = {
+    constructor: Validator,
+    /*
+    * Validate string: validate( string, Assert, string ) || validate( string, [ Assert, Assert ], [ string, string ] )
+    * Validate object: validate( object, Constraint, string ) || validate( object, Constraint, [ string, string ] )
+    * Validate binded object: validate( object, string ) || validate( object, [ string, string ] )
+    */
+    validate: function ( objectOrString, AssertsOrConstraintOrGroup, group ) {
+      if ( 'string' !== typeof objectOrString && 'object' !== typeof objectOrString )
+        throw new Error( 'You must validate an object or a string' );
+      // string / array validation
+      if ( 'string' === typeof objectOrString || _isArray(objectOrString) )
+        return this._validateString( objectOrString, AssertsOrConstraintOrGroup, group );
+      // binded object validation
+      if ( this.isBinded( objectOrString ) )
+        return this._validateBindedObject( objectOrString, AssertsOrConstraintOrGroup );
+      // regular object validation
+      return this._validateObject( objectOrString, AssertsOrConstraintOrGroup, group );
+    },
+    bind: function ( object, constraint ) {
+      if ( 'object' !== typeof object )
+        throw new Error( 'Must bind a Constraint to an object' );
+      object[ this.bindingKey ] = new Constraint( constraint );
+      return this;
+    },
+    unbind: function ( object ) {
+      if ( 'undefined' === typeof object._validatorjsConstraint )
+        return this;
+      delete object[ this.bindingKey ];
+      return this;
+    },
+    isBinded: function ( object ) {
+      return 'undefined' !== typeof object[ this.bindingKey ];
+    },
+    getBinded: function ( object ) {
+      return this.isBinded( object ) ? object[ this.bindingKey ] : null;
+    },
+    _validateString: function ( string, assert, group ) {
+      var result, failures = [];
+      if ( !_isArray( assert ) )
+        assert = [ assert ];
+      for ( var i = 0; i < assert.length; i++ ) {
+        if ( ! ( assert[ i ] instanceof Assert) )
+          throw new Error( 'You must give an Assert or an Asserts array to validate a string' );
+        result = assert[ i ].check( string, group );
+        if ( result instanceof Violation )
+          failures.push( result );
+      }
+      return failures.length ? failures : true;
+    },
+    _validateObject: function ( object, constraint, group ) {
+      if ( 'object' !== typeof constraint )
+        throw new Error( 'You must give a constraint to validate an object' );
+      if ( constraint instanceof Constraint )
+        return constraint.check( object, group );
+      return new Constraint( constraint ).check( object, group );
+    },
+    _validateBindedObject: function ( object, group ) {
+      return object[ this.bindingKey ].check( object, group );
+    }
+  };
+  Validator.errorCode = {
+    must_be_a_string: 'must_be_a_string',
+    must_be_an_array: 'must_be_an_array',
+    must_be_a_number: 'must_be_a_number',
+    must_be_a_string_or_array: 'must_be_a_string_or_array'
+  };
+  /**
+  * Constraint
+  */
+  var Constraint = function ( data, options ) {
+    this.__class__ = 'Constraint';
+    this.options = options || {};
+    this.nodes = {};
+    if ( data ) {
+      try {
+        this._bootstrap( data );
+      } catch ( err ) {
+        throw new Error( 'Should give a valid mapping object to Constraint', err, data );
+      }
+    }
+  };
+  Constraint.prototype = {
+    constructor: Constraint,
+    check: function ( object, group ) {
+      var result, failures = {};
+      // check all constraint nodes.
+      for ( var property in this.nodes ) {
+        var isRequired = false;
+        var constraint = this.get(property);
+        var constraints = _isArray( constraint ) ? constraint : [constraint];
+        for (var i = constraints.length - 1; i >= 0; i--) {
+          if ( 'Required' === constraints[i].__class__ ) {
+            isRequired = constraints[i].requiresValidation( group );
+            continue;
+          }
+        }
+        if ( ! this.has( property, object ) && ! this.options.strict && ! isRequired ) {
+          continue;
+        }
+        try {
+          if (! this.has( property, this.options.strict || isRequired ? object : undefined ) ) {
+            // we trigger here a HaveProperty Assert violation to have uniform Violation object in the end
+            new Assert().HaveProperty( property ).validate( object );
+          }
+          result = this._check( property, object[ property ], group );
+          // check returned an array of Violations or an object mapping Violations
+          if ( ( _isArray( result ) && result.length > 0 ) || ( !_isArray( result ) && !_isEmptyObject( result ) ) ) {
+            failures[ property ] = result;
+          }
+        } catch ( violation ) {
+          failures[ property ] = violation;
+        }
+      }
+      return _isEmptyObject(failures) ? true : failures;
+    },
+    add: function ( node, object ) {
+      if ( object instanceof Assert  || ( _isArray( object ) && object[ 0 ] instanceof Assert ) ) {
+        this.nodes[ node ] = object;
+        return this;
+      }
+      if ( 'object' === typeof object && !_isArray( object ) ) {
+        this.nodes[ node ] = object instanceof Constraint ? object : new Constraint( object );
+        return this;
+      }
+      throw new Error( 'Should give an Assert, an Asserts array, a Constraint', object );
+    },
+    has: function ( node, nodes ) {
+      nodes = 'undefined' !== typeof nodes ? nodes : this.nodes;
+      return 'undefined' !== typeof nodes[ node ];
+    },
+    get: function ( node, placeholder ) {
+      return this.has( node ) ? this.nodes[ node ] : placeholder || null;
+    },
+    remove: function ( node ) {
+      var _nodes = [];
+      for ( var i in this.nodes )
+        if ( i !== node )
+          _nodes[ i ] = this.nodes[ i ];
+      this.nodes = _nodes;
+      return this;
+    },
+    _bootstrap: function ( data ) {
+      if ( data instanceof Constraint )
+        return this.nodes = data.nodes;
+      for ( var node in data )
+        this.add( node, data[ node ] );
+    },
+    _check: function ( node, value, group ) {
+      // Assert
+      if ( this.nodes[ node ] instanceof Assert )
+        return this._checkAsserts( value, [ this.nodes[ node ] ], group );
+      // Asserts
+      if ( _isArray( this.nodes[ node ] ) )
+        return this._checkAsserts( value, this.nodes[ node ], group );
+      // Constraint -> check api
+      if ( this.nodes[ node ] instanceof Constraint )
+        return this.nodes[ node ].check( value, group );
+      throw new Error( 'Invalid node', this.nodes[ node ] );
+    },
+    _checkAsserts: function ( value, asserts, group ) {
+      var result, failures = [];
+      for ( var i = 0; i < asserts.length; i++ ) {
+        result = asserts[ i ].check( value, group );
+        if ( 'undefined' !== typeof result && true !== result )
+          failures.push( result );
+        // Some asserts (Collection for example) could return an object
+        // if ( result && ! ( result instanceof Violation ) )
+        //   return result;
+        //
+        // // Vast assert majority return Violation
+        // if ( result instanceof Violation )
+        //   failures.push( result );
+      }
+      return failures;
+    }
+  };
+  /**
+  * Violation
+  */
+  var Violation = function ( assert, value, violation ) {
+    this.__class__ = 'Violation';
+    if ( ! ( assert instanceof Assert ) )
+      throw new Error( 'Should give an assertion implementing the Assert interface' );
+    this.assert = assert;
+    this.value = value;
+    if ( 'undefined' !== typeof violation )
+      this.violation = violation;
+  };
+  Violation.prototype = {
+    show: function () {
+      var show =  {
+        assert: this.assert.__class__,
+        value: this.value
+      };
+      if ( this.violation )
+        show.violation = this.violation;
+      return show;
+    },
+    __toString: function () {
+      if ( 'undefined' !== typeof this.violation )
+        this.violation = '", ' + this.getViolation().constraint + ' expected was ' + this.getViolation().expected;
+      return this.assert.__class__ + ' assert failed for "' + this.value + this.violation || '';
+    },
+    getViolation: function () {
+      var constraint, expected;
+      for ( constraint in this.violation )
+        expected = this.violation[ constraint ];
+      return { constraint: constraint, expected: expected };
+    }
+  };
+  /**
+  * Assert
+  */
+  var Assert = function ( group ) {
+    this.__class__ = 'Assert';
+    this.__parentClass__ = this.__class__;
+    this.groups = [];
+    if ( 'undefined' !== typeof group )
+      this.addGroup( group );
+  };
+  Assert.prototype = {
+    construct: Assert,
+    requiresValidation: function ( group ) {
+      if ( group && !this.hasGroup( group ) )
+        return false;
+      if ( !group && this.hasGroups() )
+        return false;
+      return true;
+    },
+    check: function ( value, group ) {
+      if ( !this.requiresValidation( group ) )
+        return;
+      try {
+        return this.validate( value, group );
+      } catch ( violation ) {
+        return violation;
+      }
+    },
+    hasGroup: function ( group ) {
+      if ( _isArray( group ) )
+        return this.hasOneOf( group );
+      // All Asserts respond to "Any" group
+      if ( 'Any' === group )
+        return true;
+      // Asserts with no group also respond to "Default" group. Else return false
+      if ( !this.hasGroups() )
+        return 'Default' === group;
+      return -1 !== this.groups.indexOf( group );
+    },
+    hasOneOf: function ( groups ) {
+      for ( var i = 0; i < groups.length; i++ )
+        if ( this.hasGroup( groups[ i ] ) )
+          return true;
+      return false;
+    },
+    hasGroups: function () {
+      return this.groups.length > 0;
+    },
+    addGroup: function ( group ) {
+      if ( _isArray( group ) )
+        return this.addGroups( group );
+      if ( !this.hasGroup( group ) )
+        this.groups.push( group );
+      return this;
+    },
+    removeGroup: function ( group ) {
+      var _groups = [];
+      for ( var i = 0; i < this.groups.length; i++ )
+        if ( group !== this.groups[ i ] )
+          _groups.push( this.groups[ i ] );
+      this.groups = _groups;
+      return this;
+    },
+    addGroups: function ( groups ) {
+      for ( var i = 0; i < groups.length; i++ )
+        this.addGroup( groups[ i ] );
+      return this;
+    },
+    /**
+    * Asserts definitions
+    */
+    HaveProperty: function ( node ) {
+      this.__class__ = 'HaveProperty';
+      this.node = node;
+      this.validate = function ( object ) {
+        if ( 'undefined' === typeof object[ this.node ] )
+          throw new Violation( this, object, { value: this.node } );
+        return true;
+      };
+      return this;
+    },
+    Blank: function () {
+      this.__class__ = 'Blank';
+      this.validate = function ( value ) {
+        if ( 'string' !== typeof value )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
+        if ( '' !== value.replace( /^\s+/g, '' ).replace( /\s+$/g, '' ) )
+          throw new Violation( this, value );
+        return true;
+      };
+      return this;
+    },
+    Callback: function ( fn ) {
+      this.__class__ = 'Callback';
+      this.arguments = Array.prototype.slice.call( arguments );
+      if ( 1 === this.arguments.length )
+        this.arguments = [];
+      else
+        this.arguments.splice( 0, 1 );
+      if ( 'function' !== typeof fn )
+        throw new Error( 'Callback must be instanciated with a function' );
+      this.fn = fn;
+      this.validate = function ( value ) {
+        var result = this.fn.apply( this, [ value ].concat( this.arguments ) );
+        if ( true !== result )
+          throw new Violation( this, value, { result: result } );
+        return true;
+      };
+      return this;
+    },
+    Choice: function ( list ) {
+      this.__class__ = 'Choice';
+      if ( !_isArray( list ) && 'function' !== typeof list )
+        throw new Error( 'Choice must be instanciated with an array or a function' );
+      this.list = list;
+      this.validate = function ( value ) {
+        var list = 'function' === typeof this.list ? this.list() : this.list;
+        for ( var i = 0; i < list.length; i++ )
+          if ( value === list[ i ] )
+            return true;
+        throw new Violation( this, value, { choices: list } );
+      };
+      return this;
+    },
+    Collection: function ( assertOrConstraint ) {
+      this.__class__ = 'Collection';
+      this.constraint = 'undefined' !== typeof assertOrConstraint ? (assertOrConstraint instanceof Assert ? assertOrConstraint : new Constraint( assertOrConstraint )) : false;
+      this.validate = function ( collection, group ) {
+        var result, validator = new Validator(), count = 0, failures = {}, groups = this.groups.length ? this.groups : group;
+        if ( !_isArray( collection ) )
+          throw new Violation( this, array, { value: Validator.errorCode.must_be_an_array } );
+        for ( var i = 0; i < collection.length; i++ ) {
+          result = this.constraint ?
+            validator.validate( collection[ i ], this.constraint, groups ) :
+            validator.validate( collection[ i ], groups );
+          if ( !_isEmptyObject( result ) )
+            failures[ count ] = result;
+          count++;
+        }
+        return !_isEmptyObject( failures ) ? failures : true;
+      };
+      return this;
+    },
+    Count: function ( count ) {
+      this.__class__ = 'Count';
+      this.count = count;
+      this.validate = function ( array ) {
+        if ( !_isArray( array ) )
+          throw new Violation( this, array, { value: Validator.errorCode.must_be_an_array } );
+        var count = 'function' === typeof this.count ? this.count( array ) : this.count;
+        if ( isNaN( Number( count ) ) )
+          throw new Error( 'Count must be a valid interger', count );
+        if ( count !== array.length )
+          throw new Violation( this, array, { count: count } );
+        return true;
+      };
+      return this;
+    },
+    Email: function () {
+      this.__class__ = 'Email';
+      this.validate = function ( value ) {
+        var regExp = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i;
+        if ( 'string' !== typeof value )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
+        if ( !regExp.test( value ) )
+          throw new Violation( this, value );
+        return true;
+      };
+      return this;
+    },
+    EqualTo: function ( reference ) {
+      this.__class__ = 'EqualTo';
+      if ( 'undefined' === typeof reference )
+        throw new Error( 'EqualTo must be instanciated with a value or a function' );
+      this.reference = reference;
+      this.validate = function ( value ) {
+        var reference = 'function' === typeof this.reference ? this.reference( value ) : this.reference;
+        if ( reference !== value )
+          throw new Violation( this, value, { value: reference } );
+        return true;
+      };
+      return this;
+    },
+    GreaterThan: function ( threshold ) {
+      this.__class__ = 'GreaterThan';
+      if ( 'undefined' === typeof threshold )
+        throw new Error( 'Should give a threshold value' );
+      this.threshold = threshold;
+      this.validate = function ( value ) {
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        if ( this.threshold >= value )
+          throw new Violation( this, value, { threshold: this.threshold } );
+        return true;
+      };
+      return this;
+    },
+    GreaterThanOrEqual: function ( threshold ) {
+      this.__class__ = 'GreaterThanOrEqual';
+      if ( 'undefined' === typeof threshold )
+        throw new Error( 'Should give a threshold value' );
+      this.threshold = threshold;
+      this.validate = function ( value ) {
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        if ( this.threshold > value )
+          throw new Violation( this, value, { threshold: this.threshold } );
+        return true;
+      };
+      return this;
+    },
+    InstanceOf: function ( classRef ) {
+      this.__class__ = 'InstanceOf';
+      if ( 'undefined' === typeof classRef )
+        throw new Error( 'InstanceOf must be instanciated with a value' );
+      this.classRef = classRef;
+      this.validate = function ( value ) {
+        if ( true !== (value instanceof this.classRef) )
+          throw new Violation( this, value, { classRef: this.classRef } );
+        return true;
+      };
+      return this;
+    },
+    Length: function ( boundaries ) {
+      this.__class__ = 'Length';
+      if ( !boundaries.min && !boundaries.max )
+        throw new Error( 'Lenth assert must be instanciated with a { min: x, max: y } object' );
+      this.min = boundaries.min;
+      this.max = boundaries.max;
+      this.validate = function ( value ) {
+        if ( 'string' !== typeof value && !_isArray( value ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string_or_array } );
+        if ( 'undefined' !== typeof this.min && this.min === this.max && value.length !== this.min )
+          throw new Violation( this, value, { min: this.min, max: this.max } );
+        if ( 'undefined' !== typeof this.max && value.length > this.max )
+          throw new Violation( this, value, { max: this.max } );
+        if ( 'undefined' !== typeof this.min && value.length < this.min )
+          throw new Violation( this, value, { min: this.min } );
+        return true;
+      };
+      return this;
+    },
+    LessThan: function ( threshold ) {
+      this.__class__ = 'LessThan';
+      if ( 'undefined' === typeof threshold )
+        throw new Error( 'Should give a threshold value' );
+      this.threshold = threshold;
+      this.validate = function ( value ) {
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        if ( this.threshold <= value )
+          throw new Violation( this, value, { threshold: this.threshold } );
+        return true;
+      };
+      return this;
+    },
+    LessThanOrEqual: function ( threshold ) {
+      this.__class__ = 'LessThanOrEqual';
+      if ( 'undefined' === typeof threshold )
+        throw new Error( 'Should give a threshold value' );
+      this.threshold = threshold;
+      this.validate = function ( value ) {
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        if ( this.threshold < value )
+          throw new Violation( this, value, { threshold: this.threshold } );
+        return true;
+      };
+      return this;
+    },
+    NotNull: function () {
+      this.__class__ = 'NotNull';
+      this.validate = function ( value ) {
+        if ( null === value || 'undefined' === typeof value )
+          throw new Violation( this, value );
+        return true;
+      };
+      return this;
+    },
+    NotBlank: function () {
+      this.__class__ = 'NotBlank';
+      this.validate = function ( value ) {
+        if ( 'string' !== typeof value )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
+        if ( '' === value.replace( /^\s+/g, '' ).replace( /\s+$/g, '' ) )
+          throw new Violation( this, value );
+        return true;
+      };
+      return this;
+    },
+    Null: function () {
+      this.__class__ = 'Null';
+      this.validate = function ( value ) {
+        if ( null !== value )
+          throw new Violation( this, value );
+        return true;
+      };
+      return this;
+    },
+    Range: function ( min, max ) {
+      this.__class__ = 'Range';
+      if ( 'undefined' === typeof min || 'undefined' === typeof max )
+        throw new Error( 'Range assert expects min and max values' );
+      this.min = min;
+      this.max = max;
+      this.validate = function ( value ) {
+          try {
+            // validate strings and objects with their Length
+            if ( ( 'string' === typeof value && isNaN( Number( value ) ) ) || _isArray( value ) )
+              new Assert().Length( { min: this.min, max: this.max } ).validate( value );
+            // validate numbers with their value
+            else
+              new Assert().GreaterThanOrEqual( this.min ).validate( value ) && new Assert().LessThanOrEqual( this.max ).validate( value );
+            return true;
+          } catch ( violation ) {
+            throw new Violation( this, value, violation.violation );
+          }
+        return true;
+      };
+      return this;
+    },
+    Regexp: function ( regexp, flag ) {
+      this.__class__ = 'Regexp';
+      if ( 'undefined' === typeof regexp )
+        throw new Error( 'You must give a regexp' );
+      this.regexp = regexp;
+      this.flag = flag || '';
+      this.validate = function ( value ) {
+        if ( 'string' !== typeof value )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
+        if ( !new RegExp( this.regexp, this.flag ).test( value ) )
+          throw new Violation( this, value, { regexp: this.regexp, flag: this.flag } );
+        return true;
+      };
+      return this;
+    },
+    Required: function () {
+      this.__class__ = 'Required';
+      this.validate = function ( value ) {
+        if ( 'undefined' === typeof value )
+          throw new Violation( this, value );
+        try {
+          if ( 'string' === typeof value )
+            new Assert().NotNull().validate( value ) && new Assert().NotBlank().validate( value );
+          else if ( true === _isArray( value ) )
+            new Assert().Length( { min: 1 } ).validate( value );
+        } catch ( violation ) {
+          throw new Violation( this, value );
+        }
+        return true;
+      };
+      return this;
+    },
+    // Unique() or Unique ( { key: foo } )
+    Unique: function ( object ) {
+      this.__class__ = 'Unique';
+      if ( 'object' === typeof object )
+        this.key = object.key;
+      this.validate = function ( array ) {
+        var value, store = [];
+        if ( !_isArray( array ) )
+          throw new Violation( this, array, { value: Validator.errorCode.must_be_an_array } );
+        for ( var i = 0; i < array.length; i++ ) {
+          value = 'object' === typeof array[ i ] ? array[ i ][ this.key ] : array[ i ];
+          if ( 'undefined' === typeof value )
+            continue;
+          if ( -1 !== store.indexOf( value ) )
+            throw new Violation( this, array, { value: value } );
+          store.push( value );
+        }
+        return true;
+      };
+      return this;
+    }
+  };
+  // expose to the world these awesome classes
+  exports.Assert = Assert;
+  exports.Validator = Validator;
+  exports.Violation = Violation;
+  exports.Constraint = Constraint;
+  /**
+  * Some useful object prototypes / functions here
+  */
+  // IE8<= compatibility
+  // https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
+  if (!Array.prototype.indexOf)
+    Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+        
+        if (this === null) {
+            throw new TypeError();
+        }
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (len === 0) {
+            return -1;
+        }
+        var n = 0;
+        if (arguments.length > 1) {
+            n = Number(arguments[1]);
+            if (n != n) { // shortcut for verifying if it's NaN
+                n = 0;
+            } else if (n !== 0 && n != Infinity && n != -Infinity) {
+                n = (n > 0 || -1) * Math.floor(Math.abs(n));
+            }
+        }
+        if (n >= len) {
+            return -1;
+        }
+        var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
+        for (; k < len; k++) {
+            if (k in t && t[k] === searchElement) {
+                return k;
+            }
+        }
+        return -1;
+    };
+  // Test if object is empty, useful for Constraint violations check
+  var _isEmptyObject = function ( obj ) {
+    for ( var property in obj )
+      return false;
+    return true;
+  };
+  var _isArray = function ( obj ) {
+    return Object.prototype.toString.call( obj ) === '[object Array]';
+  };
+  // AMD export
+  if ( typeof define === 'function' && define.amd ) {
+    define( 'vendors/validator.js/dist/validator',[],function() {
+      return exports;
+    } );
+  // commonjs export
+  } else if ( typeof module !== 'undefined' && module.exports ) {
+    module.exports = exports;
+  // browser
+  } else {
+    window[ 'undefined' !== typeof validatorjs_ns ? validatorjs_ns : 'Validator' ] = exports;
+  }
+
+  return exports; 
+} )( );
+
+  // This is needed for Browserify usage that requires Validator.js through module.exports
+  Validator = 'undefined' !== typeof Validator ? Validator : ('undefined' !== typeof module ? module.exports : null);
+  var ParsleyValidator = function (validators, catalog) {
+    this.__class__ = 'ParsleyValidator';
+    this.Validator = Validator;
+    // Default Parsley locale is en
+    this.locale = 'en';
+    this.init(validators || {}, catalog || {});
+  };
+  ParsleyValidator.prototype = {
+    init: function (validators, catalog) {
+      this.catalog = catalog;
+      for (var name in validators)
+        this.addValidator(name, validators[name].fn, validators[name].priority, validators[name].requirementsTransformer);
+      $.emit('parsley:validator:init');
+    },
+    // Set new messages locale if we have dictionary loaded in ParsleyConfig.i18n
+    setLocale: function (locale) {
+      if ('undefined' === typeof this.catalog[locale])
+        throw new Error(locale + ' is not available in the catalog');
+      this.locale = locale;
+      return this;
+    },
+    // Add a new messages catalog for a given locale. Set locale for this catalog if set === `true`
+    addCatalog: function (locale, messages, set) {
+      if ('object' === typeof messages)
+        this.catalog[locale] = messages;
+      if (true === set)
+        return this.setLocale(locale);
+      return this;
+    },
+    // Add a specific message for a given constraint in a given locale
+    addMessage: function (locale, name, message) {
+      if ('undefined' === typeof this.catalog[locale])
+        this.catalog[locale] = {};
+      this.catalog[locale][name.toLowerCase()] = message;
+      return this;
+    },
+    validate: function (value, constraints, priority) {
+      return new this.Validator.Validator().validate.apply(new Validator.Validator(), arguments);
+    },
+    // Add a new validator
+    addValidator: function (name, fn, priority, requirementsTransformer) {
+      this.validators[name.toLowerCase()] = function (requirements) {
+        return $.extend(new Validator.Assert().Callback(fn, requirements), {
+          priority: priority,
+          requirementsTransformer: requirementsTransformer
+        });
+      };
+      return this;
+    },
+    updateValidator: function (name, fn, priority, requirementsTransformer) {
+      return this.addValidator(name, fn, priority, requirementsTransformer);
+    },
+    removeValidator: function (name) {
+      delete this.validators[name];
+      return this;
+    },
+    getErrorMessage: function (constraint) {
+      var message;
+      // Type constraints are a bit different, we have to match their requirements too to find right error message
+      if ('type' === constraint.name)
+        message = this.catalog[this.locale][constraint.name][constraint.requirements];
+      else
+        message = this.formatMessage(this.catalog[this.locale][constraint.name], constraint.requirements);
+      return '' !== message ? message : this.catalog[this.locale].defaultMessage;
+    },
+    // Kind of light `sprintf()` implementation
+    formatMessage: function (string, parameters) {
+      if ('object' === typeof parameters) {
+        for (var i in parameters)
+          string = this.formatMessage(string, parameters[i]);
+        return string;
+      }
+      return 'string' === typeof string ? string.replace(new RegExp('%s', 'i'), parameters) : '';
+    },
+    // Here is the Parsley default validators list.
+    // This is basically Validatorjs validators, with different API for some of them
+    // and a Parsley priority set
+    validators: {
+      notblank: function () {
+        return $.extend(new Validator.Assert().NotBlank(), { priority: 2 });
+      },
+      required: function () {
+        return $.extend(new Validator.Assert().Required(), { priority: 512 });
+      },
+      type: function (type) {
+        var assert;
+        switch (type) {
+          case 'email':
+            assert = new Validator.Assert().Email();
+            break;
+          // range type just ensure we have a number here
+          case 'range':
+          case 'number':
+            assert = new Validator.Assert().Regexp('^-?(?:\\d+|\\d{1,3}(?:,\\d{3})+)?(?:\\.\\d+)?$');
+            break;
+          case 'integer':
+            assert = new Validator.Assert().Regexp('^-?\\d+$');
+            break;
+          case 'digits':
+            assert = new Validator.Assert().Regexp('^\\d+$');
+            break;
+          case 'alphanum':
+            assert = new Validator.Assert().Regexp('^\\w+$', 'i');
+            break;
+          case 'url':
+            assert = new Validator.Assert().Regexp('(https?:\\/\\/)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)', 'i');
+            break;
+          default:
+            throw new Error('validator type `' + type + '` is not supported');
+        }
+        return $.extend(assert, { priority: 256 });
+      },
+      pattern: function (regexp) {
+        var flags = '';
+        // Test if RegExp is literal, if not, nothing to be done, otherwise, we need to isolate flags and pattern
+        if (!!(/^\/.*\/(?:[gimy]*)$/.test(regexp))) {
+          // Replace the regexp literal string with the first match group: ([gimy]*)
+          // If no flag is present, this will be a blank string
+          flags = regexp.replace(/.*\/([gimy]*)$/, '$1');
+          // Again, replace the regexp literal string with the first match group:
+          // everything excluding the opening and closing slashes and the flags
+          regexp = regexp.replace(new RegExp('^/(.*?)/' + flags + '$'), '$1');
+        }
+        return $.extend(new Validator.Assert().Regexp(regexp, flags), { priority: 64 });
+      },
+      minlength: function (value) {
+        return $.extend(new Validator.Assert().Length({ min: value }), {
+          priority: 30,
+          requirementsTransformer: function () {
+            return 'string' === typeof value && !isNaN(value) ? parseInt(value, 10) : value;
+          }
+        });
+      },
+      maxlength: function (value) {
+        return $.extend(new Validator.Assert().Length({ max: value }), {
+        priority: 30,
+        requirementsTransformer: function () {
+            return 'string' === typeof value && !isNaN(value) ? parseInt(value, 10) : value;
+          }
+      });
+      },
+      length: function (array) {
+        return $.extend(new Validator.Assert().Length({ min: array[0], max: array[1] }), { priority: 32 });
+      },
+      mincheck: function (length) {
+        return this.minlength(length);
+      },
+      maxcheck: function (length) {
+        return this.maxlength(length);
+      },
+      check: function (array) {
+        return this.length(array);
+      },
+      min: function (value) {
+        return $.extend(new Validator.Assert().GreaterThanOrEqual(value), {
+          priority: 30,
+          requirementsTransformer: function () {
+            return 'string' === typeof value && !isNaN(value) ? parseInt(value, 10) : value;
+          }
+        });
+      },
+      max: function (value) {
+        return $.extend(new Validator.Assert().LessThanOrEqual(value), {
+          priority: 30,
+          requirementsTransformer: function () {
+            return 'string' === typeof value && !isNaN(value) ? parseInt(value, 10) : value;
+          }
+        });
+      },
+      range: function (array) {
+        return $.extend(new Validator.Assert().Range(array[0], array[1]), {
+          priority: 32,
+          requirementsTransformer: function () {
+            for (var i = 0; i < array.length; i++)
+              array[i] = 'string' === typeof array[i] && !isNaN(array[i]) ? parseInt(array[i], 10) : array[i];
+            return array;
+          }
+        });
+      },
+      equalto: function (value) {
+        return $.extend(new Validator.Assert().EqualTo(value), {
+          priority: 256,
+          requirementsTransformer: function () {
+            return $(value).length ? $(value).val() : value;
+          }
+        });
+      }
+    }
+  };
+
+  var ParsleyUI = function (options) {
+    this.__class__ = 'ParsleyUI';
+  };
+  ParsleyUI.prototype = {
+    listen: function () {
+      $.listen('parsley:form:init', this, this.setupForm);
+      $.listen('parsley:field:init', this, this.setupField);
+      $.listen('parsley:field:validated', this, this.reflow);
+      $.listen('parsley:form:validated', this, this.focus);
+      $.listen('parsley:field:reset', this, this.reset);
+      $.listen('parsley:form:destroy', this, this.destroy);
+      $.listen('parsley:field:destroy', this, this.destroy);
+      return this;
+    },
+    reflow: function (fieldInstance) {
+      // If this field has not an active UI (case for multiples) don't bother doing something
+      if ('undefined' === typeof fieldInstance._ui || false === fieldInstance._ui.active)
+        return;
+      // Diff between two validation results
+      var diff = this._diff(fieldInstance.validationResult, fieldInstance._ui.lastValidationResult);
+      // Then store current validation result for next reflow
+      fieldInstance._ui.lastValidationResult = fieldInstance.validationResult;
+      // Field have been validated at least once if here. Useful for binded key events..
+      fieldInstance._ui.validatedOnce = true;
+      // Handle valid / invalid / none field class
+      this.manageStatusClass(fieldInstance);
+      // Add, remove, updated errors messages
+      this.manageErrorsMessages(fieldInstance, diff);
+      // Triggers impl
+      this.actualizeTriggers(fieldInstance);
+      // If field is not valid for the first time, bind keyup trigger to ease UX and quickly inform user
+      if ((diff.kept.length || diff.added.length) && 'undefined' === typeof fieldInstance._ui.failedOnce)
+        this.manageFailingFieldTrigger(fieldInstance);
+    },
+    // Returns an array of field's error message(s)
+    getErrorsMessages: function (fieldInstance) {
+      // No error message, field is valid
+      if (true === fieldInstance.validationResult)
+        return [];
+      var messages = [];
+      for (var i = 0; i < fieldInstance.validationResult.length; i++)
+        messages.push(this._getErrorMessage(fieldInstance, fieldInstance.validationResult[i].assert));
+      return messages;
+    },
+    manageStatusClass: function (fieldInstance) {
+      if (true === fieldInstance.validationResult)
+        this._successClass(fieldInstance);
+      else if (fieldInstance.validationResult.length > 0)
+        this._errorClass(fieldInstance);
+      else
+        this._resetClass(fieldInstance);
+    },
+    manageErrorsMessages: function (fieldInstance, diff) {
+      if ('undefined' !== typeof fieldInstance.options.errorsMessagesDisabled)
+        return;
+      // Case where we have errorMessage option that configure an unique field error message, regardless failing validators
+      if ('undefined' !== typeof fieldInstance.options.errorMessage) {
+        if ((diff.added.length || diff.kept.length)) {
+          if (0 === fieldInstance._ui.$errorsWrapper.find('.parsley-custom-error-message').length)
+            fieldInstance._ui.$errorsWrapper
+              .append($(fieldInstance.options.errorTemplate)
+              .addClass('parsley-custom-error-message'));
+          return fieldInstance._ui.$errorsWrapper
+            .addClass('filled')
+            .find('.parsley-custom-error-message')
+            .html(fieldInstance.options.errorMessage);
+        }
+        return fieldInstance._ui.$errorsWrapper
+          .removeClass('filled')
+          .find('.parsley-custom-error-message')
+          .remove();
+      }
+      // Show, hide, update failing constraints messages
+      for (var i = 0; i < diff.removed.length; i++)
+        this.removeError(fieldInstance, diff.removed[i].assert.name, true);
+      for (i = 0; i < diff.added.length; i++)
+        this.addError(fieldInstance, diff.added[i].assert.name, undefined, diff.added[i].assert, true);
+      for (i = 0; i < diff.kept.length; i++)
+        this.updateError(fieldInstance, diff.kept[i].assert.name, undefined, diff.kept[i].assert, true);
+    },
+    // TODO: strange API here, intuitive for manual usage with addError(pslyInstance, 'foo', 'bar')
+    // but a little bit complex for above internal usage, with forced undefined parametter..
+    addError: function (fieldInstance, name, message, assert, doNotUpdateClass) {
+      fieldInstance._ui.$errorsWrapper
+        .addClass('filled')
+        .append($(fieldInstance.options.errorTemplate)
+        .addClass('parsley-' + name)
+        .html(message || this._getErrorMessage(fieldInstance, assert)));
+      if (true !== doNotUpdateClass)
+        this._errorClass(fieldInstance);
+    },
+    // Same as above
+    updateError: function (fieldInstance, name, message, assert, doNotUpdateClass) {
+      fieldInstance._ui.$errorsWrapper
+        .addClass('filled')
+        .find('.parsley-' + name)
+        .html(message || this._getErrorMessage(fieldInstance, assert));
+      if (true !== doNotUpdateClass)
+        this._errorClass(fieldInstance);
+    },
+    // Same as above twice
+    removeError: function (fieldInstance, name, doNotUpdateClass) {
+      fieldInstance._ui.$errorsWrapper
+        .removeClass('filled')
+        .find('.parsley-' + name)
+        .remove();
+      // edge case possible here: remove a standard Parsley error that is still failing in fieldInstance.validationResult
+      // but highly improbable cuz' manually removing a well Parsley handled error makes no sense.
+      if (true !== doNotUpdateClass)
+        this.manageStatusClass(fieldInstance);
+    },
+    focus: function (formInstance) {
+      if (true === formInstance.validationResult || 'none' === formInstance.options.focus)
+        return formInstance._focusedField = null;
+      formInstance._focusedField = null;
+      for (var i = 0; i < formInstance.fields.length; i++)
+        if (true !== formInstance.fields[i].validationResult && formInstance.fields[i].validationResult.length > 0 && 'undefined' === typeof formInstance.fields[i].options.noFocus) {
+          if ('first' === formInstance.options.focus) {
+            formInstance._focusedField = formInstance.fields[i].$element;
+            return formInstance._focusedField.focus();
+          }
+          formInstance._focusedField = formInstance.fields[i].$element;
+        }
+      if (null === formInstance._focusedField)
+        return null;
+      return formInstance._focusedField.focus();
+    },
+    _getErrorMessage: function (fieldInstance, constraint) {
+      var customConstraintErrorMessage = constraint.name + 'Message';
+      if ('undefined' !== typeof fieldInstance.options[customConstraintErrorMessage])
+        return window.ParsleyValidator.formatMessage(fieldInstance.options[customConstraintErrorMessage], constraint.requirements);
+      return window.ParsleyValidator.getErrorMessage(constraint);
+    },
+    _diff: function (newResult, oldResult, deep) {
+      var
+        added = [],
+        kept = [];
+      for (var i = 0; i < newResult.length; i++) {
+        var found = false;
+        for (var j = 0; j < oldResult.length; j++)
+          if (newResult[i].assert.name === oldResult[j].assert.name) {
+            found = true;
+            break;
+          }
+        if (found)
+          kept.push(newResult[i]);
+        else
+          added.push(newResult[i]);
+      }
+      return {
+        kept: kept,
+        added: added,
+        removed: !deep ? this._diff(oldResult, newResult, true).added : []
+      };
+    },
+    setupForm: function (formInstance) {
+      formInstance.$element.on('submit.Parsley', false, $.proxy(formInstance.onSubmitValidate, formInstance));
+      // UI could be disabled
+      if (false === formInstance.options.uiEnabled)
+        return;
+      formInstance.$element.attr('novalidate', '');
+    },
+    setupField: function (fieldInstance) {
+      var _ui = { active: false };
+      // UI could be disabled
+      if (false === fieldInstance.options.uiEnabled)
+        return;
+      _ui.active = true;
+      // Give field its Parsley id in DOM
+      fieldInstance.$element.attr(fieldInstance.options.namespace + 'id', fieldInstance.__id__);
+      /** Generate important UI elements and store them in fieldInstance **/
+      // $errorClassHandler is the $element that woul have parsley-error and parsley-success classes
+      _ui.$errorClassHandler = this._manageClassHandler(fieldInstance);
+      // $errorsWrapper is a div that would contain the various field errors, it will be appended into $errorsContainer
+      _ui.errorsWrapperId = 'parsley-id-' + ('undefined' !== typeof fieldInstance.options.multiple ? 'multiple-' + fieldInstance.options.multiple : fieldInstance.__id__);
+      _ui.$errorsWrapper = $(fieldInstance.options.errorsWrapper).attr('id', _ui.errorsWrapperId);
+      // ValidationResult UI storage to detect what have changed bwt two validations, and update DOM accordingly
+      _ui.lastValidationResult = [];
+      _ui.validatedOnce = false;
+      _ui.validationInformationVisible = false;
+      // Store it in fieldInstance for later
+      fieldInstance._ui = _ui;
+      // Stops excluded inputs from getting errorContainer added
+      if( !fieldInstance.$element.is(fieldInstance.options.excluded) ) {
+        /** Mess with DOM now **/
+        this._insertErrorWrapper(fieldInstance);
+      }
+      // Bind triggers first time
+      this.actualizeTriggers(fieldInstance);
+    },
+    // Determine which element will have `parsley-error` and `parsley-success` classes
+    _manageClassHandler: function (fieldInstance) {
+      // An element selector could be passed through DOM with `data-parsley-class-handler=#foo`
+      if ('string' === typeof fieldInstance.options.classHandler && $(fieldInstance.options.classHandler).length)
+        return $(fieldInstance.options.classHandler);
+      // Class handled could also be determined by function given in Parsley options
+      var $handler = fieldInstance.options.classHandler(fieldInstance);
+      // If this function returned a valid existing DOM element, go for it
+      if ('undefined' !== typeof $handler && $handler.length)
+        return $handler;
+      // Otherwise, if simple element (input, texatrea, select..) it will perfectly host the classes
+      if ('undefined' === typeof fieldInstance.options.multiple || fieldInstance.$element.is('select'))
+        return fieldInstance.$element;
+      // But if multiple element (radio, checkbox), that would be their parent
+      return fieldInstance.$element.parent();
+    },
+    _insertErrorWrapper: function (fieldInstance) {
+      var $errorsContainer;
+      if ('string' === typeof fieldInstance.options.errorsContainer) {
+        if ($(fieldInstance.options.errorsContainer).length)
+          return $(fieldInstance.options.errorsContainer).append(fieldInstance._ui.$errorsWrapper);
+        else if (window.console && window.console.warn)
+          window.console.warn('The errors container `' + fieldInstance.options.errorsContainer + '` does not exist in DOM');
+      }
+      else if ('function' === typeof fieldInstance.options.errorsContainer)
+        $errorsContainer = fieldInstance.options.errorsContainer(fieldInstance);
+      if ('undefined' !== typeof $errorsContainer && $errorsContainer.length)
+        return $errorsContainer.append(fieldInstance._ui.$errorsWrapper);
+      return 'undefined' === typeof fieldInstance.options.multiple ? fieldInstance.$element.after(fieldInstance._ui.$errorsWrapper) : fieldInstance.$element.parent().after(fieldInstance._ui.$errorsWrapper);
+    },
+    actualizeTriggers: function (fieldInstance) {
+      var that = this;
+      // Remove Parsley events already binded on this field
+      if (fieldInstance.options.multiple)
+        $('[' + fieldInstance.options.namespace + 'multiple="' + fieldInstance.options.multiple + '"]').each(function () {
+          $(this).off('.Parsley');
+        });
+      else
+        fieldInstance.$element.off('.Parsley');
+      // If no trigger is set, all good
+      if (false === fieldInstance.options.trigger)
+        return;
+      var triggers = fieldInstance.options.trigger.replace(/^\s+/g , '').replace(/\s+$/g , '');
+      if ('' === triggers)
+        return;
+      // Bind fieldInstance.eventValidate if exists (for parsley.ajax for example), ParsleyUI.eventValidate otherwise
+      if (fieldInstance.options.multiple)
+        $('[' + fieldInstance.options.namespace + 'multiple="' + fieldInstance.options.multiple + '"]').each(function () {
+          $(this).on(
+            triggers.split(' ').join('.Parsley ') + '.Parsley',
+            false,
+            $.proxy('function' === typeof fieldInstance.eventValidate ? fieldInstance.eventValidate : that.eventValidate, fieldInstance));
+        });
+      else
+        fieldInstance.$element
+          .on(
+            triggers.split(' ').join('.Parsley ') + '.Parsley',
+            false,
+            $.proxy('function' === typeof fieldInstance.eventValidate ? fieldInstance.eventValidate : this.eventValidate, fieldInstance));
+    },
+    // Called through $.proxy with fieldInstance. `this` context is ParsleyField
+    eventValidate: function(event) {
+      // For keyup, keypress, keydown.. events that could be a little bit obstrusive
+      // do not validate if val length < min threshold on first validation. Once field have been validated once and info
+      // about success or failure have been displayed, always validate with this trigger to reflect every yalidation change.
+      if (new RegExp('key').test(event.type))
+        if (!this._ui.validationInformationVisible && this.getValue().length <= this.options.validationThreshold)
+          return;
+      this._ui.validatedOnce = true;
+      this.validate();
+    },
+    manageFailingFieldTrigger: function (fieldInstance) {
+      fieldInstance._ui.failedOnce = true;
+      // Radio and checkboxes fields must bind every field multiple
+      if (fieldInstance.options.multiple)
+        $('[' + fieldInstance.options.namespace + 'multiple="' + fieldInstance.options.multiple + '"]').each(function () {
+          if (!new RegExp('change', 'i').test($(this).parsley().options.trigger || ''))
+            return $(this).on('change.ParsleyFailedOnce', false, $.proxy(fieldInstance.validate, fieldInstance));
+        });
+      // Select case
+      if (fieldInstance.$element.is('select'))
+        if (!new RegExp('change', 'i').test(fieldInstance.options.trigger || ''))
+          return fieldInstance.$element.on('change.ParsleyFailedOnce', false, $.proxy(fieldInstance.validate, fieldInstance));
+      // All other inputs fields
+      if (!new RegExp('keyup', 'i').test(fieldInstance.options.trigger || ''))
+        return fieldInstance.$element.on('keyup.ParsleyFailedOnce', false, $.proxy(fieldInstance.validate, fieldInstance));
+    },
+    reset: function (parsleyInstance) {
+      // Reset all event listeners
+      parsleyInstance.$element.off('.Parsley');
+      parsleyInstance.$element.off('.ParsleyFailedOnce');
+      // Nothing to do if UI never initialized for this field
+      if ('undefined' === typeof parsleyInstance._ui)
+        return;
+      if ('ParsleyForm' === parsleyInstance.__class__)
+        return;
+      // Reset all errors' li
+      parsleyInstance._ui.$errorsWrapper.children().each(function () {
+        $(this).remove();
+      });
+      // Reset validation class
+      this._resetClass(parsleyInstance);
+      // Reset validation flags and last validation result
+      parsleyInstance._ui.validatedOnce = false;
+      parsleyInstance._ui.lastValidationResult = [];
+      parsleyInstance._ui.validationInformationVisible = false;
+    },
+    destroy: function (parsleyInstance) {
+      this.reset(parsleyInstance);
+      if ('ParsleyForm' === parsleyInstance.__class__)
+        return;
+      if ('undefined' !== typeof parsleyInstance._ui)
+        parsleyInstance._ui.$errorsWrapper.remove();
+      delete parsleyInstance._ui;
+    },
+    _successClass: function (fieldInstance) {
+      fieldInstance._ui.validationInformationVisible = true;
+      fieldInstance._ui.$errorClassHandler.removeClass(fieldInstance.options.errorClass).addClass(fieldInstance.options.successClass);
+    },
+    _errorClass: function (fieldInstance) {
+      fieldInstance._ui.validationInformationVisible = true;
+      fieldInstance._ui.$errorClassHandler.removeClass(fieldInstance.options.successClass).addClass(fieldInstance.options.errorClass);
+    },
+    _resetClass: function (fieldInstance) {
+      fieldInstance._ui.$errorClassHandler.removeClass(fieldInstance.options.successClass).removeClass(fieldInstance.options.errorClass);
+    }
+  };
+
+  var ParsleyOptionsFactory = function (defaultOptions, globalOptions, userOptions, namespace) {
+    this.__class__ = 'OptionsFactory';
+    this.__id__ = ParsleyUtils.hash(4);
+    this.formOptions = null;
+    this.fieldOptions = null;
+    this.staticOptions = $.extend(true, {}, defaultOptions, globalOptions, userOptions, { namespace: namespace });
+  };
+  ParsleyOptionsFactory.prototype = {
+    get: function (parsleyInstance) {
+      if ('undefined' === typeof parsleyInstance.__class__)
+        throw new Error('Parsley Instance expected');
+      switch (parsleyInstance.__class__) {
+        case 'Parsley':
+          return this.staticOptions;
+        case 'ParsleyForm':
+          return this.getFormOptions(parsleyInstance);
+        case 'ParsleyField':
+        case 'ParsleyFieldMultiple':
+          return this.getFieldOptions(parsleyInstance);
+        default:
+          throw new Error('Instance ' + parsleyInstance.__class__ + ' is not supported');
+      }
+    },
+    getFormOptions: function (formInstance) {
+      this.formOptions = ParsleyUtils.attr(formInstance.$element, this.staticOptions.namespace);
+      // not deep extend, since formOptions is a 1 level deep object
+      return $.extend({}, this.staticOptions, this.formOptions);
+    },
+    getFieldOptions: function (fieldInstance) {
+      this.fieldOptions = ParsleyUtils.attr(fieldInstance.$element, this.staticOptions.namespace);
+      if (null === this.formOptions && 'undefined' !== typeof fieldInstance.parent)
+        this.formOptions = this.getFormOptions(fieldInstance.parent);
+      // not deep extend, since formOptions and fieldOptions is a 1 level deep object
+      return $.extend({}, this.staticOptions, this.formOptions, this.fieldOptions);
+    }
+  };
+
+  var ParsleyForm = function (element, OptionsFactory) {
+    this.__class__ = 'ParsleyForm';
+    this.__id__ = ParsleyUtils.hash(4);
+    if ('OptionsFactory' !== ParsleyUtils.get(OptionsFactory, '__class__'))
+      throw new Error('You must give an OptionsFactory instance');
+    this.OptionsFactory = OptionsFactory;
+    this.$element = $(element);
+    this.validationResult = null;
+    this.options = this.OptionsFactory.get(this);
+  };
+  ParsleyForm.prototype = {
+    onSubmitValidate: function (event) {
+      this.validate(undefined, undefined, event);
+      // prevent form submission if validation fails
+      if (false === this.validationResult && event instanceof $.Event) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+      return this;
+    },
+    // @returns boolean
+    validate: function (group, force, event) {
+      this.submitEvent = event;
+      this.validationResult = true;
+      var fieldValidationResult = [];
+      // Refresh form DOM options and form's fields that could have changed
+      this._refreshFields();
+      $.emit('parsley:form:validate', this);
+      // loop through fields to validate them one by one
+      for (var i = 0; i < this.fields.length; i++) {
+        // do not validate a field if not the same as given validation group
+        if (group && !this._isFieldInGroup(this.fields[i], group))
+          continue;
+        fieldValidationResult = this.fields[i].validate(force);
+        if (true !== fieldValidationResult && fieldValidationResult.length > 0 && this.validationResult)
+          this.validationResult = false;
+      }
+      $.emit('parsley:form:validated', this);
+      return this.validationResult;
+    },
+    // Iterate over refreshed fields, and stop on first failure
+    isValid: function (group, force) {
+      this._refreshFields();
+      for (var i = 0; i < this.fields.length; i++) {
+        // do not validate a field if not the same as given validation group
+        if (group && !this._isFieldInGroup(this.fields[i], group))
+          continue;
+        if (false === this.fields[i].isValid(force))
+          return false;
+      }
+      return true;
+    },
+    _isFieldInGroup: function (field, group) {
+      if(ParsleyUtils.isArray(field.options.group))
+        return -1 !== $.inArray(field.options.group, group);
+      return field.options.group === group;
+    },
+    _refreshFields: function () {
+      return this.actualizeOptions()._bindFields();
+    },
+    _bindFields: function () {
+      var self = this;
+      this.fields = [];
+      this.fieldsMappedById = {};
+      this.$element.find(this.options.inputs).each(function () {
+        var fieldInstance = new window.Parsley(this, {}, self);
+        // Only add valid and not excluded `ParsleyField` and `ParsleyFieldMultiple` children
+        if (('ParsleyField' === fieldInstance.__class__ || 'ParsleyFieldMultiple' === fieldInstance.__class__) && !fieldInstance.$element.is(fieldInstance.options.excluded))
+          if ('undefined' === typeof self.fieldsMappedById[fieldInstance.__class__ + '-' + fieldInstance.__id__]) {
+            self.fieldsMappedById[fieldInstance.__class__ + '-' + fieldInstance.__id__] = fieldInstance;
+            self.fields.push(fieldInstance);
+          }
+      });
+      return this;
+    }
+  };
+
+  var ConstraintFactory = function (parsleyField, name, requirements, priority, isDomConstraint) {
+    if (!new RegExp('ParsleyField').test(ParsleyUtils.get(parsleyField, '__class__')))
+      throw new Error('ParsleyField or ParsleyFieldMultiple instance expected');
+    if ('function' !== typeof window.ParsleyValidator.validators[name] &&
+      'Assert' !== window.ParsleyValidator.validators[name](requirements).__parentClass__)
+      throw new Error('Valid validator expected');
+    var getPriority = function (parsleyField, name) {
+      if ('undefined' !== typeof parsleyField.options[name + 'Priority'])
+        return parsleyField.options[name + 'Priority'];
+      return ParsleyUtils.get(window.ParsleyValidator.validators[name](requirements), 'priority') || 2;
+    };
+    priority = priority || getPriority(parsleyField, name);
+    // If validator have a requirementsTransformer, execute it
+    if ('function' === typeof window.ParsleyValidator.validators[name](requirements).requirementsTransformer)
+      requirements = window.ParsleyValidator.validators[name](requirements).requirementsTransformer();
+    return $.extend(window.ParsleyValidator.validators[name](requirements), {
+      name: name,
+      requirements: requirements,
+      priority: priority,
+      groups: [priority],
+      isDomConstraint: isDomConstraint || ParsleyUtils.attr(parsleyField.$element, parsleyField.options.namespace, name)
+    });
+  };
+
+  var ParsleyField = function (field, OptionsFactory, parsleyFormInstance) {
+    this.__class__ = 'ParsleyField';
+    this.__id__ = ParsleyUtils.hash(4);
+    this.$element = $(field);
+    // If we have a parent `ParsleyForm` instance given, use its `OptionsFactory`, and save parent
+    if ('undefined' !== typeof parsleyFormInstance) {
+      this.parent = parsleyFormInstance;
+      this.OptionsFactory = this.parent.OptionsFactory;
+      this.options = this.OptionsFactory.get(this);
+    // Else, take the `Parsley` one
+    } else {
+      this.OptionsFactory = OptionsFactory;
+      this.options = this.OptionsFactory.get(this);
+    }
+    // Initialize some properties
+    this.constraints = [];
+    this.constraintsByName = {};
+    this.validationResult = [];
+    // Bind constraints
+    this._bindConstraints();
+  };
+  ParsleyField.prototype = {
+    // # Public API
+    // Validate field and $.emit some events for mainly `ParsleyUI`
+    // @returns validationResult:
+    //  - `true` if all constraint passes
+    //  - `[]` if not required field and empty (not validated)
+    //  - `[Violation, [Violation..]]` if there were validation errors
+    validate: function (force) {
+      this.value = this.getValue();
+      // Field Validate event. `this.value` could be altered for custom needs
+      $.emit('parsley:field:validate', this);
+      $.emit('parsley:field:' + (this.isValid(force, this.value) ? 'success' : 'error'), this);
+      // Field validated event. `this.validationResult` could be altered for custom needs too
+      $.emit('parsley:field:validated', this);
+      return this.validationResult;
+    },
+    // Just validate field. Do not trigger any event
+    // Same @return as `validate()`
+    isValid: function (force, value) {
+      // Recompute options and rebind constraints to have latest changes
+      this.refreshConstraints();
+      // Sort priorities to validate more important first
+      var priorities = this._getConstraintsSortedPriorities();
+      // Value could be passed as argument, needed to add more power to 'parsley:field:validate'
+      value = value || this.getValue();
+      // If a field is empty and not required, leave it alone, it's just fine
+      // Except if `data-parsley-validate-if-empty` explicitely added, useful for some custom validators
+      if (0 === value.length && !this._isRequired() && 'undefined' === typeof this.options.validateIfEmpty && true !== force)
+        return this.validationResult = [];
+      // If we want to validate field against all constraints, just call Validator and let it do the job
+      if (false === this.options.priorityEnabled)
+        return true === (this.validationResult = this.validateThroughValidator(value, this.constraints, 'Any'));
+      // Else, iterate over priorities one by one, and validate related asserts one by one
+      for (var i = 0; i < priorities.length; i++)
+        if (true !== (this.validationResult = this.validateThroughValidator(value, this.constraints, priorities[i])))
+          return false;
+      return true;
+    },
+    // @returns Parsley field computed value that could be overrided or configured in DOM
+    getValue: function () {
+      var value;
+      // Value could be overriden in DOM
+      if ('undefined' !== typeof this.options.value)
+        value = this.options.value;
+      else
+        value = this.$element.val();
+      // Handle wrong DOM or configurations
+      if ('undefined' === typeof value || null === value)
+        return '';
+      // Use `data-parsley-trim-value="true"` to auto trim inputs entry
+      if (true === this.options.trimValue)
+        return value.replace(/^\s+|\s+$/g, '');
+      return value;
+    },
+    // Actualize options that could have change since previous validation
+    // Re-bind accordingly constraints (could be some new, removed or updated)
+    refreshConstraints: function () {
+      return this.actualizeOptions()._bindConstraints();
+    },
+    /**
+    * Add a new constraint to a field
+    *
+    * @method addConstraint
+    * @param {String}   name
+    * @param {Mixed}    requirements      optional
+    * @param {Number}   priority          optional
+    * @param {Boolean}  isDomConstraint   optional
+    */
+    addConstraint: function (name, requirements, priority, isDomConstraint) {
+      name = name.toLowerCase();
+      if ('function' === typeof window.ParsleyValidator.validators[name]) {
+        var constraint = new ConstraintFactory(this, name, requirements, priority, isDomConstraint);
+        // if constraint already exist, delete it and push new version
+        if ('undefined' !== this.constraintsByName[constraint.name])
+          this.removeConstraint(constraint.name);
+        this.constraints.push(constraint);
+        this.constraintsByName[constraint.name] = constraint;
+      }
+      return this;
+    },
+    // Remove a constraint
+    removeConstraint: function (name) {
+      for (var i = 0; i < this.constraints.length; i++)
+        if (name === this.constraints[i].name) {
+          this.constraints.splice(i, 1);
+          break;
+        }
+      return this;
+    },
+    // Update a constraint (Remove + re-add)
+    updateConstraint: function (name, parameters, priority) {
+      return this.removeConstraint(name)
+        .addConstraint(name, parameters, priority);
+    },
+    // # Internals
+    // Internal only.
+    // Bind constraints from config + options + DOM
+    _bindConstraints: function () {
+      var constraints = [];
+      // clean all existing DOM constraints to only keep javascript user constraints
+      for (var i = 0; i < this.constraints.length; i++)
+        if (false === this.constraints[i].isDomConstraint)
+          constraints.push(this.constraints[i]);
+      this.constraints = constraints;
+      // then re-add Parsley DOM-API constraints
+      for (var name in this.options)
+        this.addConstraint(name, this.options[name]);
+      // finally, bind special HTML5 constraints
+      return this._bindHtml5Constraints();
+    },
+    // Internal only.
+    // Bind specific HTML5 constraints to be HTML5 compliant
+    _bindHtml5Constraints: function () {
+      // html5 required
+      if (this.$element.hasClass('required') || this.$element.attr('required'))
+        this.addConstraint('required', true, undefined, true);
+      // html5 pattern
+      if ('string' === typeof this.$element.attr('pattern'))
+        this.addConstraint('pattern', this.$element.attr('pattern'), undefined, true);
+      // range
+      if ('undefined' !== typeof this.$element.attr('min') && 'undefined' !== typeof this.$element.attr('max'))
+        this.addConstraint('range', [this.$element.attr('min'), this.$element.attr('max')], undefined, true);
+      // HTML5 min
+      else if ('undefined' !== typeof this.$element.attr('min'))
+        this.addConstraint('min', this.$element.attr('min'), undefined, true);
+      // HTML5 max
+      else if ('undefined' !== typeof this.$element.attr('max'))
+        this.addConstraint('max', this.$element.attr('max'), undefined, true);
+      // html5 types
+      var type = this.$element.attr('type');
+      if ('undefined' === typeof type)
+        return this;
+      // Small special case here for HTML5 number, that is in fact an integer validator
+      if ('number' === type)
+        return this.addConstraint('type', 'integer', undefined, true);
+      // Regular other HTML5 supported types
+      else if (new RegExp(type, 'i').test('email url range'))
+        return this.addConstraint('type', type, undefined, true);
+      return this;
+    },
+    // Internal only.
+    // Field is required if have required constraint without `false` value
+    _isRequired: function () {
+      if ('undefined' === typeof this.constraintsByName.required)
+        return false;
+      return false !== this.constraintsByName.required.requirements;
+    },
+    // Internal only.
+    // Sort constraints by priority DESC
+    _getConstraintsSortedPriorities: function () {
+      var priorities = [];
+      // Create array unique of priorities
+      for (var i = 0; i < this.constraints.length; i++)
+        if (-1 === priorities.indexOf(this.constraints[i].priority))
+          priorities.push(this.constraints[i].priority);
+      // Sort them by priority DESC
+      priorities.sort(function (a, b) { return b - a; });
+      return priorities;
+    }
+  };
+
+  var ParsleyMultiple = function () {
+    this.__class__ = 'ParsleyFieldMultiple';
+  };
+  ParsleyMultiple.prototype = {
+    // Add new `$element` sibling for multiple field
+    addElement: function ($element) {
+      this.$elements.push($element);
+      return this;
+    },
+    // See `ParsleyField.refreshConstraints()`
+    refreshConstraints: function () {
+      var fieldConstraints;
+      this.constraints = [];
+      // Select multiple special treatment
+      if (this.$element.is('select')) {
+        this.actualizeOptions()._bindConstraints();
+        return this;
+      }
+      // Gather all constraints for each input in the multiple group
+      for (var i = 0; i < this.$elements.length; i++) {
+        // Check if element have not been dynamically removed since last binding
+        if (!$('html').has(this.$elements[i]).length) {
+          this.$elements.splice(i, 1);
+          continue;
+        }
+        fieldConstraints = this.$elements[i].data('ParsleyFieldMultiple').refreshConstraints().constraints;
+        for (var j = 0; j < fieldConstraints.length; j++)
+          this.addConstraint(fieldConstraints[j].name, fieldConstraints[j].requirements, fieldConstraints[j].priority, fieldConstraints[j].isDomConstraint);
+      }
+      return this;
+    },
+    // See `ParsleyField.getValue()`
+    getValue: function () {
+      // Value could be overriden in DOM
+      if ('undefined' !== typeof this.options.value)
+        return this.options.value;
+      // Radio input case
+      if (this.$element.is('input[type=radio]'))
+        return $('[' + this.options.namespace + 'multiple="' + this.options.multiple + '"]:checked').val() || '';
+      // checkbox input case
+      if (this.$element.is('input[type=checkbox]')) {
+        var values = [];
+        $('[' + this.options.namespace + 'multiple="' + this.options.multiple + '"]:checked').each(function () {
+          values.push($(this).val());
+        });
+        return values.length ? values : [];
+      }
+      // Select multiple case
+      if (this.$element.is('select') && null === this.$element.val())
+        return [];
+      // Default case that should never happen
+      return this.$element.val();
+    },
+    _init: function (multiple) {
+      this.$elements = [this.$element];
+      this.options.multiple = multiple;
+      return this;
+    }
+  };
+
+  var
+    o = $({}),
+    subscribed = {};
+  // $.listen(name, callback);
+  // $.listen(name, context, callback);
+  $.listen = function (name) {
+    if ('undefined' === typeof subscribed[name])
+      subscribed[name] = [];
+    if ('function' === typeof arguments[1])
+      return subscribed[name].push({ fn: arguments[1] });
+    if ('object' === typeof arguments[1] && 'function' === typeof arguments[2])
+      return subscribed[name].push({ fn: arguments[2], ctxt: arguments[1] });
+    throw new Error('Wrong parameters');
+  };
+  $.listenTo = function (instance, name, fn) {
+    if ('undefined' === typeof subscribed[name])
+      subscribed[name] = [];
+    if (!(instance instanceof ParsleyField) && !(instance instanceof ParsleyForm))
+      throw new Error('Must give Parsley instance');
+    if ('string' !== typeof name || 'function' !== typeof fn)
+      throw new Error('Wrong parameters');
+    subscribed[name].push({ instance: instance, fn: fn });
+  };
+  $.unsubscribe = function (name, fn) {
+    if ('undefined' === typeof subscribed[name])
+      return;
+    if ('string' !== typeof name || 'function' !== typeof fn)
+      throw new Error('Wrong arguments');
+    for (var i = 0; i < subscribed[name].length; i++)
+      if (subscribed[name][i].fn === fn)
+        return subscribed[name].splice(i, 1);
+  };
+  $.unsubscribeTo = function (instance, name) {
+    if ('undefined' === typeof subscribed[name])
+      return;
+    if (!(instance instanceof ParsleyField) && !(instance instanceof ParsleyForm))
+      throw new Error('Must give Parsley instance');
+    for (var i = 0; i < subscribed[name].length; i++)
+      if ('undefined' !== typeof subscribed[name][i].instance && subscribed[name][i].instance.__id__ === instance.__id__)
+        return subscribed[name].splice(i, 1);
+  };
+  $.unsubscribeAll = function (name) {
+    if ('undefined' === typeof subscribed[name])
+      return;
+    delete subscribed[name];
+  };
+  // $.emit(name [, arguments...]);
+  // $.emit(name, instance [, arguments..]);
+  $.emit = function (name, instance) {
+    if ('undefined' === typeof subscribed[name])
+      return;
+    // loop through registered callbacks for this event
+    for (var i = 0; i < subscribed[name].length; i++) {
+      // if instance is not registered, simple emit
+      if ('undefined' === typeof subscribed[name][i].instance) {
+        subscribed[name][i].fn.apply('undefined' !== typeof subscribed[name][i].ctxt ? subscribed[name][i].ctxt : o, Array.prototype.slice.call(arguments, 1));
+        continue;
+      }
+      // if instance registered but no instance given for the emit, continue
+      if (!(instance instanceof ParsleyField) && !(instance instanceof ParsleyForm))
+        continue;
+      // if instance is registered and same id, emit
+      if (subscribed[name][i].instance.__id__ === instance.__id__) {
+        subscribed[name][i].fn.apply(o, Array.prototype.slice.call(arguments, 1));
+        continue;
+      }
+      // if registered instance is a Form and fired one is a Field, loop over all its fields and emit if field found
+      if (subscribed[name][i].instance instanceof ParsleyForm && instance instanceof ParsleyField)
+        for (var j = 0; j < subscribed[name][i].instance.fields.length; j++)
+          if (subscribed[name][i].instance.fields[j].__id__ === instance.__id__) {
+            subscribed[name][i].fn.apply(o, Array.prototype.slice.call(arguments, 1));
+            continue;
+          }
+    }
+  };
+  $.subscribed = function () { return subscribed; };
+
+// ParsleyConfig definition if not already set
+window.ParsleyConfig = window.ParsleyConfig || {};
+window.ParsleyConfig.i18n = window.ParsleyConfig.i18n || {};
+// Define then the messages
+window.ParsleyConfig.i18n.en = $.extend(window.ParsleyConfig.i18n.en || {}, {
+  defaultMessage: "This value seems to be invalid.",
+  type: {
+    email:        "This value should be a valid email.",
+    url:          "This value should be a valid url.",
+    number:       "This value should be a valid number.",
+    integer:      "This value should be a valid integer.",
+    digits:       "This value should be digits.",
+    alphanum:     "This value should be alphanumeric."
+  },
+  notblank:       "This value should not be blank.",
+  required:       "This value is required.",
+  pattern:        "This value seems to be invalid.",
+  min:            "This value should be greater than or equal to %s.",
+  max:            "This value should be lower than or equal to %s.",
+  range:          "This value should be between %s and %s.",
+  minlength:      "This value is too short. It should have %s characters or more.",
+  maxlength:      "This value is too long. It should have %s characters or fewer.",
+  length:         "This value length is invalid. It should be between %s and %s characters long.",
+  mincheck:       "You must select at least %s choices.",
+  maxcheck:       "You must select %s choices or fewer.",
+  check:          "You must select between %s and %s choices.",
+  equalto:        "This value should be the same."
+});
+// If file is loaded after Parsley main file, auto-load locale
+if ('undefined' !== typeof window.ParsleyValidator)
+  window.ParsleyValidator.addCatalog('en', window.ParsleyConfig.i18n.en, true);
+
+//     Parsley.js 2.0.5
+//     http://parsleyjs.org
+//     (c) 20012-2014 Guillaume Potier, Wisembly
+//     Parsley may be freely distributed under the MIT license.
+
+  // ### Parsley factory
+  var Parsley = function (element, options, parsleyFormInstance) {
+    this.__class__ = 'Parsley';
+    this.__version__ = '2.0.5';
+    this.__id__ = ParsleyUtils.hash(4);
+    // Parsley must be instanciated with a DOM element or jQuery $element
+    if ('undefined' === typeof element)
+      throw new Error('You must give an element');
+    if ('undefined' !== typeof parsleyFormInstance && 'ParsleyForm' !== parsleyFormInstance.__class__)
+      throw new Error('Parent instance must be a ParsleyForm instance');
+    return this.init($(element), options, parsleyFormInstance);
+  };
+  Parsley.prototype = {
+    init: function ($element, options, parsleyFormInstance) {
+      if (!$element.length)
+        throw new Error('You must bind Parsley on an existing element.');
+      this.$element = $element;
+      // If element have already been binded, returns its saved Parsley instance
+      if (this.$element.data('Parsley')) {
+        var savedparsleyFormInstance = this.$element.data('Parsley');
+        // If saved instance have been binded without a ParsleyForm parent and there is one given in this call, add it
+        if ('undefined' !== typeof parsleyFormInstance)
+          savedparsleyFormInstance.parent = parsleyFormInstance;
+        return savedparsleyFormInstance;
+      }
+      // Handle 'static' options
+      this.OptionsFactory = new ParsleyOptionsFactory(ParsleyDefaults, ParsleyUtils.get(window, 'ParsleyConfig') || {}, options, this.getNamespace(options));
+      this.options = this.OptionsFactory.get(this);
+      // A ParsleyForm instance is obviously a `<form>` elem but also every node that is not an input and have `data-parsley-validate` attribute
+      if (this.$element.is('form') || (ParsleyUtils.attr(this.$element, this.options.namespace, 'validate') && !this.$element.is(this.options.inputs)))
+        return this.bind('parsleyForm');
+      // Every other supported element and not excluded element is binded as a `ParsleyField` or `ParsleyFieldMultiple`
+      else if (this.$element.is(this.options.inputs) && !this.$element.is(this.options.excluded))
+        return this.isMultiple() ? this.handleMultiple(parsleyFormInstance) : this.bind('parsleyField', parsleyFormInstance);
+      return this;
+    },
+    isMultiple: function () {
+      return (this.$element.is('input[type=radio], input[type=checkbox]') && 'undefined' === typeof this.options.multiple) || (this.$element.is('select') && 'undefined' !== typeof this.$element.attr('multiple'));
+    },
+    // Multiples fields are a real nightmare :(
+    // Maybe some refacto would be appreciated here..
+    handleMultiple: function (parsleyFormInstance) {
+      var
+        that = this,
+        name,
+        multiple,
+        parsleyMultipleInstance;
+      // Get parsleyFormInstance options if exist, mixed with element attributes
+      this.options = $.extend(this.options, parsleyFormInstance ? parsleyFormInstance.OptionsFactory.get(parsleyFormInstance) : {}, ParsleyUtils.attr(this.$element, this.options.namespace));
+      // Handle multiple name
+      if (this.options.multiple)
+        multiple = this.options.multiple;
+      else if ('undefined' !== typeof this.$element.attr('name') && this.$element.attr('name').length)
+        multiple = name = this.$element.attr('name');
+      else if ('undefined' !== typeof this.$element.attr('id') && this.$element.attr('id').length)
+        multiple = this.$element.attr('id');
+      // Special select multiple input
+      if (this.$element.is('select') && 'undefined' !== typeof this.$element.attr('multiple')) {
+        return this.bind('parsleyFieldMultiple', parsleyFormInstance, multiple || this.__id__);
+      // Else for radio / checkboxes, we need a `name` or `data-parsley-multiple` to properly bind it
+      } else if ('undefined' === typeof multiple) {
+        if (window.console && window.console.warn)
+          window.console.warn('To be binded by Parsley, a radio, a checkbox and a multiple select input must have either a name or a multiple option.', this.$element);
+        return this;
+      }
+      // Remove special chars
+      multiple = multiple.replace(/(:|\.|\[|\]|\$)/g, '');
+      // Add proper `data-parsley-multiple` to siblings if we have a valid multiple name
+      if ('undefined' !== typeof name) {
+        $('input[name="' + name + '"]').each(function () {
+          if ($(this).is('input[type=radio], input[type=checkbox]'))
+            $(this).attr(that.options.namespace + 'multiple', multiple);
+        });
+      }
+      // Check here if we don't already have a related multiple instance saved
+      if ($('[' + this.options.namespace + 'multiple=' + multiple +']').length) {
+        for (var i = 0; i < $('[' + this.options.namespace + 'multiple=' + multiple +']').length; i++) {
+          if ('undefined' !== typeof $($('[' + this.options.namespace + 'multiple=' + multiple +']').get(i)).data('Parsley')) {
+            parsleyMultipleInstance = $($('[' + this.options.namespace + 'multiple=' + multiple +']').get(i)).data('Parsley');
+            if (!this.$element.data('ParsleyFieldMultiple')) {
+              parsleyMultipleInstance.addElement(this.$element);
+              this.$element.attr(this.options.namespace + 'id', parsleyMultipleInstance.__id__);
+            }
+            break;
+          }
+        }
+      }
+      // Create a secret ParsleyField instance for every multiple field. It would be stored in `data('ParsleyFieldMultiple')`
+      // And would be useful later to access classic `ParsleyField` stuff while being in a `ParsleyFieldMultiple` instance
+      this.bind('parsleyField', parsleyFormInstance, multiple, true);
+      return parsleyMultipleInstance || this.bind('parsleyFieldMultiple', parsleyFormInstance, multiple);
+    },
+    // Retrieve namespace used for DOM-API
+    getNamespace: function (options) {
+      // `data-parsley-namespace=<namespace>`
+      if ('undefined' !== typeof this.$element.data('parsleyNamespace'))
+        return this.$element.data('parsleyNamespace');
+      if ('undefined' !== typeof ParsleyUtils.get(options, 'namespace'))
+        return options.namespace;
+      if ('undefined' !== typeof ParsleyUtils.get(window, 'ParsleyConfig.namespace'))
+        return window.ParsleyConfig.namespace;
+      return ParsleyDefaults.namespace;
+    },
+    // Return proper `ParsleyForm`, `ParsleyField` or `ParsleyFieldMultiple`
+    bind: function (type, parentParsleyFormInstance, multiple, doNotStore) {
+      var parsleyInstance;
+      switch (type) {
+        case 'parsleyForm':
+          parsleyInstance = $.extend(
+            new ParsleyForm(this.$element, this.OptionsFactory),
+            new ParsleyAbstract(),
+            window.ParsleyExtend
+          )._bindFields();
+          break;
+        case 'parsleyField':
+          parsleyInstance = $.extend(
+            new ParsleyField(this.$element, this.OptionsFactory, parentParsleyFormInstance),
+            new ParsleyAbstract(),
+            window.ParsleyExtend
+          );
+          break;
+        case 'parsleyFieldMultiple':
+          parsleyInstance = $.extend(
+            new ParsleyField(this.$element, this.OptionsFactory, parentParsleyFormInstance),
+            new ParsleyAbstract(),
+            new ParsleyMultiple(),
+            window.ParsleyExtend
+          )._init(multiple);
+          break;
+        default:
+          throw new Error(type + 'is not a supported Parsley type');
+      }
+      if ('undefined' !== typeof multiple)
+        ParsleyUtils.setAttr(this.$element, this.options.namespace, 'multiple', multiple);
+      if ('undefined' !== typeof doNotStore) {
+        this.$element.data('ParsleyFieldMultiple', parsleyInstance);
+        return parsleyInstance;
+      }
+      // Store instance if `ParsleyForm`, `ParsleyField` or `ParsleyFieldMultiple`
+      if (new RegExp('ParsleyF', 'i').test(parsleyInstance.__class__)) {
+        // Store for later access the freshly binded instance in DOM element itself using jQuery `data()`
+        this.$element.data('Parsley', parsleyInstance);
+        // Tell the world we got a new ParsleyForm or ParsleyField instance!
+        $.emit('parsley:' + ('parsleyForm' === type ? 'form' : 'field') + ':init', parsleyInstance);
+      }
+      return parsleyInstance;
+    }
+  };
+  // ### jQuery API
+  // `$('.elem').parsley(options)` or `$('.elem').psly(options)`
+  $.fn.parsley = $.fn.psly = function (options) {
+    if (this.length > 1) {
+      var instances = [];
+      this.each(function () {
+        instances.push($(this).parsley(options));
+      });
+      return instances;
+    }
+    // Return undefined if applied to non existing DOM element
+    if (!$(this).length) {
+      if (window.console && window.console.warn)
+        window.console.warn('You must bind Parsley on an existing element.');
+      return;
+    }
+    return new Parsley(this, options);
+  };
+  // ### ParsleyUI
+  // UI is a class apart that only listen to some events and them modify DOM accordingly
+  // Could be overriden by defining a `window.ParsleyConfig.ParsleyUI` appropriate class (with `listen()` method basically)
+  window.ParsleyUI = 'function' === typeof ParsleyUtils.get(window, 'ParsleyConfig.ParsleyUI') ?
+    new window.ParsleyConfig.ParsleyUI().listen() : new ParsleyUI().listen();
+  // ### ParsleyField and ParsleyForm extension
+  // Ensure that defined if not already the case
+  if ('undefined' === typeof window.ParsleyExtend)
+    window.ParsleyExtend = {};
+  // ### ParsleyConfig
+  // Ensure that defined if not already the case
+  if ('undefined' === typeof window.ParsleyConfig)
+    window.ParsleyConfig = {};
+  // ### Globals
+  window.Parsley = window.psly = Parsley;
+  window.ParsleyUtils = ParsleyUtils;
+  window.ParsleyValidator = new ParsleyValidator(window.ParsleyConfig.validators, window.ParsleyConfig.i18n);
+  // ### PARSLEY auto-binding
+  // Prevent it by setting `ParsleyConfig.autoBind` to `false`
+  if (false !== ParsleyUtils.get(window, 'ParsleyConfig.autoBind'))
+    $(document).ready(function () {
+      // Works only on `data-parsley-validate`.
+      if ($('[data-parsley-validate]').length)
+        $('[data-parsley-validate]').parsley();
+    });
+}));
+;!function(t){"use strict";function i(){this.$dom=t(document),this.$html=this.$dom.find("html"),this.isOldie=!!this.$html.hasClass("oldie"),this.click="click",this.onReady=this.onOldie=this.onTouch=!1,this.autoInit="false"===t("script[gumby-init]").attr("gumby-init")?!1:!0,this.debugMode=Boolean(t("script[gumby-debug]").length),this.touchDevice=!!(Modernizr.touch||window.navigator.userAgent.indexOf("Windows Phone")>0),this.gumbyTouch=!1,this.touchEvents="js/libs",this.breakpoint=Number(t("script[gumby-breakpoint]").attr("gumby-breakpoint"))||768,this.touchEventsLoaded=!1,this.uiModulesReady=!1,this.uiModules={},this.inits={};var i=t("script[gumby-touch]").attr("gumby-touch"),e=t("script[gumby-path]").attr("gumby-path");"false"===i?this.touchEvents=!1:i?this.touchEvents=i:e&&(this.touchEvents=e),this.touchDevice&&(this.click+=" tap"),this.touchDevice&&t(window).width()<this.breakpoint?(this.$html.addClass("gumby-touch"),this.gumbyTouch=!0):this.$html.addClass("gumby-no-touch"),this.debugMode&&this.debug("Gumby is in debug mode")}i.prototype.init=function(t){var i=this,e=t?t:{};return this.$dom.ready(function(){e.debug&&(i.debugMode=!0),i.debug("Initializing Gumby");var t=e.uiModules?e.uiModules:!1;i.initUIModules(t),i.onReady&&i.onReady(),i.isOldie&&i.onOldie&&i.onOldie(),Modernizr.touch&&i.onTouch&&i.onTouch()}),this},i.prototype.helpers=function(){this.onReady&&this.onReady(),this.isOldie&&this.onOldie&&this.onOldie(),Modernizr.touch&&this.onTouch&&this.onTouch()},i.prototype.ready=function(t){return t&&"function"==typeof t&&(this.onReady=t),this},i.prototype.oldie=function(t){return t&&"function"==typeof t&&(this.onOldie=t),this},i.prototype.touch=function(t){return t&&"function"==typeof t&&(this.onTouch=t),this},i.prototype.console=function(t,i){this.debugMode&&window.console&&console[console[t]?t:"log"](i.length>1?Array.prototype.slice.call(i):i[0])},i.prototype.log=function(){this.console("log",arguments)},i.prototype.debug=function(){this.console("debug",arguments)},i.prototype.warn=function(){this.console("warn",arguments)},i.prototype.error=function(){this.console("error",arguments)},i.prototype.dump=function(){return{$dom:this.$dom,isOldie:this.isOldie,touchEvents:this.touchEvents,debugMode:this.debugMode,autoInit:this.autoInit,uiModules:this.uiModules,click:this.click}},i.prototype.selectAttr=function(){for(var t=0;t<arguments.length;t++){var i=arguments[t],e="data-"+arguments[t],n="gumby-"+arguments[t];if(this.is("["+e+"]"))return this.attr(e)?this.attr(e):!0;if(this.is("["+n+"]"))return this.attr(n)?this.attr(n):!0;if(this.is("["+i+"]"))return this.attr(i)?this.attr(i):!0}return!1},i.prototype.addInitalisation=function(t,i){this.inits[t]=i},i.prototype.initialize=function(t,i){if("object"==typeof t){var e=0;for(e;e<t.length;e++)this.inits[t[e]]&&"function"==typeof this.inits[t[e]]?this.inits[t[e]](i):this.error("Error initializing module: "+t[e])}else this.inits[t]&&"function"==typeof this.inits[t]?this.inits[t](i):this.error("Error initializing module: "+t);return this},i.prototype.UIModule=function(t){var i=t.module;this.uiModules[i]=t},i.prototype.initUIModules=function(t){var i,e,n=this.uiModules;t&&(n=t);for(i in n)e=t?n[i]:i,this.uiModules[e].init()},window.Gumby=new i}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Checkbox",t),this.$el=t,this.$input=this.$el.find("input[type=checkbox]");var i=this;this.$el.on(Gumby.click,function(t){t.preventDefault(),i.$input.is("[disabled]")||(i.$el.hasClass("checked")?i.update(!1):i.update(!0))}).on("gumby.check",function(){Gumby.debug("Check event triggered",i.$el),i.update(!0)}).on("gumby.uncheck",function(){Gumby.debug("Uncheck event triggered",i.$el),i.update(!1)}),(this.$input.prop("checked")||this.$el.hasClass("checked"))&&i.update(!0)}i.prototype.update=function(t){var i=this.$el.find("span");t?(Gumby.debug("Checking Checkbox",this.$el),i.append('<i class="icon-check" />'),this.$input.prop("checked",!0),Gumby.debug("Triggering onCheck event",this.$el),Gumby.debug("Triggering onChange event",this.$el),this.$el.addClass("checked").trigger("gumby.onCheck").trigger("gumby.onChange")):(Gumby.debug("Unchecking Checkbox",this.$el),this.$input.prop("checked",!1),i.find("i").remove(),Gumby.debug("Triggering onUncheck event",this.$el),Gumby.debug("Triggering onChange event",this.$el),this.$el.removeClass("checked").trigger("gumby.onUncheck").trigger("gumby.onChange"))},Gumby.addInitalisation("checkbox",function(){t(".checkbox").each(function(){var e=t(this);return e.data("isCheckbox")?!0:(e.data("isCheckbox",!0),new i(e),void 0)})}),Gumby.UIModule({module:"checkbox",events:["onCheck","onUncheck","onChange","check","uncheck"],init:function(){Gumby.initialize("checkbox")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Fixed Position",i),this.$el=i,this.$window=t(window),this.fixedPoint="",this.pinPoint=!1,this.fixedPointjQ=!1,this.pinPointjQ=!1,this.offset=0,this.pinOffset=0,this.top=0,this.constrainEl=!0,this.state=!1,this.measurements={left:0,width:0},this.setup();var e=this;this.$window.on("scroll load",function(){e.monitorScroll()}),this.$el.on("gumby.initialize",function(){Gumby.debug("Re-initializing Fixed Position",i),e.setup(),e.monitorScroll()})}i.prototype.setup=function(){var t=this;this.fixedPoint=this.parseAttrValue(Gumby.selectAttr.apply(this.$el,["fixed"])),this.pinPoint=Gumby.selectAttr.apply(this.$el,["pin"])||!1,this.offset=Number(Gumby.selectAttr.apply(this.$el,["offset"]))||0,this.pinOffset=Number(Gumby.selectAttr.apply(this.$el,["pinoffset"]))||0,this.top=Number(Gumby.selectAttr.apply(this.$el,["top"]))||0,this.constrainEl=Gumby.selectAttr.apply(this.$el,["constrain"])||!0,"false"===this.constrainEl&&(this.constrainEl=!1),this.$parent=this.$el.parents(".columns, .column, .row"),this.$parent=this.$parent.length?this.$parent.first():!1,this.parentRow=this.$parent?!!this.$parent.hasClass("row"):!1,this.pinPoint&&(this.pinPoint=this.parseAttrValue(this.pinPoint)),this.fixedPointjQ=this.fixedPoint instanceof jQuery,this.pinPointjQ=this.pinPoint instanceof jQuery,this.$parent&&this.constrainEl&&(this.measure(),this.$window.resize(function(){t.state&&(t.measure(),t.constrain())}))},i.prototype.monitorScroll=function(){var t=this.$window.scrollTop(),i=this.fixedPointjQ?this.fixedPoint.offset().top:this.fixedPoint,e=!1;this.pinPoint&&(e=this.pinPointjQ?this.pinPoint.offset().top:this.pinPoint),this.offset&&(i-=this.offset),this.pinOffset&&(e-=this.pinOffset),t>=i&&"fixed"!==this.state?(!e||e>t)&&this.fix():i>t&&"fixed"===this.state?this.unfix():e&&t>=e&&"pinned"!==this.state&&this.pin()},i.prototype.fix=function(){Gumby.debug("Element has been fixed",this.$el),Gumby.debug("Triggering onFixed event",this.$el),this.state="fixed",this.$el.css({top:this.top}).addClass("fixed").removeClass("unfixed pinned").trigger("gumby.onFixed"),this.$parent&&this.constrain()},i.prototype.unfix=function(){Gumby.debug("Element has been unfixed",this.$el),Gumby.debug("Triggering onUnfixed event",this.$el),this.state="unfixed",this.$el.addClass("unfixed").removeClass("fixed pinned").trigger("gumby.onUnfixed")},i.prototype.pin=function(){Gumby.debug("Element has been pinned",this.$el),Gumby.debug("Triggering onPinned event",this.$el),this.state="pinned",this.$el.css({top:this.$el.offset().top}).addClass("pinned fixed").removeClass("unfixed").trigger("gumby.onPinned")},i.prototype.constrain=function(){Gumby.debug("Constraining element",this.$el),this.$el.css({left:this.measurements.left,width:this.measurements.width})},i.prototype.measure=function(){var t;this.measurements.left=this.$parent.offset().left,this.measurements.width=this.$parent.width(),this.parentRow&&(t=Number(this.$parent.css("paddingLeft").replace(/px/,"")),t&&(this.measurements.left+=t))},i.prototype.parseAttrValue=function(i){if(t.isNumeric(i))return Number(i);if("top"===i)return this.$el.offset().top;var e=t(i);return e.length?e:(Gumby.error("Cannot find Fixed target: "+i),!1)},Gumby.addInitalisation("fixed",function(e){t("[data-fixed],[gumby-fixed],[fixed]").each(function(){var n=t(this);return n.data("isFixed")&&!e?!0:n.data("isFixed")&&e?(n.trigger("gumby.initialize"),!0):(n.data("isFixed",!0),new i(n),void 0)})}),Gumby.UIModule({module:"fixed",events:["initialize","onFixed","onUnfixed"],init:function(){Gumby.initialize("fixed")}})}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Navbar",t),this.$el=t,this.$dropDowns=this.$el.find("li:has(.dropdown)");var i=this,e=this.$el.attr("gumby-persist");"undefined"==typeof e&&"false"!==e&&this.$el.find("li:not(:has(.dropdown)) a").on(Gumby.click,function(){i.$el.find("ul").removeClass("active")}),this.$dropDowns.on(Gumby.click,this.toggleDropdown).on("swiperight",this.openLink),"#"!==this.$dropDowns.children("a").attr("href")&&this.$dropDowns.children("a").append('<i class="icon-popup"></i>').children("i").on(Gumby.click,this.openLink),this.$el.find("li:not(:has(.dropdown)) a[href]").on(Gumby.click,this.openLink)}Gumby.gumbyTouch&&(i.prototype.toggleDropdown=function(i){if(i.preventDefault(),t(this).parents(".dropdown")&&i.stopImmediatePropagation(),!t(i.target).is("i")){var e=t(this);e.hasClass("active")?e.removeClass("active"):e.addClass("active")}},i.prototype.openLink=function(i){i.preventDefault();var e,n=t(this),s=n;n.is("i")?s=n.parent("a"):n.is("li")&&(s=n.children("a")),e=s.attr("href"),"blank"==s.attr("target")?window.open(e):window.location=e},Gumby.addInitalisation("navbar",function(){t(".navbar").each(function(){var e=t(this);return e.data("isNavbar")?!0:(e.data("isNavbar",!0),new i(e),void 0)})}),Gumby.UIModule({module:"navbar",events:[],init:function(){Gumby.initialize("navbar")}}))}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Radio Button",t),this.$el=t,this.$input=this.$el.find("input[type=radio]");var i=this;this.$el.on(Gumby.click,function(t){t.preventDefault(),i.$input.is("[disabled]")||i.update()}).on("gumby.check",function(){Gumby.debug("Check event triggered",i.$el),i.update()}),(this.$input.prop("checked")||this.$el.hasClass("checked"))&&i.update(!0)}i.prototype.update=function(){if(!(this.$el.hasClass("checked")&&this.$input.prop("checked")&&this.$el.find("i.icon-dot").length)){Gumby.debug("Updating Radio Button group",this.$el);var i=this.$el.find("span"),e='input[name="'+this.$input.attr("name")+'"]';t(".radio").has(e).removeClass("checked").find("input").prop("checked",!1).end().find("i").remove(),this.$input.prop("checked",!0),i.append('<i class="icon-dot" />'),Gumby.debug("Triggering onCheck event",this.$el),this.$el.addClass("checked").trigger("gumby.onCheck")}},Gumby.addInitalisation("radiobtn",function(){t(".radio").each(function(){var e=t(this);return e.data("isRadioBtn")?!0:(e.data("isRadioBtn",!0),new i(e),void 0)})}),Gumby.UIModule({module:"radiobtn",events:["onCheck","check"],init:function(){Gumby.initialize("radiobtn")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Retina",i),this.$el=i,this.imageSrc=this.$el.attr("src"),this.retinaSrc=this.fetchRetinaImage(),this.$retinaImg=t(new Image);var e=this;return this.retinaSrc?(this.$retinaImg.attr("src",this.retinaSrc).load(function(){e.retinaImageLoaded()}).error(function(){Gumby.error("Couln't load retina image: "+e.retinaSrc)}),void 0):!1}i.prototype.fetchRetinaImage=function(){var t=this.imageSrc,i=this.imageSrc.search(/(\.|\/)(gif|jpe?g|png)$/i);return 0>i?!1:t.substr(0,i)+"@2x"+t.substr(i,t.length)},i.prototype.retinaImageLoaded=function(){Gumby.debug("Swapping image for retina version",this.$el),Gumby.debug("Triggering onRetina event",this.$el),this.$el.attr("src",this.$retinaImg.attr("src")).trigger("gumby.onRetina")},Gumby.addInitalisation("retina",function(){!window.devicePixelRatio||window.devicePixelRatio<=1||t("img[data-retina],img[gumby-retina],img[retina]").each(function(){var e=t(this);return e.data("isRetina")?!0:(e.data("isRetina",!0),new i(e),void 0)})}),Gumby.UIModule({module:"retina",events:["onRetina"],init:function(){Gumby.initialize("retina")}})}(jQuery),!function(t){"use strict";function i(t){Gumby.debug("Initializing Skiplink",t),this.$el=t,this.targetPos=0,this.duration=0,this.offset=!1,this.easing="",this.update=!1,this.setup();var i=this;this.$el.on(Gumby.click+" gumby.skip",function(t){t.preventDefault(),"skip"===t.namespace&&Gumby.debug("Skip event triggered",i.$el),i.update?i.calculateTarget(i.skipTo):i.skipTo()}).on("gumby.initialize",function(){Gumby.debug("Re-initializing Skiplink",i.$el),i.setup()})}i.prototype.setup=function(){this.duration=Number(Gumby.selectAttr.apply(this.$el,["duration"]))||200,this.offset=Gumby.selectAttr.apply(this.$el,["offset"])||!1,this.easing=Gumby.selectAttr.apply(this.$el,["easing"])||"swing",this.update=Gumby.selectAttr.apply(this.$el,["update"])?!0:!1,this.calculateTarget()},i.prototype.calculateTarget=function(i){var e,n=Gumby.selectAttr.apply(this.$el,["goto"]);if("top"==n)this.targetPos=0;else if(t.isNumeric(n))this.targetPos=Number(n);else{if(e=t(n),!e.length)return Gumby.error("Cannot find skiplink target: "+n),!1;this.targetPos=e.offset().top}i&&i.apply(this)},i.prototype.skipTo=function(){Gumby.debug("Skipping to target",this.$el);var i=this;t("html,body").animate({scrollTop:this.calculateOffset()},this.duration,this.easing).promise().done(function(){Gumby.debug("Triggering onComplete event",i.$el),i.$el.trigger("gumby.onComplete")})},i.prototype.calculateOffset=function(){if(!this.offset)return this.targetPos;var t=this.offset.substr(0,1),i=Number(this.offset.substr(1,this.offset.length));return"-"===t?this.targetPos-i:"+"===t?this.targetPos+i:void 0},Gumby.addInitalisation("skiplink",function(e){t(".skiplink > a, .skip").each(function(){var n=t(this);return n.data("isSkipLink")&&!e?!0:n.data("isSkipLink")&&e?(n.trigger("gumby.initialize"),!0):(n.data("isSkipLink",!0),new i(n),void 0)})}),Gumby.UIModule({module:"skiplink",events:["initialize","onComplete","skip"],init:function(){Gumby.initialize("skiplink")}})}(jQuery),!function(t){"use strict";function i(i){Gumby.debug("Initializing Tabs",i),this.$el=i,this.$nav=this.$el.find("> ul.tab-nav > li"),this.$content=this.$el.children(".tab-content");var e=this;this.$nav.children("a").on(Gumby.click,function(i){i.preventDefault(),e.click(t(this))}),this.$el.on("gumby.set",function(t,i){Gumby.debug("Set event triggered",e.$el),e.set(t,i)})}i.prototype.click=function(t){var i=t.parent().index();this.$nav.eq(i).add(this.$content.eq(i)).hasClass("active")||(Gumby.debug("Setting active tab to "+i,this.$el),this.$nav.add(this.$content).removeClass("active"),this.$nav.eq(i).add(this.$content.eq(i)).addClass("active"),Gumby.debug("Triggering onChange event",this.$el),this.$el.trigger("gumby.onChange",i))},i.prototype.set=function(t,i){this.$nav.eq(i).find("a").trigger(Gumby.click)},Gumby.addInitalisation("tabs",function(){t(".tabs").each(function(){var e=t(this);return e.data("isTabs")?!0:(e.data("isTabs",!0),new i(e),void 0)})}),Gumby.UIModule({module:"tabs",events:["onChange","set"],init:function(){Gumby.initialize("tabs")}})}(jQuery),!function(t){"use strict";function i(i){this.$el=t(i),this.targets=[],this.on="",this.className="",this.self=!1,this.$el.length&&(Gumby.debug("Initializing Toggle",i),this.init())}function e(i){this.$el=t(i),this.targets=[],this.on="",this.className="",this.self=!1,this.$el.length&&(Gumby.debug("Initializing Switch",i),this.init())}i.prototype.init=function(){var t=this;this.setup(),this.$el.on(this.on,function(i){i.preventDefault(),t.trigger(t.triggered)}).on("gumby.trigger",function(){Gumby.debug("Trigger event triggered",t.$el),t.trigger(t.triggered)}).on("gumby.initialize",function(){Gumby.debug("Re-initializing "+t.constructor,$el),t.setup()})},i.prototype.setup=function(){this.targets=this.parseTargets(),this.on=Gumby.selectAttr.apply(this.$el,["on"])||Gumby.click,this.className=Gumby.selectAttr.apply(this.$el,["classname"])||"active",this.self="false"===Gumby.selectAttr.apply(this.$el,["self"])},i.prototype.parseTargets=function(){var i=Gumby.selectAttr.apply(this.$el,["trigger"]),e=0,n=[];return i?(e=i.indexOf("|"),-1===e?this.checkTargets([i])?[t(i)]:!1:(n=i.split("|"),this.checkTargets(n)?n.length>1?[t(n[0]),t(n[1])]:[t(n[0])]:!1)):!1},i.prototype.checkTargets=function(i){var e=0;for(e;e<i.length;e++)if(i[e]&&!t(i[e]).length)return Gumby.error("Cannot find "+this.constructor.name+" target: "+i[e]),!1;return!0},i.prototype.triggered=function(){Gumby.debug("Triggering onTrigger event",this.$el),this.$el.trigger("gumby.onTrigger",[this.$el.hasClass(this.className)])},e.prototype=new i,e.prototype.constructor=e,i.prototype.trigger=function(t){Gumby.debug("Triggering Toggle",this.$el);var i;this.targets?1==this.targets.length?this.$el.add(this.targets[0]).toggleClass(this.className):this.targets.length>1&&(this.targets[0].hasClass(this.className)?(i=this.targets[0],this.self||(i=i.add(this.$el)),i.removeClass(this.className),this.targets[1].addClass(this.className)):(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className),this.targets[1].removeClass(this.className))):this.$el.toggleClass(this.className),t&&"function"==typeof t&&t.apply(this)},e.prototype.trigger=function(t){Gumby.debug("Triggering Switch",this.$el);var i;this.targets?1==this.targets.length?(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className)):this.targets.length>1&&(i=this.targets[0],this.self||(i=i.add(this.$el)),i.addClass(this.className),this.targets[1].removeClass(this.className)):this.$el.addClass(this.className),t&&"function"==typeof t&&t.apply(this)},Gumby.addInitalisation("toggles",function(e){t(".toggle").each(function(){var n=t(this);return n.data("isToggle")&&!e?!0:(n.data("isToggle")&&e&&n.trigger("gumby.initialize"),n.data("isToggle",!0),new i(n),void 0)})}),Gumby.addInitalisation("switches",function(i){t(".switch").each(function(){var n=t(this);return n.data("isSwitch")&&!i?!0:n.data("isSwitch")&&i?(n.trigger("gumby.initialize"),!0):(n.data("isSwitch",!0),new e(n),void 0)})}),Gumby.UIModule({module:"toggleswitch",events:["initialize","trigger","onTrigger"],init:function(){Gumby.initialize("switches"),Gumby.initialize("toggles")}})}(jQuery),!function(t){"use strict";function i(t,i){Gumby&&Gumby.debug("Initializing Validation",t),this.$this=t,this.$field=this.$this.parents(".field"),this.req=i||function(){return!!this.$this.val().length};var e=this;this.$this.is("[type=checkbox], [type=radio]")?(this.$field=this.$this.parent("label"),this.$field.on("gumby.onChange",function(){e.validate()})):this.$this.is("select")?(this.$field=this.$this.parents(".picker"),this.$field.on("change",function(){e.validate()})):this.$this.on("blur",function(t){9!==t.which&&e.validate()})}i.prototype.validate=function(){var t=this.req(this.$this);return t?this.$field.removeClass("danger").addClass("success"):this.$field.removeClass("success").addClass("danger"),t},t.fn.validation=function(e){var n=t.extend({submit:!1,fail:!1,required:[]},e),s=[];return this.each(function(){if(!n.required.length)return!1;var e,o=t(this),a=n.required.length;for(e=0;a>e;e++)s.push(new i(o.find('[name="'+n.required[e].name+'"]'),n.required[e].validate||!1));o.on("submit",function(t){var i=!1;if(!o.data("passed")){t.preventDefault();var e,a=s.length;for(e=0;a>e;e++)s[e].validate()||(i=!0);if(i){if(n.fail&&"function"==typeof n.fail)return n.fail(),void 0}else{if(n.submit&&"function"==typeof n.submit)return n.submit(o.serializeArray()),void 0;o.data("passed",!0).submit()}}})})}}(jQuery),!function(t){"use strict";Gumby.touchDevice&&Gumby.touchEvents||!Gumby.autoInit?Gumby.touchEvents&&Gumby.touchDevice&&(Gumby.debug("Loading jQuery mobile touch events"),yepnope.errorTimeout=2e3,Modernizr.load({test:Modernizr.touch,yep:Gumby.touchEvents+"/jquery.mobile.custom.min.js",complete:function(){t.mobile||Gumby.error("Error loading jQuery mobile touch events"),Gumby.touchEventsLoaded=!0,Gumby.autoInit?window.Gumby.init():Gumby.uiModulesReady&&Gumby.helpers()}})):window.Gumby.init(),"function"==typeof define&&define.amd&&define(window.Gumby)}(jQuery);
 
 ;/*jslint browser: true*/
 /*global $, jQuery*/
 
-jQuery(function($) {
+$(function() {
 	"use strict";
 
-	/*
-	 * Function refreshes the pseudo tags. Is used by IE8 to 
-	 * avoid the problem where the fonts load after the css has been parsed
-	 */
-	function getFontFixStyleElement() {
-		var style = $('#FontFixStyleElement');
-		if (!style.length) {
-			style = $(
-				'<style type="text/css" id="FontFixStyleElement" disabled="disabled">'+
-				':before,:after{content:none !important}'+
-				'</style>'
-			).appendTo('head');
+	// Favourite must always be first. If it's not first, clear favourite
+	function validateFavourite(object) {
+		var form = $(object).closest('.preference-select'),
+			favourite = form.find('.favourite');
+
+		if(favourite !== undefined){
+			//check if favourite is first child
+			if(!favourite.is( ":first-child")){
+				favourite.removeClass('favourite');
+				
+				// clear hidden field
+				form.find('favourite-id').val('');
+			}
 		}
-		return style;
 	}
 
-	/* 
-	 * Fix for IE8 when using webfonts. See:
-	 * http://stackoverflow.com/questions/9809351/ie8-css-font-face-fonts-only-working-for-before-content-on-over-and-sometimes
-	 */
-	if ($('html').hasClass('ie8')) {
-		$(window).on('load', function() {
-			getFontFixStyleElement().removeAttr('disabled');
-			setTimeout(function(){ getFontFixStyleElement().attr('disabled', 'disabled'); }, 0);
-		});
-	}
+	function markFavourite(object) {
+		var form = $(object).closest('.preference-select'),
+			group = $(object).closest('.control-group'),
+			id = group.find('input').attr('data-id');
 
-	$('.nav-collapse')
-		.addClass('collapse')
-		.addClass('collapsed')
-		.on('hidden', function(){
-			$(this).addClass('collapsed');
-			$(this).siblings('button').attr('aria-expanded', 'false');
-		})
-		.on('show', function(){
-			$(this).removeClass('collapsed');
-			$(this).siblings('button').attr('aria-expanded', 'true');
-		});
-
-	$('.navbar a .showChildren').click(function(e) {
-		e.preventDefault();
-		var oldOpen = $('.navbar .open');		
-		$(this).closest('li').addClass('open');
-		oldOpen.removeClass('open');
-		return false;
-	});
-
-	// Don't let the Go! button submit the search form if it's empty.
-	$('#SearchGroup input[type="submit"]').click(function(){
-		var searchInput = $(this).siblings('input[type="search"]'),
-			searchValue = $.trim(searchInput.val());
-		if (searchValue.length === 0) {
-			searchInput.focus();
-			return false;
-		}
-	});
-
-	// SITEMAP
-	$('.sitemap').on('click', '.button', function() {
-		var self = $(this),
-			target = $(self.attr('data-target'));
-
-		// only do an ajax request if the content isn't loaded
-		if(target.html().length === 0) {
-			self.addClass('loading');
-
-			$.ajax({
-				url: self.attr('href'),
-				data: { ajax: true }
-			}).done(function(data) {
-				target.html(data);
-				self.removeClass('loading');
-			});
-		}
-
-		self.toggleClass('open');
-
-		if(self.hasClass('open')) {
-			target.removeClass('collapse').addClass('collapsed');
-			$(this).attr('aria-expanded', 'true');
-			$(this).children('.linkText').replaceWith('<span class="linkText">Collapse section</span>');
+		// allow toggling
+		if (group.hasClass('favourite')) {
+			group.removeClass('favourite');
+			form.find('.favourite-id').val(''); 
 		} else {
-			target.removeClass('collapsed').addClass('collapse');
-			$(this).attr('aria-expanded', 'false');
-			$(this).children('.linkText').replaceWith('<span class="linkText">Expand section</span>');
-		}
-
-		return false;
-	});
-
-	$('#print-placeholder').replaceWith('<a role="button" onclick="window.print(); return false;"><i class="icon-print icon-dark" aria-hidden="true"></i>Print</a>');
-
-
-	// Homepage Carousel
-	$('.flexslider').flexslider({
-		useCSS: true,
-		pauseOnHover: true,
-		controlNav: true,
-		directionNav: true,
-		slideshowSpeed: 7000,
-		smoothHeight: true
-	});
-
-	// Add additional title information to external links which open in an external window
-	$('.content a[target="_blank"]').attr("title", $('a[target="_blank"]').attr("title")+" - This link will open in a new window");
-	
-	// Maori language class to add lang type
-	$('.maori').attr('lang', 'mi');
-
-	// Customize validation for user forms. Accessibility fixes
-	var siteForm = $('.UserDefinedForm #Form_Form');
-	if (siteForm.length > 0) {
-		
-		// Set up validation.
-		siteForm.validate({
-			errorPlacement: function(error, element) {
-				var errorId = element.attr('id') + '_message';
-				//prevent duplicate labels
-				element.closest('div.field').find('label .error').remove();
-				error.appendTo(element.closest('div.field'));
-				//Make valid html and adjust attributes
-				error.removeAttr('for').addClass('message').attr('id', errorId);
-				//Link error to input
-				element.attr('aria-describedby', errorId);
-			},
-			errorElement: 'span'
-		});
-
-		if(siteForm.find('.requiredField').length > 0){
-			siteForm.prepend('<p class="req-indicator-message">Required fields are marked</p>');
+			// unset current favourite
+			form.find('.favourite').removeClass('favourite');
+			// set new favourite
+			group.addClass('favourite');
+			form.find('.favourite-id').val(id); // hidden field
 		}
 	}
+
+	function updatePreferences(options) {
+		var i;
+
+		for(i = 0; i < options.length; i = i + 1) {
+			$(options[i]).val(i+1);
+		}
+
+	}
+
+	function moveToTop(object) {
+		var group = $(object).closest('.preference-group'),
+			options,
+			favourite;
+
+		group.prepend($(object).closest('.control-group'));
+
+		// update input fields
+		options = group.find('.control-group input');
+		updatePreferences(options);
+		validateFavourite(object);
+	}
+
+
+
+	if ($('.preference-select .preference-group') !== undefined){
+
+		$('.preference-select .preference-group .control-group').attr('title', 'Drag and drop to reorder');
+
+		$('.preference-select .preference-group .extra').append('<i class="icon icon-up js-to-top" role="button" title="Move to top"></i><i class="icon icon-heart js-favourite" role="button" title="Mark as favourite"></i>');
+
+		$('.preference-select .preference-group').sortable({
+			axis: 'y',
+			update: function (event, ui) {
+				//update input fields
+				var options = ui.item.closest('.preference-group').find('.control-group input');
+
+				updatePreferences(options);
+				validateFavourite(ui.item);
+			}
+		});
+
+
+		$('.preference-select .js-to-top').on(Gumby.click, function(e){
+			e.stopPropagation();
+			moveToTop(this);
+		});
+
+		$('.preference-select .js-favourite').on(Gumby.click, function(e){
+			e.stopPropagation();
+			markFavourite(this);
+		});
+
+		$('.preference-select .field').on(Gumby.click, function(e) {
+			if($(this).is( ":first-child")){
+				if(!$(this).hasClass('not-playing')){
+					markFavourite(this);
+				}
+			} else {
+				moveToTop(this);
+			}
+		});
+	}
+
 });
+
 
 ;/*jslint browser: true*/
 /*global $, jQuery*/
 
-jQuery(function($) {
+$(function() {
 	"use strict";
 
 	if($('.editable').length > 0) {
-		var editor = new MediumEditor('.editable', {
-			anchorInputPlaceholder: 'Type a link',
-			buttons: ['bold', 'italic', 'quote', 'link', 'header1', 'header2'],
-			cleanPastedHTML: true,
-			diffLeft: 20,
-			diffTop: 10,
-			firstHeader: 'h3',
-			secondHeader: 'h4'
+			var editor = new MediumEditor('.editable', {
+				anchorInputPlaceholder: 'Type a link',
+				buttons: ['bold', 'italic', 'quote', 'link', 'header1', 'header2'],
+				cleanPastedHTML: true,
+				diffLeft: 20,
+				diffTop: 10,
+				firstHeader: 'h3',
+				secondHeader: 'h4',
+				placeholder: ''
+			});
+
+			var editable = $('.editable'),
+				value = editable.parent().find('textarea').val();
+
+			editable.html(value);
+
+			$( "form" ).submit(function( event ) {
+					var editable = $('.editable'),
+						value = editable.html();
+					editable.parent().find('textarea').val(value);
+			});
+	}
+
+	if($('.flexslider').length > 0){
+
+		$('.flexslider').flexslider({
+				pauseOnAction: false,
+				directionNav: false,
+				animation: "slide",
+				slideshowSpeed:10000,
+				pausePlay: true,
+				pauseText: " ",
+				playText: " ",
+				smoothHeight: true
 		});
+	}
 
+	if($('.tag-field.genre').length > 0){
 
-		$( "form" ).submit(function( event ) {
-			var editable = S('.editable'),
-				value = editable.html();
-			editable.siblings('textarea').val(value);
+		$(".tag-field.genre input").tagsInput({
+			autocomplete: {
+				delay: 0, 
+				minLength: 1,
+				source: $('.genre-list').text().split(","),
+				autoFill:true,
+				selectFirst: true,
+			},
+			defaultText:'Add a genre',
+			autocomplete_url:'/fake_json_endpoint.html', //required by jquery ui
+			height: '30px',
+			width: '98%',
+			placeholderColor:'rgba(255,255,255,0.3)',
+			delimiter:' ',
+			removeWithBackspace:true,
 		});
-
 	}
 
 	if($('.pagination').length > 0){
 
 			// Pagination - endless
-		$('.pagination.endless').ssendless({
-			contentSelector: '.pagination-content',
-			templates: {
-				main:
-					'<div class="ss-pagination">'+
-						'<a href="#" data-page-number="<%= nextPage %>"><span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span></a>'+
-					'</div>'
+			$('.pagination.endless').ssendless({
+					contentSelector: '.pagination-content',
+					templates: {
+							main:
+									'<div class="ss-pagination">'+
+											'<a class="btn metro medium info rounded" href="#" data-page-number="<%= nextPage %>"><span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span></a>'+
+									'</div>'
+					}
+			});
+
+			$('.pagination-wrap.endless-scroll').addClass('ssendless');
+
+			$('.pagination.endless').on('ssendlessbeforepagefetch', function(event){
+					$(this).siblings('.ss-pagination').addClass('load').find('a').html('<span class="text">Loading</span> <span class="loading-icon"><i class="icon-cw icon-spin">&nbsp;</i></span>');
+			});
+
+			$('.pagination.endless').on('ssendlessafterpagefetch', function(event){
+					$(this).siblings('.ss-pagination').removeClass('load').find('a').html('<span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span>');
+			});
+
+	}
+
+	// SITEMAP
+	$('.sitemap').on('click', '.button', function() {
+			var self = $(this),
+					target = $(self.attr('data-target'));
+
+			// only do an ajax request if the content isn't loaded
+			if(target.html().length === 0) {
+					self.addClass('loading');
+
+					$.ajax({
+							url: self.attr('href'),
+							data: { ajax: true }
+					}).done(function(data) {
+							target.html(data);
+							self.removeClass('loading');
+					});
 			}
-		});
 
-		$('.pagination-wrap.endless-scroll').addClass('ssendless');
+			self.toggleClass('open');
 
-		$('.pagination.endless').on('ssendlessbeforepagefetch', function(event){
-			$(this).siblings('.ss-pagination').addClass('loading').find('a').html('<span class="text">Loading</span> <span class="loading-icon"><i class="icon-cw element-spinning"></i></span>');
-		});
+			if(self.hasClass('open')) {
+					target.removeClass('collapse').addClass('collapsed');
+					$(this).attr('aria-expanded', 'true');
+					$(this).children('.linkText').replaceWith('<span class="linkText  nonvisual-indicator">Collapse section</span>');
+			} else {
+					target.removeClass('collapsed').addClass('collapse');
+					$(this).attr('aria-expanded', 'false');
+					$(this).children('.linkText').replaceWith('<span class="linkText nonvisual-indicator">Expand section</span>');
+			}
 
-		$('.pagination.endless').on('ssendlessafterpagefetch', function(event){
-			$(this).siblings('.ss-pagination').removeClass('loading').find('a').html('<span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank"></i></span>');
-		});
+			return false;
+	});
 
+	// Customize validation for user forms. Accessibility fixes
+	var siteForm = $('.UserDefinedForm #Form_Form');
+	if (siteForm.length > 0) {
+			
+			// Set up validation.
+			siteForm.validate({
+					errorPlacement: function(error, element) {
+							var errorId = element.attr('id') + '_message';
+							//prevent duplicate labels
+							element.closest('div.field').find('label .error').remove();
+							error.appendTo(element.closest('div.field'));
+							//Make valid html and adjust attributes
+							error.removeAttr('for').addClass('message').attr('id', errorId);
+							//Link error to input
+							element.attr('aria-describedby', errorId);
+					},
+					errorElement: 'span'
+			});
+
+			if(siteForm.find('.requiredField').length > 0){
+					siteForm.prepend('<p class="req-indicator-message">Required fields are marked</p>');
+			}
 	}
 
 });
 
+;/*jslint browser: true*/
+/*global $, jQuery*/
+
+$(function() {
+	"use strict";
+
+	function setFilter (filterBy){
+		$('.js-filters').find('.success').removeClass('success');
+		$('.label[data-filter="'+filterBy+'"]').addClass('success');
+		$container.isotope({ filter: filterBy });
+	}
+
+	// init Isotope
+	var $container = $('.js-isotope').isotope({
+		itemSelector: '.item',
+		layoutMode: 'masonry',
+		gutter: 10,
+		resizesContainer: true
+	}),
+	hash = window.location.hash.substring(1),
+	genreClass = '.' + hash;
+
+	$('.js-filters').on( 'click', '.label', function() {
+		setFilter($(this).attr('data-filter'));
+	});
+
+	// Apply from anchor
+	if(hash && $('#' + hash).length < 1){
+		if($(genreClass).length > 0 && $('.js-isotope').length > 0 ){
+			// fixes bug where filter doesn't clear after having been set
+			setTimeout(function(){
+				$('.label[data-filter="'+genreClass+'"]').trigger('click');
+			}, 5);
+		}
+	}
+
+});

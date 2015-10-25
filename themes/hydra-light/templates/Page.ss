@@ -8,7 +8,7 @@
 	<% base_tag %>
 	<%-- $FilterDescription adds additional information from the news and events areas --%>
 	<title>$Title <% if FilterDescription %>- $FilterDescription<% end_if %> | $SiteConfig.Title</title>
-	
+
 	$MetaTags(false)
 	<meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
 
@@ -20,9 +20,14 @@
 
 	<% require themedCSS('style') %>
 	<% include MetaIcons %>
+	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
+	<link rel="stylesheet" href="$ThemeDir/js/src/libs/medium-editor/dist/css/medium-editor.css"> <!-- Core -->
+	<link rel="stylesheet" href="$ThemeDir/js/src/libs/medium-editor/dist/css/themes/default.css"> <!-- or any other theme -->
+
 </head>
 
 <body data-spy="scroll" class="$ClassName">
+	$BetterNavigator
 	<% include SkipLinks %>
 	<div class="row">
 		<div class="twelve columns">

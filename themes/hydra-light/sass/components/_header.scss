@@ -1,29 +1,24 @@
-/* 
+/*
  * Styles for header elements
  */
 .header {
 	@include clearfix;
 	.brand {
 		@extend h1;
-		float: left;
+		width: 100%;
 		font-size: 3em;
 		line-height:1em;
-		margin-bottom: 0;
-		margin-top: 18px;
+		margin: 0;
 		overflow:visible;
-		padding-bottom: 18px;
+		padding: 0;
 		a {
 			position: relative;
 			display: block;
-			.logo-placeholder{
-				//Can be removed when a logo is supplied
-				@include font-size($reallybig);
-				margin-top:30px;
-			}
-			img, .logo-placeholder {
-				position: absolute;
-				top: 0px;
-				left: 0px;
+
+			img {
+				margin: 0;
+				display: block;
+				max-height: 150px;
 			}
 
 			span {

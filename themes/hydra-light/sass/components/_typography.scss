@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6 {
   @include adjust-leading-to($rhythm-height);
   @include padding-trailer($rhythm-spacing);
   a {
-    color: $header-link-color;
+    color: $inspiration;
   }
 }
 
@@ -20,8 +20,8 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   @include font-size($xxlarge);
-  line-height:1.2em;
-  margin-top:20px;
+  line-height: 1.2em;
+  margin-top: 20px;
   &.xlarge {
     @include font-size($reallybig);
   }
@@ -35,8 +35,8 @@ h1 {
     margin-bottom:30px;
   }
 }
-h2 { 
-  @include font-size($larger); 
+h2 {
+  @include font-size($larger);
   &.small{
     @include font-size($norm);
     text-transform: uppercase;
@@ -44,7 +44,7 @@ h2 {
     line-height:1.5em;
   }
 }
-h3 { 
+h3 {
   @include font-size($large);
   &.small{
     @include font-size($norm - 2);
@@ -53,8 +53,15 @@ h3 {
     line-height:1.5em;
   }
 }
-h4 { @include font-size($med);}
-h5 { @include font-size($med);}
+h4 {
+    @include font-size($med);
+    font-weight: bold;
+}
+h5 {
+    @include font-size($med);
+    font-weight: bold;
+    text-transform: uppercase;
+}
 h6 { @include font-size($norm);}
 
 @include respond(all-phones) {
@@ -71,9 +78,9 @@ h6 { @include font-size($norm);}
 }
 
 /*=====================================================
- 
+
   Links & Paragraph styles
-  
+
   ======================================================*/
 
 p {
@@ -108,7 +115,7 @@ a {
 /*=====================================================
 
   Lists
-  
+
  ======================================================*/
 
 ul, ol {
@@ -160,7 +167,7 @@ dl dt {
 }
 
 @include respond(portrait-tablets) {
-  
+
   ul, ol, dl, p { text-align: left;}
 
 }
@@ -295,4 +302,12 @@ abbr {
   h2, h3 {
     page-break-after: avoid;
   }
+}
+
+b {
+    font-weight: bold;
+}
+
+i {
+    font-style: italic;
 }

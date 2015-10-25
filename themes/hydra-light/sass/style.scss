@@ -29,7 +29,7 @@
 @import "components/base";
 @import "components/fonts";
 @import "components/grid";
-@import "var/custom-utilities"; //custom 
+@import "var/custom-utilities"; //custom
 
 // UI components currently used
 @import "ui/navbar";
@@ -60,5 +60,13 @@
 @import "components/sidebar";
 @import "components/slider";
 @import "components/pagination-endless";
+
+@import "components/masonry-items";
+@import "components/preference-select";
+@import "components/tagsinput";
+@import "components/editable";
+
+
 @import "components/custom";
 @import "components/shame";
+@import "components/whitespace";

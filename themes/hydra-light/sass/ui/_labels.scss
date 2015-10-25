@@ -16,12 +16,13 @@
       background: nth($shade, 2);
       border: 1px solid nth($shade, 2);
       @if nth($shade, 1) == default {
-        color: darken(nth($shade, 2), 61.5%);
-        &:hover {
+        color: #333;
+        &:hover,
+        &focus {
           border-color: darken(nth($shade, 2), 5%);
         }
         a {
-          color: darken(nth($shade, 2), 61.5%);
+          color: #333;
         }
       }
       @if nth($shade, 1) == warning {

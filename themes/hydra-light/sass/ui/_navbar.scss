@@ -341,9 +341,11 @@
 }
 
 .gumby-no-touch .navbar ul li:hover > a,
-.gumby-touch .navbar ul li.active > a {
+.gumby-no-touch .navbar ul li:focus > a,
+.gumby-touch .navbar ul li.current > a,
+.gumby-touch .navbar ul li.section > a  {
   position: relative;
-  background: $info-hover-color;
+  background: darken($navbar-color, 5%);
   z-index: 1000;
 }
 

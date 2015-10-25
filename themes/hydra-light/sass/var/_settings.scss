@@ -1,8 +1,20 @@
 
-// Environment variables. Note cwp puts all css into assets, 
+// Environment variables. Note cwp puts all css into assets,
 // so the path needs to be able to find the css from there
 $theme-name: 'hydra-light';
 $file-path: "../../../themes/"+$theme-name;
+
+
+$sunlight: #F9D834;
+$water: #1d9aba;
+$air: #D0C9BB;
+$earth: darken(#79c608,5%);
+$passion: #F15051;
+$people: #de347f;
+$inspiration: #783980;
+
+$brand-list: $sunlight, $water, $air, $earth, $passion, $people, $inspiration;
+$secondary-brand-list: $water, $air, $earth, $passion, $people, $inspiration;
 
 
 // Welcome to Gumby 2.0 Settings.
@@ -74,25 +86,26 @@ $absurd:  ms(10);
 $header-font-color: #444444 !default;
 $header-link-color: #187cc4 !default;
 $header-link-hover-color:  #c03d20 !default;
-$body-font-color: #333333 !default;
+$body-font-color: #333 !default;
 $body-link-color: #187cc4 !default;
 $body-link-hover-color:  #de004b !default;
 
 // User Interface Colors
-$global-bg-color: #ffffff;
-$navbar-color: #595959;
+$content-bg-color: #23001E;
+$global-bg-color: #f5f5f5;
+$navbar-color: #992A8F;
 $navbar-link-color: #ffffff;
 
-$primary-color: $body-link-color;
-$secondary-color: #42a35a;
-$default-color: #f2f2f2;
-$info-color: #4a4d50;
+$primary-color: $navbar-color;
+$secondary-color: #444;
+$default-color: #fefefe;
+$info-color: $water;
 $danger-color: #ca3838;
 $warning-color: #f6b83f;
 $success-color: #58c026;
 
 $primary-hover-color: darken($body-link-color, 5%);
-$secondary-hover-color: #6dbb80;
+$secondary-hover-color: #111;
 $default-hover-color: #ffffff;
 $info-hover-color: #868d92;
 $danger-hover-color: #f14f4f;

@@ -8,12 +8,12 @@ $PageComments
 <h2 class="nonvisual-indicator">Features</h2>
 <div class="row">
 	<section class="twelve columns">
-		<% if News %>
+		<% if $News %>
 			<div class="resultsHeader">
 				<h2>News</h2>
 			</div>
 			<section class="pagination-content">
-			<% loop News %>
+			<% loop $News %>
 				<article class="$EvenOdd row $FirstLast">
 					<p class="meta-info two columns">
 						<em>
@@ -33,26 +33,17 @@ $PageComments
 							$Content
 						</div>
 					</div>
-					
-					
+
+
 				</article>
 			<% end_loop %>
 			</section>
-			
+
 			<% with News %>
 				<div class="row">
 					<% include Pagination %>
 				</div>
 			<% end_with %>
-		<% else %>
-			<div class="resultsHeader">
-				<h2 class="pull-left">News</h2>
-				<p class="pull-right">None</p>
-			</div>
-
-			<article class="">
-				<p>No news</p>
-			</article>
 		<% end_if %>
 
 		$Form
