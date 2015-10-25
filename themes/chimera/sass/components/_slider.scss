@@ -44,6 +44,9 @@ ul.slides{
 	.caption {
 		padding-left: 20px;
 		padding-right: 20px;
+
+	}
+	&.flexslider-init {
 		padding-bottom: 30px;
 	}
 }
@@ -203,7 +206,7 @@ html[xmlns] .slides {
 
 /* Pause/Play */
 
-.flex-pauseplay a {
+.flexslider-init .flex-pauseplay a {
 	bottom: 5px;
 	color: #000;
 	display: block;

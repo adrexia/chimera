@@ -1,13 +1,13 @@
 <% if CurrentSliderItems %>
 <h2 class="nonvisual-indicator">Image slider, use keyboard to navigate</h2>
-	<div class="flexslider">
+	<div class="<% if $CurrentSliderItems.Count > 1 %>flexslider-init<% end_if %> flexslider">
 		<!-- Carousel items -->
 		<ul class="slides unstyled">
 			<% loop CurrentSliderItems %>
 				<li class="<% if First %>flex-active-slide <% end_if %>item item-{$Modulus(5)}">
 					<% if Link %><a href="$Link.Link"><% end_if %>
 						<div class="image-wrap">
-							<img src="$Image.SetHeight(300).URL" alt="$Title" />
+							<img src="$Image.URL" alt="$Title" />
 						</div>
 					<% if Link %>	</a><% end_if %>
 					<% if $Caption || $Attribution %>

@@ -14,13 +14,13 @@ $PageComments
 			</div>
 			<section class="pagination-content">
 			<% loop $News %>
-				<article class="$EvenOdd row $FirstLast">
+				<article class="$EvenOdd row $FirstLast pvm">
 					<p class="meta-info two columns">
 						<em>
 							<time datetime="$Created">$Created.Format(d M Y)</time>
 						</em>
 						<br />
-						<span class="label metro rounded default $Author.LimitCharacters(1,'').LowerCase">
+						<span class="label metro rounded alpha-change default $Author.LimitCharacters(1,'').LowerCase">
 						<% if Author %>by $Author.LowerCase<% else %>by admin<% end_if %>
 						</span>
 
