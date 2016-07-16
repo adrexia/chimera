@@ -4,7 +4,7 @@
 		<div class="content subhead">$Content</div>
 		<div class="divider"></div>
 	</article>
-	<aside class="four columns sidebar">
+	<aside class="four columns sidebar content">
 		<div class="sidebar-inner">
 			$Sidebar
 		</div>

@@ -29,7 +29,7 @@
 	$BetterNavigator
 	<% include Header %>
 	<div class="main" role="main">
-			$Layout
+		$Layout
 	</div>
 	<% include Footer %>
 
