@@ -69,10 +69,6 @@ p, ul, ol {
 	@include font-size(ms(0) * 1.25);
 	margin-bottom: ms(1);
   }
-  @include respond(portrait-tablets) {
-	@include font-size($base-font-size * 3);
-	@include adjust-leading-to(1);
-  }
 }
 
 a {
