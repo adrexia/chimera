@@ -23,9 +23,6 @@ h2 {
 // Typography specific to how silverstripe outputs CMS editable fields
 // to be imported into the CMS
 .content img {
-	@extend .image;
-	@extend .photo;
-	@extend .rounded;
 	&.right {
 		float: right;
 		clear: right;

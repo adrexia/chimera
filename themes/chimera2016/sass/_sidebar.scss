@@ -32,4 +32,11 @@
 			}
 		}
 	}
+
+	img {
+		&,
+		&.center {
+			margin: 0 1px 0 auto;
+		}
+	}
 }

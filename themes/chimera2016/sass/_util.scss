@@ -16,8 +16,9 @@
 	margin: 0 auto;
 	max-width: 475px;
 	border-top: 20px solid transparent;
-	text-align:center;
-	@include border-image(url(../images/divider_horizontal_long.jpg) 30 0 round);
+	text-align: center;
+	opacity: 0.5;
+	@include border-image(url(../images/divider_horizontal_long.png) 50 0 round);
 }
 
 .shaded {
