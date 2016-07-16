@@ -91,7 +91,7 @@ h6 { font-size: 16px; font-size: 1rem; }
 body { font-family: "David Libre", georgia, serif; font-weight: 400; }
 
 p, ul, ol { font-size: 21px; font-size: 1.3125rem; margin-bottom: 11px; line-height: 1.375em; }
-p.lead, .subhead p, ul.lead, ol.lead { font-size: 20px; font-size: 1.25rem; margin-bottom: 18.4133px; }
+p.lead, .subhead p, ul.lead, ol.lead { font-size: 24px; font-size: 1.5rem; margin-bottom: 18.4133px; }
 
 a { color: #f5cc4e; text-decoration: none; outline: 0; line-height: inherit; }
 a:hover { color: #cb0168; }

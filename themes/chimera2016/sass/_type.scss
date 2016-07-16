@@ -66,7 +66,7 @@ p, ul, ol {
   margin-bottom: $base-line-height / 2;
   @include adjust-leading-to(1);
   &.lead {
-	@include font-size(ms(0) * 1.25);
+	@include font-size($base-font-size + 8);
 	margin-bottom: ms(1);
   }
 }
