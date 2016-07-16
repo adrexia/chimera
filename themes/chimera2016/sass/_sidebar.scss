@@ -1,0 +1,35 @@
+.sidebar {
+	float: left;
+	width: 100%;
+	background: transparent;
+	padding: 15px;
+	&-inner {
+		border: 2px solid #fff;
+		background: $night;
+		padding: 20px;
+		position: relative;
+		z-index: 10;
+	}
+
+	h3 {
+		font-size: 1.7rem;
+	}
+
+
+
+
+	li {
+		padding-bottom: 0.7em;
+		line-height: 1.3em;
+		font-size: 0.8em;
+
+		a {
+			color: #fff;
+
+			&:hover,
+			&:focus {
+				color: $starlight;
+			}
+		}
+	}
+}

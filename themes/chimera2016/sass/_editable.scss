@@ -1,0 +1,36 @@
+.editable, .field textarea {
+	margin-bottom:30px;
+	padding: 10px;
+	width: 98%;
+	height:auto;
+	color: $global-bg-color;
+	position: relative;
+	background: #d3d2f7;
+	border: 1px solid lighten($global-bg-color, 15%);
+	@include font-size($norm);
+	@include border-radius(4px);
+	&:focus {
+		@include box-shadow(none);
+		outline:none;
+		background: #fff;
+		border: 1px solid lighten($global-bg-color, 30%);
+	}
+}
+
+.editable {
+	min-height:300px;
+	&:focus {
+		@include box-shadow(none);
+		outline:none;
+		border: 1px solid lighten($global-bg-color, 30%);
+	}
+
+	h3,h4 {
+		color: #333;
+	}
+}
+
+.medium-editor-placeholder:after {
+	top: 10px;
+	left: 10px;
+}

@@ -1,0 +1,89 @@
+.sponsors {
+	clear: both;
+
+	ul {
+		@include clearfix;
+		list-style: none;
+		margin: 0;
+		li {
+			display: inline;
+			float: left;
+			width: 33%;
+
+			@include respond(tablets) {
+				width: auto;
+				max-width: 20%;
+			}
+
+			@include respond(document-width) {
+				width: auto;
+				max-width: 100%;
+			}
+
+			&:first-child {
+				a:before {
+					border:0;
+				}
+			}
+
+			a {
+
+				margin-right: 19px;
+				padding-left: 19px;
+				display: block;
+				position: relative;
+				@include vertical-align('.center', 115px, bottom);
+
+				@include respond(document-width) {
+					height: 155px;
+				}
+
+				&:before {
+					content: '';
+					height: 50px;
+					position: absolute;
+					left: 0;
+					bottom: 12%;
+
+
+					@include respond(document-width) {
+						border-left: 1px solid rgba(#fff, 0.2);
+					}
+				}
+
+				&:hover,
+				&:focus {
+					img {
+						opacity: 1;
+					}
+				}
+
+			}
+
+			&:first-child {
+				text-align: left;
+				margin-left: 0;
+			}
+
+
+			&:last-child {
+				text-align: right;
+			}
+
+			img {
+				max-width: 100%;
+				box-shadow: none;
+				border: 0;
+				max-height: 80px;
+				vertical-align: bottom;
+				opacity: 0.4;
+
+				@include respond(document-width) {
+					max-width: 207px;
+					max-height: 105px;
+				}
+			}
+
+		}
+	}
+}

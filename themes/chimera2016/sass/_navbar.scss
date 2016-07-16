@@ -1,0 +1,127 @@
+
+.navbar {
+	z-index: 3;
+	border-top: 1px solid $oxygen;
+	border-bottom: 1px solid $oxygen;
+
+	ul {
+		@include respond(desktop) {
+			padding-left: 80px;
+		}
+		@include respond(document-width) {
+			padding-left: 30px;
+		}
+		@include respond(large-desktop) {
+			padding-left: 0;
+		}
+	}
+	ul li {
+		display: inline-block;
+		height: auto;
+		float: left;
+
+		@include respond(mobile) {
+			min-height: 0;
+		}
+
+		@include respond(document-width) {
+			&:nth-child(2) {
+				margin-left: -30px;
+			}
+		}
+
+		> a {
+			position: relative;
+			opacity: 0.6;
+			padding: 0 5px;
+			font-weight: bold;
+			font-size: 1.4rem;
+
+			&::first-letter {
+				font-size: 2.5rem;
+			}
+
+			@include respond(mobile) {
+				height: auto;
+				line-height: 2em;
+			}
+
+			&:hover,
+			&:focus,
+			&.current,
+			&.section  {
+				opacity: 1;
+				color: #fff;
+			}
+
+			&.is-icon {
+
+				@include respond(desktop) {
+					width: 62.3281px;
+					font-size: 1.5em;
+					position: absolute;
+					left: 0;
+					top: 0;
+					z-index: 5;
+					height: 100%;
+					background-color: saturate(lighten($navbar-color, 7%), 17%);
+
+					&:after {
+						content: "";
+						width: 0;
+						height: 0;
+						border-top: 29px solid transparent;
+						border-bottom: 30px solid transparent;
+						border-left: 18px solid saturate(lighten($navbar-color, 7%), 17%);
+						position: absolute;
+						left: 62px;
+					}
+				}
+			}
+
+			&.has-border {
+				@include respond(desktop) {
+					margin: 3px 18px 0;
+					padding-top: 3px;
+					height: 52px;
+					line-height: 49px;
+
+					&:hover,
+					&:focus,
+					&.current,
+					&.section  {
+						background: url(#{$file-path}/images/nav-background.png) 0 3px repeat-x;
+						background-size: 100% 93%;
+
+						&:before {
+							content: "";
+							background: url(#{$file-path}/images/nav-border-left.png) 0 0px repeat-x;
+							width: 17px;
+							position: absolute;
+							left: -17px;
+							height: 100%;
+							background-size: 100% 93%;
+						}
+						&:after {
+							content: "";
+							background: url(#{$file-path}/images/nav-border-right.png) 0 0px repeat-x;
+							width: 17px;
+							height: 100%;
+							background-size: 100% 93%;
+							position: absolute;
+							right: -17px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	a.toggle {
+		line-height: 37px;
+		height: 48px;
+		@include respond(all-phones) {
+			display: inline-block;
+		}
+	}
+}

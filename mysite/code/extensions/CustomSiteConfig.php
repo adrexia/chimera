@@ -11,24 +11,25 @@ class CustomSiteConfig extends DataExtension {
 		'LogoText' => 'Varchar(16)'
 	);
 
-	private static $has_many = array(
-		'FooterLinks' => 'Quicklink'
-	);
-
 	private static $has_one = array(
-		'Logo' => 'Image'
+		'Logo' => 'Image',
+		'FooterBanner' => 'Image',
+		'FooterBannerLink' => 'SiteTree',
 	);
 
 	public function updateCMSFields(FieldList $fields) {
-		$footerLinks = new GridField(
-			'FooterLinks',
-			'FooterLinks',
-			$this->owner->FooterLinks(),
-			$conf = GridFieldConfig_RelationEditor::create());
-		$conf->addComponent(new GridFieldOrderableRows('Sort'));
-		$footerLinks->getConfig()->getComponentByType('GridFieldAddNewButton')->setButtonName('Add Link to Footer');
 
-		$fields->addFieldToTab('Root.Footer', $footerLinks);
+		$footerBanner = new UploadField('FooterBanner', 'Footer Banner');
+		$footerBanner->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+		$footerBanner->setConfig('allowedMaxFileNumber', 1);
+
+		$footerBannerLink = new TreeDropdownField('FooterBannerLinkID', 'Footer Banner Link', "SiteTree");
+
+		$fields->addFieldToTab('Root.Footer', $footerBanner);
+		$fields->addFieldToTab('Root.Footer', $footerBannerLink);
+
+
+
 
 		$fields->addFieldToTab('Root.Main',
 			$gaCode = new TextField('GACode', 'Google Analytics account'));
