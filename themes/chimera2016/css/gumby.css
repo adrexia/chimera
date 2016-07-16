@@ -1568,7 +1568,7 @@ i.icon-logo-db:before { content: "\f603"; height: inherit; }
 .badge.light, .label.light, a.label.light { background: #fff; color: white; border: 1px solid transparent; }
 .badge.light a, .label.light a, a.label.light a { color: #f5cc4e; }
 .badge.dark, .label.dark, a.label.dark { background: #212121; }
-.badge.info, .badge.message, .label.info, .label.message, a.label.info, a.label.message { background: #2751d0; }
+.badge.info, .badge.message, .label.info, .label.message, a.label.info, a.label.message { background: #36a8f4; }
 .badge.light, .label.light, a.label.light { background: #fff; color: white; border: 1px solid transparent; }
 .badge.light a, .label.light a, a.label.light a { color: #f5cc4e; }
 .badge.dark, .label.dark, a.label.dark { background: #212121; }
@@ -1594,7 +1594,7 @@ i.icon-logo-db:before { content: "\f603"; height: inherit; }
 a.label { cursor: pointer; }
 a.label:hover.primary, .Actions a.label.btn:hover { background: #e40175; }
 a.label:hover.secondary { background: #413479; }
-a.label:hover.info, a.label.message:hover { background: #2d4ec7; }
+a.label:hover.info, a.label.message:hover { background: #4396da; }
 a.label:hover.danger { background: #f4c536; }
 a.label:hover.warning { background: #f2f2f2; }
 a.label:hover.success { background: #b2015b; }
@@ -1607,7 +1607,7 @@ a.label:hover.default { background: transparent; }
 .alert, .message, .message { padding: 0 10px; font-family: "David Libre", georgia, serif; font-weight: 600; list-style-type: none; word-wrap: break-word; margin-bottom: 8px; font-size: 14px; font-size: 0.875rem; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 .alert.primary, .primary.message, .Actions .message.btn, .Actions .alert.btn, .message.primary, .Actions .message.btn { background: #fe349b; border: 1px solid #cb0168; color: #660034; }
 .alert.secondary, .secondary.message, .message.secondary { background: #5d4bae; border: 1px solid #372c67; color: #110d20; }
-.alert.info, .message, .message.info, .message { background: #7793e6; border: 1px solid #2751d0; color: #17307a; background: #2144ae; color: #a2b5ee; }
+.alert.info, .message, .message.info, .message { background: #97d2f9; border: 1px solid #36a8f4; color: #0a74ba; background: #0f97f2; color: #c7e7fc; }
 .alert.danger, .danger.message, .message.danger { background: #fae8af; border: 1px solid #f5cc4e; color: #d1a10c; }
 .alert.warning, .warning.message, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: black; }
 .alert.success, .success.message, .message.success { background: #fe349b; border: 1px solid #cb0168; color: #660034; }
@@ -1679,9 +1679,9 @@ table.rounded thead th, .Actions table.btn thead th, table.rounded thead td, .Ac
 .btn.secondary, .skiplink.secondary { background: #372c67; border: 1px solid #372c67; }
 .btn.secondary:hover, .btn.secondary:focus, .skiplink.secondary:hover, .skiplink.secondary:focus { background: #413479; }
 .btn.secondary:active, .skiplink.secondary:active { background: #413479; }
-.btn.info, .btn.message, .skiplink.info, .skiplink.message { background: #2751d0; border: 1px solid #2751d0; }
-.btn.info:hover, .btn.message:hover, .btn.info:focus, .btn.message:focus, .skiplink.info:hover, .skiplink.message:hover, .skiplink.info:focus, .skiplink.message:focus { background: #2d4ec7; }
-.btn.info:active, .btn.message:active, .skiplink.info:active, .skiplink.message:active { background: #2d4ec7; }
+.btn.info, .btn.message, .skiplink.info, .skiplink.message { background: #36a8f4; border: 1px solid #36a8f4; }
+.btn.info:hover, .btn.message:hover, .btn.info:focus, .btn.message:focus, .skiplink.info:hover, .skiplink.message:hover, .skiplink.info:focus, .skiplink.message:focus { background: #4396da; }
+.btn.info:active, .btn.message:active, .skiplink.info:active, .skiplink.message:active { background: #4396da; }
 .btn.danger, .skiplink.danger { background: #f5cc4e; border: 1px solid #f5cc4e; }
 .btn.danger:hover, .btn.danger:focus, .skiplink.danger:hover, .skiplink.danger:focus { background: #f4c536; }
 .btn.danger:active, .skiplink.danger:active { background: #f4c536; }
@@ -1709,11 +1709,11 @@ table.rounded thead th, .Actions table.btn thead th, table.rounded thead td, .Ac
 .secondary.btn.pretty:active, .secondary.skiplink.pretty:active, .skiplink.pretty.secondary:active { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM1Mjg2YiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzVkNGJhZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#35286b, #5d4bae); background-image: -webkit-linear-gradient(#35286b, #5d4bae); background-image: linear-gradient(#35286b, #5d4bae); -moz-box-shadow: inset 0 0 3px #bbb3df; -webkit-box-shadow: inset 0 0 3px #bbb3df; box-shadow: inset 0 0 3px #bbb3df; }
 .btn.pretty.secondary a, .secondary.skiplink.pretty:hover a, .secondary.skiplink.pretty:focus a, .secondary.skiplink.pretty:active a, .btn.pretty.secondary input, .secondary.skiplink.pretty:hover input, .secondary.skiplink.pretty:focus input, .secondary.skiplink.pretty:active input, .btn.pretty.secondary button, .secondary.skiplink.pretty:hover button, .secondary.skiplink.pretty:focus button, .secondary.skiplink.pretty:active button, .skiplink.pretty.secondary a, .skiplink.pretty.secondary input, .skiplink.pretty.secondary button { text-shadow: 0 1px 1px #5d4bae; }
 .btn.pretty.secondary a, .secondary.skiplink.pretty:hover a, .secondary.skiplink.pretty:focus a, .secondary.skiplink.pretty:active a, .btn.pretty.secondary input, .secondary.skiplink.pretty:hover input, .secondary.skiplink.pretty:focus input, .secondary.skiplink.pretty:active input, .btn.pretty.secondary button, .secondary.skiplink.pretty:hover button, .secondary.skiplink.pretty:focus button, .secondary.skiplink.pretty:active button, .skiplink.pretty.secondary a, .skiplink.pretty.secondary input, .skiplink.pretty.secondary button { text-shadow: 0 1px 1px #110d20; }
-.btn.pretty.info, .info.skiplink.pretty:hover, .skiplink.pretty.message:hover, .info.skiplink.pretty:focus, .skiplink.pretty.message:focus, .info.skiplink.pretty:active, .skiplink.pretty.message:active, .btn.pretty.message, .skiplink.pretty.info, .skiplink.pretty.message { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIzNDliYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIxNGVkNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#2349bb, #214ed6); background-image: -webkit-linear-gradient(#2349bb, #214ed6); background-image: linear-gradient(#2349bb, #214ed6); -moz-box-shadow: inset 0 0 3px #e3e8fa; -webkit-box-shadow: inset 0 0 3px #e3e8fa; box-shadow: inset 0 0 3px #e3e8fa; border: none; }
-.info.btn.pretty:hover, .btn.pretty.message:hover, .info.skiplink.pretty:hover, .skiplink.pretty.message:hover, .skiplink.pretty.info:hover, .skiplink.pretty.message:hover { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNiNWJkMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI3NGFjZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#3b5bd3, #274ace); background-image: -webkit-linear-gradient(#3b5bd3, #274ace); background-image: linear-gradient(#3b5bd3, #274ace); -moz-box-shadow: inset 0 0 3px #cdd5f4; -webkit-box-shadow: inset 0 0 3px #cdd5f4; box-shadow: inset 0 0 3px #cdd5f4; border: none; }
-.info.btn.pretty:active, .btn.pretty.message:active, .info.skiplink.pretty:active, .skiplink.pretty.message:active, .skiplink.pretty.info:active, .skiplink.pretty.message:active { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIxNGVkNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc3OTNlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#214ed6, #7793e6); background-image: -webkit-linear-gradient(#214ed6, #7793e6); background-image: linear-gradient(#214ed6, #7793e6); -moz-box-shadow: inset 0 0 3px #f8fafe; -webkit-box-shadow: inset 0 0 3px #f8fafe; box-shadow: inset 0 0 3px #f8fafe; }
-.btn.pretty.info a, .info.skiplink.pretty:hover a, .skiplink.pretty.message:hover a, .info.skiplink.pretty:focus a, .skiplink.pretty.message:focus a, .info.skiplink.pretty:active a, .skiplink.pretty.message:active a, .btn.pretty.message a, .btn.pretty.info input, .info.skiplink.pretty:hover input, .skiplink.pretty.message:hover input, .info.skiplink.pretty:focus input, .skiplink.pretty.message:focus input, .info.skiplink.pretty:active input, .skiplink.pretty.message:active input, .btn.pretty.message input, .btn.pretty.info button, .info.skiplink.pretty:hover button, .skiplink.pretty.message:hover button, .info.skiplink.pretty:focus button, .skiplink.pretty.message:focus button, .info.skiplink.pretty:active button, .skiplink.pretty.message:active button, .btn.pretty.message button, .skiplink.pretty.info a, .skiplink.pretty.message a, .skiplink.pretty.info input, .skiplink.pretty.message input, .skiplink.pretty.info button, .skiplink.pretty.message button { text-shadow: 0 1px 1px #7793e6; }
-.btn.pretty.info a, .info.skiplink.pretty:hover a, .skiplink.pretty.message:hover a, .info.skiplink.pretty:focus a, .skiplink.pretty.message:focus a, .info.skiplink.pretty:active a, .skiplink.pretty.message:active a, .btn.pretty.message a, .btn.pretty.info input, .info.skiplink.pretty:hover input, .skiplink.pretty.message:hover input, .info.skiplink.pretty:focus input, .skiplink.pretty.message:focus input, .info.skiplink.pretty:active input, .skiplink.pretty.message:active input, .btn.pretty.message input, .btn.pretty.info button, .info.skiplink.pretty:hover button, .skiplink.pretty.message:hover button, .info.skiplink.pretty:focus button, .skiplink.pretty.message:focus button, .info.skiplink.pretty:active button, .skiplink.pretty.message:active button, .btn.pretty.message button, .skiplink.pretty.info a, .skiplink.pretty.message a, .skiplink.pretty.info input, .skiplink.pretty.message input, .skiplink.pretty.info button, .skiplink.pretty.message button { text-shadow: 0 1px 1px #17307a; }
+.btn.pretty.info, .info.skiplink.pretty:hover, .skiplink.pretty.message:hover, .info.skiplink.pretty:focus, .skiplink.pretty.message:focus, .info.skiplink.pretty:active, .skiplink.pretty.message:active, .btn.pretty.message, .skiplink.pretty.info, .skiplink.pretty.message { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlOWVmMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzMxYTlmOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#1e9ef3, #31a9f9); background-image: -webkit-linear-gradient(#1e9ef3, #31a9f9); background-image: linear-gradient(#1e9ef3, #31a9f9); -moz-box-shadow: inset 0 0 3px white; -webkit-box-shadow: inset 0 0 3px white; box-shadow: inset 0 0 3px white; border: none; }
+.info.btn.pretty:hover, .btn.pretty.message:hover, .info.skiplink.pretty:hover, .skiplink.pretty.message:hover, .skiplink.pretty.info:hover, .skiplink.pretty.message:hover { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzU4YTJkZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNkOTdkZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#58a2de, #3d97df); background-image: -webkit-linear-gradient(#58a2de, #3d97df); background-image: linear-gradient(#58a2de, #3d97df); -moz-box-shadow: inset 0 0 3px #edf5fb; -webkit-box-shadow: inset 0 0 3px #edf5fb; box-shadow: inset 0 0 3px #edf5fb; border: none; }
+.info.btn.pretty:active, .btn.pretty.message:active, .info.skiplink.pretty:active, .skiplink.pretty.message:active, .skiplink.pretty.info:active, .skiplink.pretty.message:active { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMxYTlmOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzk3ZDJmOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#31a9f9, #97d2f9); background-image: -webkit-linear-gradient(#31a9f9, #97d2f9); background-image: linear-gradient(#31a9f9, #97d2f9); -moz-box-shadow: inset 0 0 3px white; -webkit-box-shadow: inset 0 0 3px white; box-shadow: inset 0 0 3px white; }
+.btn.pretty.info a, .info.skiplink.pretty:hover a, .skiplink.pretty.message:hover a, .info.skiplink.pretty:focus a, .skiplink.pretty.message:focus a, .info.skiplink.pretty:active a, .skiplink.pretty.message:active a, .btn.pretty.message a, .btn.pretty.info input, .info.skiplink.pretty:hover input, .skiplink.pretty.message:hover input, .info.skiplink.pretty:focus input, .skiplink.pretty.message:focus input, .info.skiplink.pretty:active input, .skiplink.pretty.message:active input, .btn.pretty.message input, .btn.pretty.info button, .info.skiplink.pretty:hover button, .skiplink.pretty.message:hover button, .info.skiplink.pretty:focus button, .skiplink.pretty.message:focus button, .info.skiplink.pretty:active button, .skiplink.pretty.message:active button, .btn.pretty.message button, .skiplink.pretty.info a, .skiplink.pretty.message a, .skiplink.pretty.info input, .skiplink.pretty.message input, .skiplink.pretty.info button, .skiplink.pretty.message button { text-shadow: 0 1px 1px #97d2f9; }
+.btn.pretty.info a, .info.skiplink.pretty:hover a, .skiplink.pretty.message:hover a, .info.skiplink.pretty:focus a, .skiplink.pretty.message:focus a, .info.skiplink.pretty:active a, .skiplink.pretty.message:active a, .btn.pretty.message a, .btn.pretty.info input, .info.skiplink.pretty:hover input, .skiplink.pretty.message:hover input, .info.skiplink.pretty:focus input, .skiplink.pretty.message:focus input, .info.skiplink.pretty:active input, .skiplink.pretty.message:active input, .btn.pretty.message input, .btn.pretty.info button, .info.skiplink.pretty:hover button, .skiplink.pretty.message:hover button, .info.skiplink.pretty:focus button, .skiplink.pretty.message:focus button, .info.skiplink.pretty:active button, .skiplink.pretty.message:active button, .btn.pretty.message button, .skiplink.pretty.info a, .skiplink.pretty.message a, .skiplink.pretty.info input, .skiplink.pretty.message input, .skiplink.pretty.info button, .skiplink.pretty.message button { text-shadow: 0 1px 1px #0a74ba; }
 .btn.pretty.danger, .danger.skiplink.pretty:hover, .danger.skiplink.pretty:focus, .danger.skiplink.pretty:active, .skiplink.pretty.danger { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y0YzUzNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZhY2U0OSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#f4c536, #face49); background-image: -webkit-linear-gradient(#f4c536, #face49); background-image: linear-gradient(#f4c536, #face49); -moz-box-shadow: inset 0 0 3px white; -webkit-box-shadow: inset 0 0 3px white; box-shadow: inset 0 0 3px white; border: none; }
 .danger.btn.pretty:hover, .danger.skiplink.pretty:hover, .skiplink.pretty.danger:hover { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1Y2M0ZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y5YzgzMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#f5cc4e, #f9c831); background-image: -webkit-linear-gradient(#f5cc4e, #f9c831); background-image: linear-gradient(#f5cc4e, #f9c831); -moz-box-shadow: inset 0 0 3px #fffdf7; -webkit-box-shadow: inset 0 0 3px #fffdf7; box-shadow: inset 0 0 3px #fffdf7; border: none; }
 .danger.btn.pretty:active, .danger.skiplink.pretty:active, .skiplink.pretty.danger:active { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhY2U0OSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZhZThhZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -moz-linear-gradient(#face49, #fae8af); background-image: -webkit-linear-gradient(#face49, #fae8af); background-image: linear-gradient(#face49, #fae8af); -moz-box-shadow: inset 0 0 3px white; -webkit-box-shadow: inset 0 0 3px white; box-shadow: inset 0 0 3px white; }
@@ -2239,14 +2239,14 @@ ul.sitemap li div.collapse a, ul.sitemap li div.collapse .page-toggle a.button {
 .w.alpha-change, .y.alpha-change, .i.alpha-change, .g.alpha-change { background-color: #f5cc4e; color: #100e39; }
 .w.alpha-change-border, .y.alpha-change-border, .i.alpha-change-border, .g.alpha-change-border { border-color: rgba(245, 204, 78, 0.5); }
 
-.f.alpha-change, .x.alpha-change, .t.alpha-change, .h.alpha-change { background-color: #2751d0; }
-.f.alpha-change-border, .x.alpha-change-border, .t.alpha-change-border, .h.alpha-change-border { border-color: rgba(39, 81, 208, 0.5); }
+.f.alpha-change, .x.alpha-change, .t.alpha-change, .h.alpha-change { background-color: #36a8f4; }
+.f.alpha-change-border, .x.alpha-change-border, .t.alpha-change-border, .h.alpha-change-border { border-color: rgba(54, 168, 244, 0.5); }
 
 .j.alpha-change, .k.alpha-change, .l.alpha-change, .m.alpha-change { background-color: white; color: #cb0168; }
 .j.alpha-change-border, .k.alpha-change-border, .l.alpha-change-border, .m.alpha-change-border { border-color: rgba(255, 255, 255, 0.5); }
 
-.p.alpha-change, .q.alpha-change, .v.alpha-change, .s.alpha-change { background-color: #160013; }
-.p.alpha-change-border, .q.alpha-change-border, .v.alpha-change-border, .s.alpha-change-border { border-color: rgba(22, 0, 19, 0.5); }
+.p.alpha-change, .q.alpha-change, .v.alpha-change, .s.alpha-change { background-color: #0ee3bb; }
+.p.alpha-change-border, .q.alpha-change-border, .v.alpha-change-border, .s.alpha-change-border { border-color: rgba(14, 227, 187, 0.5); }
 
 .r.alpha-change, .u.alpha-change, .o.alpha-change, .n.alpha-change { background-color: #372c67; }
 .r.alpha-change-border, .u.alpha-change-border, .o.alpha-change-border, .n.alpha-change-border { border-color: rgba(55, 44, 103, 0.5); }
@@ -2320,7 +2320,7 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .composite .field, .confirmedpassword .field { padding: 5px 0; border: 0; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
 .tagsinput { padding: 5px; overflow-y: auto; width: 98%; }
-.tagsinput span.tag { background: #2751d0; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 3px 5px 3px 0; padding: 0 3px 0px 10px; text-decoration: none; }
+.tagsinput span.tag { background: #36a8f4; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 3px 5px 3px 0; padding: 0 3px 0px 10px; text-decoration: none; }
 .tagsinput span.tag a { position: relative; top: 2px; display: inline-block; padding: 0px 5px 0 5px; color: #fff; text-decoration: none; font-size: 16px; }
 .tagsinput input { background: transparent; border-radius: 3px; border: 1px solid transparent; color: #333 !important; font-family: helvetica; font-size: 13px; margin: 5px 5px 5px 0; outline: 0px; padding: 3px 3px 3px 10px; width: 100px !important; }
 .tagsinput div { display: block; float: left; }
@@ -2333,158 +2333,203 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .ui-helper-hidden-accessible { clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; position: absolute; }
 
 .ui-autocomplete { max-width: 40%; }
-.ui-autocomplete li { background: #2751d0; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 15px 5px 3px 0; padding: 0 10px; text-decoration: none; }
+.ui-autocomplete li { background: #36a8f4; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 15px 5px 3px 0; padding: 0 10px; text-decoration: none; }
 
-.js .preference-select .preference-group .field { font-size: 1.1em; transition: 0.3s; position: relative; float: left; cursor: move; background: #050410; border: 0px solid #050410; border-left-width: 19px; color: black; margin: 0; margin-bottom: 1px; padding: 5px 50px 5px 40px; }
+.js .preference-select .preference-group .field { font-size: 1.1em; transition: 0.3s; position: relative; float: left; cursor: move; background: rgba(63, 62, 96, 0.2); border: 0px solid rgba(63, 62, 96, 0.2); border-left-width: 19px; color: #fff; margin: 0; margin-bottom: 1px; padding: 5px 50px 5px 40px; }
 @media only screen and (max-width: 899px) { .js .preference-select .preference-group .field { border-left-width: 5px; } }
 .js .preference-select .preference-group .field.favourite .icon-heart { color: #cb0168; }
 .js .preference-select .preference-group .field:first-child .icon-up { display: none; }
 .js .preference-select .preference-group .field:first-child .icon-heart { display: block; }
 .js .preference-select .preference-group .field:first-child.not-playing .icon-heart { display: none; }
-.js .preference-select .preference-group .field:hover, .js .preference-select .preference-group .field:focus { transition: 0.3s; background: transparent; border-color: transparent; color: #fff; }
-.js .preference-select .preference-group .field:hover .icon, .js .preference-select .preference-group .field:focus .icon { color: #160013; }
+.js .preference-select .preference-group .field:hover, .js .preference-select .preference-group .field:focus { transition: 0.3s; background: rgba(115, 102, 113, 0.2); border-color: transparent; color: #fff; }
+.js .preference-select .preference-group .field:hover .icon, .js .preference-select .preference-group .field:focus .icon { color: #0ee3bb; }
 .js .preference-select .preference-group .field:hover.favourite .icon-heart, .js .preference-select .preference-group .field:focus.favourite .icon-heart { color: #cb0168; }
 .js .preference-select .preference-group .field:hover:before, .js .preference-select .preference-group .field:focus:before { transition: 0.3s; background: transparent; color: #fff; }
 .js .preference-select .preference-group .field:hover:after, .js .preference-select .preference-group .field:focus:after { transition: 0.3s; color: #fff; opacity: 1; }
-.js .preference-select .preference-group .field:before { box-sizing: border-box; display: block; padding: 5px 10px; background-color: #050410; height: 100%; content: ""; position: absolute; top: 0px; left: 0px; width: 30px; color: black; font-weight: normal; }
+.js .preference-select .preference-group .field:before { box-sizing: border-box; display: block; padding: 5px 10px; background-color: rgba(83, 82, 127, 0.2); height: 100%; content: ""; position: absolute; top: 0px; left: 0px; width: 30px; color: #fff; font-weight: normal; }
 .js .preference-select .preference-group .field:after { -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); transform: rotate(-45deg); content: "\e744"; font-family: "entypo"; color: transparent; position: absolute; text-decoration: none; zoom: 1; left: -17px; top: 5px; opacity: 0.5; }
 @media only screen and (max-width: 899px) { .js .preference-select .preference-group .field:after { content: ""; } }
-.js .preference-select .preference-group .field .icon { position: absolute; right: 5px; top: 5px; padding-left: 22px; color: rgba(22, 0, 19, 0.5); }
-.js .preference-select .preference-group .field .icon:hover { color: #250020; cursor: pointer; }
-.js .preference-select .preference-group .field .icon-heart { display: none; color: rgba(245, 204, 78, 0.4); }
-.js .preference-select .preference-group .field .extra { text-overflow: ellipsis; }
+.js .preference-select .preference-group .field .icon { position: absolute; right: 5px; top: 5px; padding-left: 22px; color: rgba(14, 227, 187, 0.5); }
+.js .preference-select .preference-group .field .icon:hover { color: #10f0c6; cursor: pointer; }
+.js .preference-select .preference-group .field .icon-heart { display: none; color: rgba(203, 1, 104, 0.4); }
+.js .preference-select .preference-group .field .extra { text-overflow: ellipsis; font-style: normal; color: #fff; }
 .js .preference-select .preference-1 .field:nth-of-type(1) { border-color: transparent; }
+.js .preference-select .preference-1 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-1 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-1 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-1 .field:nth-of-type(1):hover, .js .preference-select .preference-1 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-1 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1) { border-color: #050410; }
+.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
 .js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(1) { border-color: transparent; }
+.js .preference-select .preference-2 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-2 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-2 .field:nth-of-type(1):hover, .js .preference-select .preference-2 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1) { border-color: #050410; }
+.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(2) { border-color: transparent; }
+.js .preference-select .preference-2 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-2 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-2 .field:nth-of-type(2):hover, .js .preference-select .preference-2 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2) { border-color: #050410; }
+.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
 .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(1) { border-color: transparent; }
+.js .preference-select .preference-3 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-3 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-3 .field:nth-of-type(1):hover, .js .preference-select .preference-3 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1) { border-color: #050410; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(2) { border-color: transparent; }
+.js .preference-select .preference-3 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-3 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-3 .field:nth-of-type(2):hover, .js .preference-select .preference-3 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2) { border-color: #050410; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(3) { border-color: transparent; }
+.js .preference-select .preference-3 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-3 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-3 .field:nth-of-type(3):hover, .js .preference-select .preference-3 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3) { border-color: #050410; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
 .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(1) { border-color: transparent; }
+.js .preference-select .preference-4 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-4 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-4 .field:nth-of-type(1):hover, .js .preference-select .preference-4 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1) { border-color: #050410; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(2) { border-color: transparent; }
+.js .preference-select .preference-4 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-4 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-4 .field:nth-of-type(2):hover, .js .preference-select .preference-4 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2) { border-color: #050410; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(3) { border-color: transparent; }
+.js .preference-select .preference-4 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-4 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-4 .field:nth-of-type(3):hover, .js .preference-select .preference-4 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3) { border-color: #050410; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(4) { border-color: transparent; }
+.js .preference-select .preference-4 .field:nth-of-type(4) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-4 .field:nth-of-type(4) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(4):before { content: "4"; }
 .js .preference-select .preference-4 .field:nth-of-type(4):hover, .js .preference-select .preference-4 .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(4):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4) { border-color: #050410; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):before { content: ""; }
 .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):after { color: transparent; }
+.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(1) { border-color: transparent; }
+.js .preference-select .preference-5 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-5 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-5 .field:nth-of-type(1):hover, .js .preference-select .preference-5 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1) { border-color: #050410; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(2) { border-color: transparent; }
+.js .preference-select .preference-5 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-5 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-5 .field:nth-of-type(2):hover, .js .preference-select .preference-5 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2) { border-color: #050410; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(3) { border-color: transparent; }
+.js .preference-select .preference-5 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-5 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-5 .field:nth-of-type(3):hover, .js .preference-select .preference-5 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3) { border-color: #050410; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(4) { border-color: transparent; }
+.js .preference-select .preference-5 .field:nth-of-type(4) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-5 .field:nth-of-type(4) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(4):before { content: "4"; }
 .js .preference-select .preference-5 .field:nth-of-type(4):hover, .js .preference-select .preference-5 .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(4):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4) { border-color: #050410; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):before { content: ""; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):after { color: transparent; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(5) { border-color: transparent; }
+.js .preference-select .preference-5 .field:nth-of-type(5) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
+.js .preference-select .preference-5 .field:nth-of-type(5) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(5):before { content: "5"; }
 .js .preference-select .preference-5 .field:nth-of-type(5):hover, .js .preference-select .preference-5 .field:nth-of-type(5):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(5):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5) { border-color: #050410; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5) { border-color: rgba(255, 255, 255, 0.1); }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):focus { border-color: transparent; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):before { content: ""; }
 .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):after { color: transparent; }
+.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5) .extra { text-shadow: none; }
 
 .preference-table .icon-heart { color: #cb0168; }
-.preference-table .icon-check { color: #160013; }
+.preference-table .icon-check { color: #0ee3bb; }
 
 .key { display: none; }
 
-.js .key { *zoom: 1; padding: 15px 10px; margin-bottom: 30px; width: 100%; display: block; background-color: #0a0925; }
+.js .key { *zoom: 1; padding: 15px 10px; margin-bottom: 30px; width: 100%; display: block; background-color: #0a0925; color: #fff; }
 .js .key:before, .js .key:after { content: ""; display: table; }
 .js .key:after { clear: both; }
 .js .key .icon-heart { color: #cb0168; }
-.js .key .icon-check { color: #160013; }
-.js .key .icon-up { color: #160013; }
+.js .key .icon-check { color: #0ee3bb; }
+.js .key .icon-up { color: #0ee3bb; }
 .js .key dt, .js .key dd { float: left; }
 .js .key dt { margin-left: 20px; }
 @media only screen and (max-width: 899px) { .js .key dt { clear: both; margin-left: 0; } }

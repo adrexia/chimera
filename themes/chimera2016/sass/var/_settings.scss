@@ -8,13 +8,13 @@ $sky: #100E39;
 $night: #160013;
 $starlight: #F5CC4E;
 $oxygen: #ffffff;
-$water: #2751d0;
-
+$water: #36a8f4;
 $people: #372C67;
 $exploration: #cb0168;
+$earth: #0ee3bb;
 
-$brand-list: $sky, $water, $oxygen, $night, $starlight, $people, $exploration;
-$secondary-brand-list: $water, $oxygen, $night, $starlight, $people, $exploration;
+$brand-list: $water, $oxygen, $starlight, $people, $exploration, $earth;
+$secondary-brand-list: $water, $oxygen, $starlight, $people, $exploration, $earth;
 
 // Grid Settings
 $row-max-width: 1250px !default;    				// 940px

@@ -1368,7 +1368,7 @@ i.icon-logo-db:before { content: "\f603"; height: inherit; }
 .badge.light, .label.light, a.label.light { background: #fff; color: white; border: 1px solid transparent; }
 .badge.light a, .label.light a, a.label.light a { color: #f5cc4e; }
 .badge.dark, .label.dark, a.label.dark { background: #212121; }
-.badge.info, .label.info, a.label.info { background: #2751d0; }
+.badge.info, .label.info, a.label.info { background: #36a8f4; }
 .badge.light, .label.light, a.label.light { background: #fff; color: white; border: 1px solid transparent; }
 .badge.light a, .label.light a, a.label.light a { color: #f5cc4e; }
 .badge.dark, .label.dark, a.label.dark { background: #212121; }
@@ -1394,7 +1394,7 @@ i.icon-logo-db:before { content: "\f603"; height: inherit; }
 a.label { cursor: pointer; }
 a.label:hover.primary { background: #e40175; }
 a.label:hover.secondary { background: #413479; }
-a.label:hover.info { background: #2d4ec7; }
+a.label:hover.info { background: #4396da; }
 a.label:hover.danger { background: #f4c536; }
 a.label:hover.warning { background: #f2f2f2; }
 a.label:hover.success { background: #b2015b; }
@@ -1407,7 +1407,7 @@ a.label:hover.default { background: transparent; }
 .alert, .message { padding: 0 10px; font-family: "David Libre", georgia, serif; font-weight: 600; list-style-type: none; word-wrap: break-word; margin-bottom: 8px; font-size: 14px; font-size: 0.875rem; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 .alert.primary, .message.primary { background: #fe349b; border: 1px solid #cb0168; color: #660034; }
 .alert.secondary, .message.secondary { background: #5d4bae; border: 1px solid #372c67; color: #110d20; }
-.alert.info, .message.info { background: #7793e6; border: 1px solid #2751d0; color: #17307a; background: #2144ae; color: #a2b5ee; }
+.alert.info, .message.info { background: #97d2f9; border: 1px solid #36a8f4; color: #0a74ba; background: #0f97f2; color: #c7e7fc; }
 .alert.danger, .message.danger { background: #fae8af; border: 1px solid #f5cc4e; color: #d1a10c; }
 .alert.warning, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: black; }
 .alert.success, .message.success { background: #fe349b; border: 1px solid #cb0168; color: #660034; }

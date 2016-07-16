@@ -8,14 +8,15 @@
 	width: 100%;
 	display: block;
 	background-color: darken($global-bg-color, 5%);
+	color: #fff;
 	.icon-heart {
 		color: $exploration;
 	}
 	.icon-check {
-		color: $night;
+		color: $earth;
 	}
 	.icon-up {
-		color: $night;
+		color: $earth;
 	}
 	dt, dd {
 		float: left;
