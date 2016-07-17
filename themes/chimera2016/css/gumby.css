@@ -2320,7 +2320,7 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .composite .field, .confirmedpassword .field { padding: 5px 0; border: 0; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
 .tagsinput { padding: 5px; overflow-y: auto; width: 98%; }
-.tagsinput span.tag { background: #36a8f4; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 3px 5px 3px 0; padding: 0 3px 0px 10px; text-decoration: none; }
+.tagsinput span.tag { background: #cb0168; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 3px 5px 3px 0; padding: 0 3px 0px 10px; text-decoration: none; }
 .tagsinput span.tag a { position: relative; top: 2px; display: inline-block; padding: 0px 5px 0 5px; color: #fff; text-decoration: none; font-size: 16px; }
 .tagsinput input { background: transparent; border-radius: 3px; border: 1px solid transparent; color: #333 !important; font-family: helvetica; font-size: 13px; margin: 5px 5px 5px 0; outline: 0px; padding: 3px 3px 3px 10px; width: 100px !important; }
 .tagsinput div { display: block; float: left; }
@@ -2333,7 +2333,7 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .ui-helper-hidden-accessible { clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; position: absolute; }
 
 .ui-autocomplete { max-width: 40%; }
-.ui-autocomplete li { background: #36a8f4; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 15px 5px 3px 0; padding: 0 10px; text-decoration: none; }
+.ui-autocomplete li { background: #cb0168; border-radius: 3px; color: #fff; display: block; display: inline-block; float: left; font-size: 13px; font-weight: bold; line-height: 25px; margin: 15px 5px 3px 0; padding: 0 10px; text-decoration: none; }
 
 .js .preference-select .preference-group .field { font-size: 1.1em; transition: 0.3s; position: relative; float: left; cursor: move; background: rgba(63, 62, 96, 0.2); border: 0px solid rgba(63, 62, 96, 0.2); border-left-width: 19px; color: #fff; margin: 0; margin-bottom: 1px; padding: 5px 50px 5px 40px; }
 @media only screen and (max-width: 899px) { .js .preference-select .preference-group .field { border-left-width: 5px; } }
