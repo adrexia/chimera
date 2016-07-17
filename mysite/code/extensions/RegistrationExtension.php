@@ -21,10 +21,7 @@ class RegistrationExtension extends DataExtension {
 }
 class RegistrationPage_ControllerExtension extends DataExtension {
 
-	public function updateRegisterForm(Form $form) {
-
-		$fields = $form->Fields();
-
+	public function addExtraFields($fields) {
 		$reg = singleton('Registration');
 
 		$fields->removeByName('PlayWith');
@@ -64,5 +61,17 @@ class RegistrationPage_ControllerExtension extends DataExtension {
 			'Gender',
 			'What gender would you prefer to play?'
 		), 'EmergencyContact');
+
+		return $fields;
+	}
+
+	public function updateRegisterForm(Form $form) {
+		$fields = $form->Fields();
+		$fields = $this->addExtraFields($fields);
+	}
+
+	public function updateProfileForm(Form $form) {
+		$fields = $form->Fields();
+		$fields = $this->addExtraFields($fields);
 	}
 }
