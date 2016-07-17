@@ -83,7 +83,7 @@ a.label {
 		border: 1px solid nth($shade, 2);
 	  }
 	  @if nth($shade, 1) == warning {
-		color: darken(nth($shade, 2), 40%);
+		color: #fff;
 	  }
 	  @if nth($shade, 1) == info {
 		background: darken(nth($shade, 2), 8%);

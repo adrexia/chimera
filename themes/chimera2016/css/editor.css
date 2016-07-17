@@ -1409,7 +1409,7 @@ a.label:hover.default { background: transparent; }
 .alert.secondary, .message.secondary { background: #5d4bae; border: 1px solid #372c67; color: #110d20; }
 .alert.info, .message.info { background: #97d2f9; border: 1px solid #36a8f4; color: #0a74ba; background: #0f97f2; color: #c7e7fc; }
 .alert.danger, .message.danger { background: #fae8af; border: 1px solid #f5cc4e; color: #d1a10c; }
-.alert.warning, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: black; }
+.alert.warning, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: #fff; }
 .alert.success, .message.success { background: #fe349b; border: 1px solid #cb0168; color: #660034; }
 .alert.default, .message.default { background: rgba(51, 51, 51, 0); border: 1px solid transparent; color: transparent; color: transparent; border: 1px solid transparent; }
 

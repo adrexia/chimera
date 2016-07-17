@@ -17,6 +17,12 @@ DBField:
 LeftAndMain:
   extra_requirements_css:
    - 'mysite/css/custom.css'
+Registration:
+  extensions:
+   - RegistrationExtension
+RegistrationPage_Controller:
+  extensions:
+   - RegistrationPage_ControllerExtension
 
 ErrorPage:
   icon: "mysite/images/sitetree_images/error.png"

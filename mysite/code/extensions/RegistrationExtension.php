@@ -8,8 +8,9 @@ class RegistrationExtension extends DataExtension {
 		'NZLarpsMember' => "Enum('Yes, No, I\'d like to join (please tell me how)', 'No')",
 		'Gender' => 'Varchar(255)',
 		'LarpExperience' => "Enum('Newbie, Novice (a few games played), Veteran', 'Newbie')",
-		'Age' => "Enum('Less than 18 (requires parental consent), 18+, Older than I care to mention', '18+')",
+		'Age' => "Enum('Under 18 (requires parental consent), 18+', '18+')",
 		'EmergencyContact' => 'Varchar(255)',
+		'ComingFrom' => "Enum('Auckland, Hamilton, Tauranga, Wellington, Other North Island, Christchurch, Dunedin, Other South Island, Overseas', 'Auckland')"
 	);
 
 	public function updateCMSFields(FieldList $fields) {
@@ -42,6 +43,12 @@ class RegistrationPage_ControllerExtension extends DataExtension {
 		), 'NZLarpsMember');
 
 		$fields->insertAfter(DropdownField::create(
+			'ComingFrom',
+			'Coming from',
+			$reg->dbObject('ComingFrom')->enumValues()
+		), 'LarpExperience');
+
+		$fields->insertAfter(DropdownField::create(
 			'Age',
 			'Age',
 			$reg->dbObject('Age')->enumValues()
@@ -57,11 +64,5 @@ class RegistrationPage_ControllerExtension extends DataExtension {
 			'Gender',
 			'What gender would you prefer to play?'
 		), 'EmergencyContact');
-
-		$accom = $fields->dataFieldByName('Accommodation');
-
-		if($accom) {
-			$accom->setRightTitle('Limited shared area or tenting available.');
-		}
 	}
 }

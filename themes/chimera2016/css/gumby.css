@@ -1609,7 +1609,7 @@ a.label:hover.default { background: transparent; }
 .alert.secondary, .secondary.message, .message.secondary { background: #5d4bae; border: 1px solid #372c67; color: #110d20; }
 .alert.info, .message, .message.info, .message { background: #97d2f9; border: 1px solid #36a8f4; color: #0a74ba; background: #0f97f2; color: #c7e7fc; }
 .alert.danger, .danger.message, .message.danger { background: #fae8af; border: 1px solid #f5cc4e; color: #d1a10c; }
-.alert.warning, .warning.message, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: black; }
+.alert.warning, .warning.message, .message.warning { background: #27228b; border: 1px solid #100e39; color: black; color: #fff; }
 .alert.success, .success.message, .message.success { background: #fe349b; border: 1px solid #cb0168; color: #660034; }
 .alert.default, .default.message, .message.default { background: rgba(51, 51, 51, 0); border: 1px solid transparent; color: transparent; color: transparent; border: 1px solid transparent; }
 
@@ -2161,7 +2161,7 @@ form fieldset legend { padding: 5px 10px; }
 .sponsors ul li a { margin-right: 19px; padding-left: 19px; display: block; position: relative; display: table; height: 115px; }
 .sponsors ul li a .center { display: table-cell; vertical-align: bottom; }
 @media only screen and (min-width: 1270px) { .sponsors ul li a { height: 155px; } }
-.sponsors ul li a:before { content: ''; height: 50px; position: absolute; left: 0; bottom: 12%; }
+.sponsors ul li a:before { content: ''; height: 50px; position: absolute; left: 0; bottom: 0; }
 @media only screen and (min-width: 1270px) { .sponsors ul li a:before { border-left: 1px solid rgba(255, 255, 255, 0.2); } }
 .sponsors ul li a:hover img, .sponsors ul li a:focus img { opacity: 1; }
 .sponsors ul li:first-child { text-align: left; margin-left: 0; }
@@ -2255,7 +2255,7 @@ ul.sitemap li div.collapse a, ul.sitemap li div.collapse .page-toggle a.button {
 
 label { font-family: "Quattrocento", georgia, serif; }
 
-.extra { color: #160013; }
+.extra { color: #fff; }
 
 .good { background: #e580b3; border: 1px solid #660034; color: #660034; }
 
