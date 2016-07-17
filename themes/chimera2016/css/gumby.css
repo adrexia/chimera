@@ -2564,7 +2564,7 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .content.subhead { padding-bottom: 10px; }
 
 .clear-filter { transition-duration: 0.3s; display: inline-block; font-size: 0.5em; font-weight: normal; font-family: sans-serif; padding: 0 5px; opacity: 1; }
-.clear-filter.default { transition-duration: 0.3s; opacity: 0; }
+.clear-filter.success { transition-duration: 0.3s; opacity: 0; }
 .clear-filter:hover, .clear-filter:focus { cursor: pointer; }
 .clear-filter i { margin: 0; }
 

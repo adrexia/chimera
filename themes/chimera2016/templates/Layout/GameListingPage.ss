@@ -8,7 +8,7 @@
 				<% if FilteredGames %>
 					<div class="js-filters masonry-filters columns three">
 						<h4 class="ptl">Filters
-							<a class="clear-filter default" data-filter="*">
+							<a class="clear-filter success" data-filter="*">
 								clear
 							</a>
 						</h4>
@@ -52,7 +52,8 @@
 									</em>
 								</header>
 								<div class="text pvm">
-									<p>$Brief</p>
+									<p>$Brief.LimitCharacters(200)</p>
+									<p><small><strong>Round: $Session</strong></small></p>
 								</div>
 							</a>
 						</article>
