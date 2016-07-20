@@ -27,7 +27,7 @@
 			<% end_if %>
 
 		<% end_if %>
-		<p class="right">&copy; NZLarps 2008 - 2016 | Graphics by Judit Klein. Powered by <a href="http://silverstripe.org">SilverStripe</a></p>
+		<p class="right">&copy; NZLarps 2008 - 2016</p>
 
 	</div>
 </footer>
