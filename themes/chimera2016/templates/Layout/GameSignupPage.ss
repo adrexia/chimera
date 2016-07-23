@@ -39,8 +39,10 @@
 									<th>Round&nbsp;$Session</th>
 									<td>
 									<% loop $Children %>
-										{$Preference}.
-										<a href="$Game.Link">$Game.Title</a><% if $Favourite %><i title="favourited" class="icon icon-heart"></i><% end_if %><% if $Status %><i title="accepted" class="icon icon-check"></i><% end_if %> <br />
+									<p>
+										<span class="num">{$Preference}.</span>
+										<a href="$Game.Link">$GameTitle</a><% if $Favourite %><i title="favourited" class="icon icon-heart"></i><% end_if %><% if $Status %><i title="accepted" class="icon icon-check"></i><% end_if %>
+									</p>
 									<% end_loop %>
 									</td>
 								</tr>

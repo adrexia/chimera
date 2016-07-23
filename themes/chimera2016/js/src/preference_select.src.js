@@ -102,7 +102,7 @@ $(function() {
 
 		prefSelect.find('.field').on(Gumby.click, function(e) {
 			if($(this).is( ":first-child")){
-				if(!$(this).hasClass('not-playing') && enableFavs) {
+				if(!$(this).hasClass('isfinal') && enableFavs) {
 					markFavourite(this);
 				}
 			} else {

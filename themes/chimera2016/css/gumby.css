@@ -2342,7 +2342,7 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .js .preference-select .preference-group .field.favourite .icon-heart { color: #cb0168; }
 .js .preference-select .preference-group .field:first-child .icon-up { display: none; }
 .js .preference-select .preference-group .field:first-child .icon-heart { display: block; }
-.js .preference-select .preference-group .field:first-child.not-playing .icon-heart { display: none; }
+.js .preference-select .preference-group .field:first-child.isfinal .icon-heart { display: none; }
 .js .preference-select .preference-group .field:hover, .js .preference-select .preference-group .field:focus { transition: 0.3s; background: rgba(115, 102, 113, 0.2); border-color: transparent; color: #fff; }
 .js .preference-select .preference-group .field:hover .icon, .js .preference-select .preference-group .field:focus .icon { color: #0ee3bb; }
 .js .preference-select .preference-group .field:hover.favourite .icon-heart, .js .preference-select .preference-group .field:focus.favourite .icon-heart { color: #cb0168; }
@@ -2361,168 +2361,171 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .js .preference-select .preference-1 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-1 .field:nth-of-type(1):hover, .js .preference-select .preference-1 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-1 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
-.js .preference-select .preference-1 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
+.js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1):hover, .js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1):focus { border-color: transparent; }
+.js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1):before { content: ""; }
+.js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-1 .isfinal ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(1) { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-2 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-2 .field:nth-of-type(1):hover, .js .preference-select .preference-2 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1):hover, .js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1):focus { border-color: transparent; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1):before { content: ""; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(2) { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-2 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-2 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-2 .field:nth-of-type(2):hover, .js .preference-select .preference-2 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-2 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
-.js .preference-select .preference-2 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2):hover, .js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2):focus { border-color: transparent; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2):before { content: ""; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-2 .isfinal ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(1) { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-3 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-3 .field:nth-of-type(1):hover, .js .preference-select .preference-3 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1):hover, .js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1):focus { border-color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1):before { content: ""; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(2) { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-3 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-3 .field:nth-of-type(2):hover, .js .preference-select .preference-3 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2):hover, .js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2):focus { border-color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2):before { content: ""; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(3) { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-3 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-3 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-3 .field:nth-of-type(3):hover, .js .preference-select .preference-3 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-3 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
-.js .preference-select .preference-3 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3):hover, .js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3):focus { border-color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3):before { content: ""; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-3 .isfinal ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(1) { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-4 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-4 .field:nth-of-type(1):hover, .js .preference-select .preference-4 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1):hover, .js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1):focus { border-color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1):before { content: ""; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(2) { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-4 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-4 .field:nth-of-type(2):hover, .js .preference-select .preference-4 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2):hover, .js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2):focus { border-color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2):before { content: ""; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(3) { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-4 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-4 .field:nth-of-type(3):hover, .js .preference-select .preference-4 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3):hover, .js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3):focus { border-color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3):before { content: ""; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(4) { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(4) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-4 .field:nth-of-type(4) .icon { text-shadow: none; }
 .js .preference-select .preference-4 .field:nth-of-type(4):before { content: "4"; }
 .js .preference-select .preference-4 .field:nth-of-type(4):hover, .js .preference-select .preference-4 .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-4 .field:nth-of-type(4):after { color: #fff; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):hover, .js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):focus { border-color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):before { content: ""; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4):after { color: transparent; }
-.js .preference-select .preference-4 .not-playing ~ .field:nth-of-type(4) .extra { text-shadow: none; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4):hover, .js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4):focus { border-color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4):before { content: ""; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4):after { color: transparent; }
+.js .preference-select .preference-4 .isfinal ~ .field:nth-of-type(4) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(1) { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(1) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-5 .field:nth-of-type(1) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(1):before { content: "1"; }
 .js .preference-select .preference-5 .field:nth-of-type(1):hover, .js .preference-select .preference-5 .field:nth-of-type(1):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(1):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):focus { border-color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):before { content: ""; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1):after { color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(1) .extra { text-shadow: none; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1):hover, .js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1):focus { border-color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1):before { content: ""; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1):after { color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(1) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(2) { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(2) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-5 .field:nth-of-type(2) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(2):before { content: "2"; }
 .js .preference-select .preference-5 .field:nth-of-type(2):hover, .js .preference-select .preference-5 .field:nth-of-type(2):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(2):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):focus { border-color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):before { content: ""; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2):after { color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(2) .extra { text-shadow: none; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2):hover, .js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2):focus { border-color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2):before { content: ""; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2):after { color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(2) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(3) { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(3) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-5 .field:nth-of-type(3) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(3):before { content: "3"; }
 .js .preference-select .preference-5 .field:nth-of-type(3):hover, .js .preference-select .preference-5 .field:nth-of-type(3):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(3):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):focus { border-color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):before { content: ""; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3):after { color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(3) .extra { text-shadow: none; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3):hover, .js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3):focus { border-color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3):before { content: ""; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3):after { color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(3) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(4) { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(4) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-5 .field:nth-of-type(4) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(4):before { content: "4"; }
 .js .preference-select .preference-5 .field:nth-of-type(4):hover, .js .preference-select .preference-5 .field:nth-of-type(4):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(4):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):focus { border-color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):before { content: ""; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4):after { color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(4) .extra { text-shadow: none; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4):hover, .js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4):focus { border-color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4):before { content: ""; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4):after { color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(4) .extra { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(5) { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(5) .extra { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); }
 .js .preference-select .preference-5 .field:nth-of-type(5) .icon { text-shadow: none; }
 .js .preference-select .preference-5 .field:nth-of-type(5):before { content: "5"; }
 .js .preference-select .preference-5 .field:nth-of-type(5):hover, .js .preference-select .preference-5 .field:nth-of-type(5):focus { border-color: transparent; }
 .js .preference-select .preference-5 .field:nth-of-type(5):after { color: #fff; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5) { border-color: rgba(255, 255, 255, 0.1); }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):hover, .js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):focus { border-color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):before { content: ""; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5):after { color: transparent; }
-.js .preference-select .preference-5 .not-playing ~ .field:nth-of-type(5) .extra { text-shadow: none; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5) { border-color: rgba(255, 255, 255, 0.1); }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5):hover, .js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5):focus { border-color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5):before { content: ""; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5):after { color: transparent; }
+.js .preference-select .preference-5 .isfinal ~ .field:nth-of-type(5) .extra { text-shadow: none; }
 
+.preference-table { font-size: 1em; }
+.preference-table p { font-size: 1em; }
 .preference-table .icon-heart { color: #cb0168; }
 .preference-table .icon-check { color: #0ee3bb; }
+.preference-table .num { font-size: 0.8em; opacity: 0.7; }
 
 .key { display: none; }
 

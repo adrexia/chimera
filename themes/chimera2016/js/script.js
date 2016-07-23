@@ -17760,7 +17760,7 @@ var tooltip = $.widget( "ui.tooltip", {
 			// TODO Handle repeating elements (e.g. arr[]=one&arr[]=two)
 			// 2013-12-06 ischommer: Added to allow merge with existing keys
 			convertSearchToArray: function(search) {
-				var params = {}, 
+				var params = {},
 					search = search.replace( /^\?/, '' ),
 					parts = search ? search.split( '&' ) : [], i, tmp;
 				for(i=0; i < parts.length; i++) {
@@ -17833,7 +17833,7 @@ var tooltip = $.widget( "ui.tooltip", {
 				return ( /^(:?\w+:)/ ).test( url );
 			}
 	};
-	
+
 	$.path = path;
 }(jQuery));
 ;/**
@@ -25100,7 +25100,7 @@ $(function() {
 
 		prefSelect.find('.field').on(Gumby.click, function(e) {
 			if($(this).is( ":first-child")){
-				if(!$(this).hasClass('not-playing') && enableFavs) {
+				if(!$(this).hasClass('isfinal') && enableFavs) {
 					markFavourite(this);
 				}
 			} else {

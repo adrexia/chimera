@@ -32,7 +32,7 @@ $pref-bg-hover: rgba(mix(#fff, $night, 40%), 0.2);
 			.icon-heart {
 				display: block;
 			}
-			&.not-playing{
+			&.isfinal{
 				.icon-heart {
 					display: none;
 				}
@@ -138,8 +138,8 @@ $pref-bg-hover: rgba(mix(#fff, $night, 40%), 0.2);
 						color: #fff;
 					}
 				}
-				// if follows after not-playing, style as unselected
-				.not-playing ~ .field:nth-of-type(#{$j}) {
+				// if follows after isfinal, style as unselected
+				.isfinal ~ .field:nth-of-type(#{$j}) {
 					border-color: rgba(#fff,0.1);
 					&:hover,
 					&:focus {
@@ -161,10 +161,21 @@ $pref-bg-hover: rgba(mix(#fff, $night, 40%), 0.2);
 }
 
 .preference-table {
+	font-size: 1em;
+
+	p {
+		font-size: 1em;
+	}
+
 	.icon-heart {
 		color: $exploration;
 	}
 	.icon-check {
 		color: $earth;
+	}
+
+	.num {
+		font-size: 0.8em;
+		opacity: 0.7;
 	}
 }
