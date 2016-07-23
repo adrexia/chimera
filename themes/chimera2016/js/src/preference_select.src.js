@@ -4,16 +4,18 @@
 $(function() {
 	"use strict";
 
+	var enableFavs = $('#FavouriteID').length > 0;
+
 	// Favourite must always be first. If it's not first, clear favourite
 	function validateFavourite(object) {
 		var form = $(object).closest('.preference-select'),
 			favourite = form.find('.favourite');
 
-		if(favourite !== undefined){
+		if(favourite !== undefined) {
 			//check if favourite is first child
 			if(!favourite.is( ":first-child")){
 				favourite.removeClass('favourite');
-				
+
 				// clear hidden field
 				form.find('favourite-id').val('');
 			}
@@ -28,7 +30,7 @@ $(function() {
 		// allow toggling
 		if (group.hasClass('favourite')) {
 			group.removeClass('favourite');
-			form.find('.favourite-id').val(''); 
+			form.find('.favourite-id').val('');
 		} else {
 			// unset current favourite
 			form.find('.favourite').removeClass('favourite');
@@ -60,15 +62,20 @@ $(function() {
 		validateFavourite(object);
 	}
 
+	function markup(prefGroup) {
+		var favourite = '';
 
+		if(enableFavs) {
+			favourite = '<i class="icon icon-heart js-favourite" role="button" title="Mark as favourite"></i>';
+		}
 
-	if ($('.preference-select .preference-group') !== undefined){
+		prefGroup.find('.control-group').attr('title', 'Drag and drop to reorder');
+		prefGroup.find('.extra').append('<i class="icon icon-up js-to-top" role="button" title="Move to top"></i>' + favourite);
 
-		$('.preference-select .preference-group .control-group').attr('title', 'Drag and drop to reorder');
+	}
 
-		$('.preference-select .preference-group .extra').append('<i class="icon icon-up js-to-top" role="button" title="Move to top"></i><i class="icon icon-heart js-favourite" role="button" title="Mark as favourite"></i>');
-
-		$('.preference-select .preference-group').sortable({
+	function attachSortable(prefGroup) {
+		prefGroup.sortable({
 			axis: 'y',
 			update: function (event, ui) {
 				//update input fields
@@ -78,21 +85,24 @@ $(function() {
 				validateFavourite(ui.item);
 			}
 		});
+	}
 
-
-		$('.preference-select .js-to-top').on(Gumby.click, function(e){
+	function attachEvents(prefSelect) {
+		prefSelect.find('.js-to-top').on(Gumby.click, function(e){
 			e.stopPropagation();
 			moveToTop(this);
 		});
 
-		$('.preference-select .js-favourite').on(Gumby.click, function(e){
+		prefSelect.find('.js-favourite').on(Gumby.click, function(e){
 			e.stopPropagation();
-			markFavourite(this);
+			if (enableFavs) {
+				markFavourite(this);
+			}
 		});
 
-		$('.preference-select .field').on(Gumby.click, function(e) {
+		prefSelect.find('.field').on(Gumby.click, function(e) {
 			if($(this).is( ":first-child")){
-				if(!$(this).hasClass('not-playing')){
+				if(!$(this).hasClass('not-playing') && enableFavs) {
 					markFavourite(this);
 				}
 			} else {
@@ -101,6 +111,21 @@ $(function() {
 		});
 	}
 
+	function init() {
+
+		var prefSelect = $('.preference-select'),
+			prefGroup;
+
+		if ($('.preference-select .preference-group') === undefined) {
+			return;
+		}
+
+		prefGroup = prefSelect.find('.preference-group');
+		markup(prefGroup);
+		attachSortable(prefGroup);
+		attachEvents(prefSelect);
+	}
+
+	init();
+
 });
-
-

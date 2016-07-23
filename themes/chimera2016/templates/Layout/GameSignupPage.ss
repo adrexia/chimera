@@ -9,23 +9,25 @@
 						<% if $Form %>
 							$GameLiveContent
 						<% end_if %>
-					<div class="key">
-						<h3>Key:</h3>
-						<dl>
-							<% if not $SubmittedGames %>
-								<dt><i title="accepted" class="icon icon-up hide-chosen"></i></dt>
-								<dd>Move straight to top</dd>
-							<% end_if %>
-							<dt><i title="favourited" class="icon icon-heart"></i></dt>
-							<dd>The game I most want to play</dd>
-							<% if $SubmittedGames %>
-								<dt><i title="accepted" class="icon icon-check hide-chosing"></i></dt>
-								<dd>I am in this game <small>(may not be final)</small></dd>
-							<% end_if %>
-						</dl>
-					</div>
+						<div class="key">
+							<h3>Key:</h3>
+							<dl>
+								<% if not $SubmittedGames %>
+									<dt><i title="accepted" class="icon icon-up hide-chosen"></i></dt>
+									<dd>Move straight to top</dd>
+								<% end_if %>
+								<% if not $DisableFavourite %>
+									<dt><i title="favourited" class="icon icon-heart"></i></dt>
+									<dd>The game I most want to play</dd>
+								<% end_if %>
+								<% if $SubmittedGames %>
+									<dt><i title="accepted" class="icon icon-check hide-chosing"></i></dt>
+									<dd>I am in this game <small>(may not be final)</small></dd>
+								<% end_if %>
+							</dl>
+						</div>
+						$Form
 					<% end_if %>
-					$Form
 				</div>
 				<% if $SubmittedGames %>
 					<% if $getGroupedPlayerGames.GroupedBy(Session) %>
@@ -47,11 +49,10 @@
 					</table>
 					<% end_if %>
 				<% end_if %>
-				$PageComments
 			</div>
 		</article>
 	</section>
 	<section class="four columns">
-	<% include Sidebar %>
+		<% include Sidebar %>
 	</section>
 </div>
