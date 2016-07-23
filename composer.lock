@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad01b1d71bbdfef7286811e682ea8701",
-    "content-hash": "3cbc6d7e81d4b59773cc24b37edfc65e",
+    "hash": "a6ae5c3b74c57da5a82365ff34a199ca",
+    "content-hash": "0c6c6926de8dd61d4f58a60955cc9e7c",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -774,50 +774,6 @@
                 "workflow"
             ],
             "time": "2016-05-18 06:41:35"
-        },
-        {
-            "name": "silverstripe/dashboard",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-dashboard.git",
-                "reference": "674e111a2de8deaf0a73c90e568c5b26240a1078"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-dashboard/zipball/674e111a2de8deaf0a73c90e568c5b26240a1078",
-                "reference": "674e111a2de8deaf0a73c90e568c5b26240a1078",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "replace": {
-                "silverstripe/dashboard": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "dashboard"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Uncle Cheese",
-                    "email": "unclecheese@leftandmain.com"
-                }
-            ],
-            "description": "Adds a dashboard to the SilverStripe CMS",
-            "keywords": [
-                "cms",
-                "dashboard",
-                "module",
-                "silverstripe"
-            ],
-            "time": "2016-05-26 02:53:13"
         },
         {
             "name": "silverstripe/externallinks",
@@ -1884,6 +1840,50 @@
             "time": "2016-06-30 07:56:55"
         },
         {
+            "name": "unclecheese/dashboard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-dashboard.git",
+                "reference": "674e111a2de8deaf0a73c90e568c5b26240a1078"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-dashboard/zipball/674e111a2de8deaf0a73c90e568c5b26240a1078",
+                "reference": "674e111a2de8deaf0a73c90e568c5b26240a1078",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "silverstripe/dashboard": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "dashboard"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Adds a dashboard to the SilverStripe CMS",
+            "keywords": [
+                "cms",
+                "dashboard",
+                "module",
+                "silverstripe"
+            ],
+            "time": "2016-05-26 02:53:13"
+        },
+        {
             "name": "unclecheese/display-logic",
             "version": "1.3.3",
             "source": {
@@ -2031,7 +2031,7 @@
     "stability-flags": {
         "adrexia/dashboardmods": 20,
         "adrexia/gamesevent": 20,
-        "silverstripe/dashboard": 20,
+        "unclecheese/dashboard": 20,
         "silverstripe/standardsediting": 20
     },
     "prefer-stable": false,

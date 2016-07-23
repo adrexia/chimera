@@ -11,7 +11,7 @@
 		"sheadawson/silverstripe-linkable": "*",
 		"silverstripe/cms": "3.4.0",
 		"silverstripe/contentreview": "3.0.2",
-		"silverstripe/dashboard": "dev-master",
+		"unclecheese/dashboard": "dev-master",
 		"silverstripe/externallinks": "1.0.5",
 		"silverstripe/framework": "3.4.0 as 3.2",
 		"silverstripe/gridfieldqueuedexport": "1.0.0-rc1",
