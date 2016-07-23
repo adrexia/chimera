@@ -59,3 +59,24 @@
 		margin: 0;
 	}
 }
+
+.label {
+	&-state {
+		font-family: $header-font-family;
+		text-transform: uppercase;
+		font-size: 9px;
+		margin-left: 10px;
+
+		.item & {
+			font-size: 12px;
+			display: block;
+			position: absolute;
+			bottom: 30px;
+			right: 23px;
+		}
+
+		&.draft {
+			background: #f26c4f; // match draft colour.
+		}
+	}
+}

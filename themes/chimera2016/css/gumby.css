@@ -2571,6 +2571,10 @@ label.checkbox { float: left; margin-top: 0; padding-right: 30px; }
 .clear-filter:hover, .clear-filter:focus { cursor: pointer; }
 .clear-filter i { margin: 0; }
 
+.label-state { font-family: "Quattrocento", georgia, serif; text-transform: uppercase; font-size: 9px; margin-left: 10px; }
+.item .label-state { font-size: 12px; display: block; position: absolute; bottom: 30px; right: 23px; }
+.label-state.draft { background: #f26c4f; }
+
 .pt0 { padding-top: 0; }
 
 .pts { padding-top: 15px; }

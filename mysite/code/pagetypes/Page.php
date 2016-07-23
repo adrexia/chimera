@@ -73,11 +73,23 @@ class Page_Controller extends ContentController {
 		return HomePage::get_one('HomePage');
 	}
 
-	public function getGroupedGames(){
-		return GroupedList::create(Game::get()->filter(array(
-			'ParentID' => $this->getCurrentEvent()->ID,
-			'Status'=> true
+	public function getGroupedGames() {
+
+		// show all if in draft mode
+		$mode = Versioned::get_reading_mode();
+
+		if($mode == 'Stage.Stage') {
+			$items = GroupedList::create(Game::get()->filter(array(
+				'ParentID' => $this->getCurrentEvent()->ID
 			))->sort('Session'));
+		} else {
+			$items = GroupedList::create(Game::get()->filter(array(
+				'ParentID' => $this->getCurrentEvent()->ID,
+				'Status'=> true
+			))->sort('Session'));
+		}
+
+		return $items;
 	}
 
 	public function LoginLink() {
@@ -99,6 +111,10 @@ class Page_Controller extends ContentController {
 			$title = ucfirst($title);
 		}
 		return str_replace("-",  " ", $title);
+	}
+
+	public function isStaged() {
+		return $mode == 'Stage.Stage' ? true : false;
 	}
 
 }

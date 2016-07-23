@@ -46,7 +46,7 @@
 
 							<a href="$Link" class="item-wrap alpha-change-border $Genre.LimitCharacters(1,'').LowerCase">
 								<header>
-									<h3 id="ID-{$ID}">$Title</h3>
+									<h3 id="ID-{$ID}"><% if not $Status %><span class="label-state label draft">Pending</span><% end_if %>$Title</h3>
 									<em class="">
 										run by <% if $FacilitatorText %>$FacilitatorText.LowerCase<% else_if MemberName %>$MemberName.LowerCase<% else %>hydra<% end_if %>
 									</em>
@@ -54,6 +54,7 @@
 								<div class="text pvm">
 									<p>$Brief.LimitCharacters(200)</p>
 									<p><small><strong>Round: $Session</strong></small></p>
+
 								</div>
 							</a>
 						</article>
