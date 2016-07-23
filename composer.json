@@ -34,7 +34,9 @@
 		"silverstripe/versionfeed": "1.2.2",
 		"unclecheese/betterbuttons": "*",
 		"unclecheese/display-logic": "*",
-		"unclecheese/silverstripe-kickassets": "*"
+		"unclecheese/silverstripe-kickassets": "*",
+		"antons/switchfield": "^0.2.0",
+		"milkyway-multimedia/ss-gridfield-utils": "^0.3.0"
 	},
 	"config": {
 		"process-timeout": 600

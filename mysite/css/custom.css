@@ -27,3 +27,13 @@
 .mts {
 	margin-top:10px;
 }
+
+.switchery.switchery {
+	height: 23px;
+	margin-top: 4px;
+}
+
+.switchery.switchery > small {
+	height: 23px;
+	width: 23px;
+}

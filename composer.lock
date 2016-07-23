@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a6ae5c3b74c57da5a82365ff34a199ca",
-    "content-hash": "0c6c6926de8dd61d4f58a60955cc9e7c",
+    "hash": "89d2946a5414ff341ad11ee3f9942a31",
+    "content-hash": "e3c84242c2526e92ee7bd2dbfb361dd0",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -43,17 +43,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-gamesevent.git",
-                "reference": "57eb290e7a62152a1d632a955f1ec3add4842844"
+                "reference": "752c7227666a98d04ead197bd888ce43df653f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/57eb290e7a62152a1d632a955f1ec3add4842844",
-                "reference": "57eb290e7a62152a1d632a955f1ec3add4842844",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/752c7227666a98d04ead197bd888ce43df653f68",
+                "reference": "752c7227666a98d04ead197bd888ce43df653f68",
                 "shasum": ""
             },
             "require": {
                 "ajshort/silverstripe-memberprofiles": "*",
+                "antons/switchfield": "*",
                 "mateusz/frontend": "*",
+                "milkyway-multimedia/ss-gridfield-utils": "*",
+                "silverstripe-australia/gridfieldextensions": "*",
                 "silverstripe/cms": "*",
                 "silverstripe/framework": "*",
                 "studiobonito/silverstripe-spamprotection-honeypot": "*"
@@ -73,7 +76,7 @@
             "keywords": [
                 "silverstripe"
             ],
-            "time": "2016-07-23 10:01:48"
+            "time": "2016-07-23 12:26:40"
         },
         {
             "name": "ajshort/silverstripe-memberprofiles",
@@ -128,6 +131,47 @@
                 "source": "https://github.com/adrexia/silverstripe-memberprofiles/tree/3.1"
             },
             "time": "2013-09-15 12:31:44"
+        },
+        {
+            "name": "antons/switchfield",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antons-/switchfield.git",
+                "reference": "d9503ae255944b5c9a17c2bcf6ddb54a8ae52476"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antons-/switchfield/zipball/d9503ae255944b5c9a17c2bcf6ddb54a8ae52476",
+                "reference": "d9503ae255944b5c9a17c2bcf6ddb54a8ae52476",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.2"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Smith",
+                    "email": "anton@antons.io",
+                    "homepage": "https://antons.io/"
+                }
+            ],
+            "description": "A simple iOS switch alternative for the CheckboxField in SilverStripe",
+            "homepage": "https://github.com/antons-/switchfield",
+            "keywords": [
+                "checkbox",
+                "checkboxfield",
+                "silverstripe",
+                "switch",
+                "toggle",
+                "togglefield"
+            ],
+            "time": "2016-03-25 04:21:05"
         },
         {
             "name": "assertchris/hash-compat",
@@ -301,6 +345,62 @@
                 "zikula"
             ],
             "time": "2016-07-05 06:18:20"
+        },
+        {
+            "name": "danielstjules/stringy",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielstjules/Stringy.git",
+                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
+                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stringy\\": "src/"
+                },
+                "files": [
+                    "src/Create.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel St. Jules",
+                    "email": "danielst.jules@gmail.com",
+                    "homepage": "http://www.danielstjules.com"
+                }
+            ],
+            "description": "A string manipulation library with multibyte support",
+            "homepage": "https://github.com/danielstjules/Stringy",
+            "keywords": [
+                "UTF",
+                "helpers",
+                "manipulation",
+                "methods",
+                "multibyte",
+                "string",
+                "utf-8",
+                "utility",
+                "utils"
+            ],
+            "time": "2015-07-23 00:54:12"
         },
         {
             "name": "embed/embed",
@@ -478,6 +578,324 @@
                 "widgets"
             ],
             "time": "2013-08-25 20:49:47"
+        },
+        {
+            "name": "milkyway-multimedia/ss-gridfield-utils",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-gridfield-utils.git",
+                "reference": "e691c2374c934dbc8ab245666bb14911bb576dd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-gridfield-utils/zipball/e691c2374c934dbc8ab245666bb14911bb576dd0",
+                "reference": "e691c2374c934dbc8ab245666bb14911bb576dd0",
+                "shasum": ""
+            },
+            "require": {
+                "milkyway-multimedia/ss-mwm": "~0.3",
+                "silverstripe/framework": "~3.1"
+            },
+            "suggest": {
+                "milkyway-multimedia/ss-mwm-formfields": "You can only use the RangeSlider with this module installed.",
+                "silverstripe-australia/gridfieldextensions": "This module is compatible and extends the components of the gridfieldextensions module."
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "gridfield-utils",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mell@milkywaymultimedia.com.au"
+                }
+            ],
+            "description": "A collection of GridField components that you can use with any GridField, including Editable Rows and amy more",
+            "keywords": [
+                "gridfield",
+                "mwm",
+                "silverstripe",
+                "utilities"
+            ],
+            "time": "2015-12-13 13:35:35"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm.git",
+                "reference": "5a056e324447725fe8ab34ad659350fe819c17ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm/zipball/5a056e324447725fe8ab34ad659350fe819c17ff",
+                "reference": "5a056e324447725fe8ab34ad659350fe819c17ff",
+                "shasum": ""
+            },
+            "require": {
+                "milkyway-multimedia/ss-mwm-assets": "~0.3",
+                "milkyway-multimedia/ss-mwm-core": "~0.3",
+                "milkyway-multimedia/ss-mwm-env": "~0.3",
+                "milkyway-multimedia/ss-mwm-flashmessage": "~0.3",
+                "milkyway-multimedia/ss-mwm-shortcodes": "~0.3"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-utilities",
+                "branch-alias": {
+                    "dev-master": "0.4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mell@milkywaymultimedia.com.au"
+                }
+            ],
+            "description": "Some basic utilities used across multiple Milkyway Multimedia modules",
+            "keywords": [
+                "mwm",
+                "silverstripe",
+                "utilities"
+            ],
+            "time": "2016-04-01 21:46:42"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm-assets",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm-assets.git",
+                "reference": "330753f5050fec0c0d73bb4e0e99658a1eb311e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm-assets/zipball/330753f5050fec0c0d73bb4e0e99658a1eb311e1",
+                "reference": "330753f5050fec0c0d73bb4e0e99658a1eb311e1",
+                "shasum": ""
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-assets",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mellisa.hankins@me.com"
+                }
+            ],
+            "description": "New requirements backend for Silverstripe",
+            "keywords": [
+                "mwm",
+                "requirements",
+                "silverstripe"
+            ],
+            "time": "2016-05-13 07:42:55"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm-core.git",
+                "reference": "e7216653b7100ead5a7d56736a124bee1c76fcd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm-core/zipball/e7216653b7100ead5a7d56736a124bee1c76fcd5",
+                "reference": "e7216653b7100ead5a7d56736a124bee1c76fcd5",
+                "shasum": ""
+            },
+            "require": {
+                "danielstjules/stringy": "~1.9",
+                "milkyway-multimedia/ss-mwm-env": "~0.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-core",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mellisa.hankins@me.com"
+                }
+            ],
+            "description": "Some basic utilities used across multiple Milkyway Multimedia modules",
+            "keywords": [
+                "mwm",
+                "silverstripe",
+                "utilities"
+            ],
+            "time": "2016-04-01 20:39:19"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm-env",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm-env.git",
+                "reference": "d57767957ab2eb0984e18b761ecae159e35505db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm-env/zipball/d57767957ab2eb0984e18b761ecae159e35505db",
+                "reference": "d57767957ab2eb0984e18b761ecae159e35505db",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "suggest": {
+                "vlucas/phpdotenv": "Load in environment variables from a file (handy for development). Must be implemented yourself in _ss_environment.php (check README)"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-env",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mellisa.hankins@me.com"
+                }
+            ],
+            "description": "Dot notation access of configuration, as well as overrides via $_ENV",
+            "keywords": [
+                "mwm",
+                "silverstripe",
+                "utilities"
+            ],
+            "time": "2016-06-28 01:12:50"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm-flashmessage",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm-flashmessage.git",
+                "reference": "955ea68caa86d2f73ed987082d7239d62f76e638"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm-flashmessage/zipball/955ea68caa86d2f73ed987082d7239d62f76e638",
+                "reference": "955ea68caa86d2f73ed987082d7239d62f76e638",
+                "shasum": ""
+            },
+            "require": {
+                "milkyway-multimedia/ss-mwm-env": "~0.3"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-flashmessage",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mellisa.hankins@me.com"
+                }
+            ],
+            "description": "A JS based flash messenger for Silverstripe",
+            "keywords": [
+                "flash",
+                "message",
+                "mwm",
+                "silverstripe"
+            ],
+            "time": "2016-07-08 17:52:05"
+        },
+        {
+            "name": "milkyway-multimedia/ss-mwm-shortcodes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milkyway-multimedia/ss-mwm-shortcodes.git",
+                "reference": "647c37a8130db4a9b8893055fe728188396d3d0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milkyway-multimedia/ss-mwm-shortcodes/zipball/647c37a8130db4a9b8893055fe728188396d3d0a",
+                "reference": "647c37a8130db4a9b8893055fe728188396d3d0a",
+                "shasum": ""
+            },
+            "require": {
+                "milkyway-multimedia/ss-mwm-core": "~0.3",
+                "milkyway-multimedia/ss-mwm-env": "~0.3"
+            },
+            "require-dev": {
+                "sheadawson/silverstripe-shortcodable": "~1",
+                "thisisbd/silverstripe-fontawesome-iconpickerfield": "~0.4"
+            },
+            "suggest": {
+                "sheadawson/silverstripe-shortcodable": "Allows adding shortcodes via the TinyMCE editor",
+                "thisisbd/silverstripe-fontawesome-iconpickerfield": "Use an icon picker field for font awesome icons."
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mwm-shortcodes",
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mellisa Hankins",
+                    "email": "mellisa.hankins@me.com"
+                }
+            ],
+            "description": "Some additional shortcodes and related utilities for Silverstripe",
+            "keywords": [
+                "mwm",
+                "shortcodes",
+                "silverstripe"
+            ],
+            "time": "2016-07-08 19:29:15"
         },
         {
             "name": "nikic/php-parser",
