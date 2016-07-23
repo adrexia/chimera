@@ -24,6 +24,10 @@ RegistrationPage_Controller:
   extensions:
    - RegistrationPage_ControllerExtension
 
+KickAssets:
+  menu_icon: "mysite/images/sitetree_images/photo.png"
+  menu_title: "Files"
+
 ErrorPage:
   icon: "mysite/images/sitetree_images/error.png"
 UserDefinedForm:

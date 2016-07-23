@@ -1,4 +1,4 @@
-assets/
+/assets/
 _ss_environment.php
 tools/phing-metadata
 silverstripe-cache
@@ -7,47 +7,64 @@ silverstripe-cache
 .settings
 .idea
 .DS_Store
-vendor/
+/vendor/
 .sass-cache/
-cms/*
-framework/*
-betterbuttons/
-dashboard/
-frontend/
-gamesevent/
-gridfieldextensions/
-memberprofiles/
-html5/
-iframe/
+/cms/*
+/framework/*
+/betterbuttons/
+/dashboard/
+/frontend/
+/gamesevent/
+/gridfieldextensions/
+/memberprofiles/
+/html5/
+/iframe/
 node_modules
-mimevalidator/
+/mimevalidator/
 
-multiform/
+/multiform/
 
-multivaluefield/
-queuedjobs/
-restfulserver/
+/multivaluefield/
+/queuedjobs/
+/restfulserver/
 
-securityreport/
-selectupload/
-userforms/
-spellcheck/
-standardsediting/
-betternavigator/
+/securityreport/
+/selectupload/
+/userforms/
+/spellcheck/
+/standardsediting/
+/betternavigator/
 
 *.scssc
 
-dashboardmods/
+/dashboardmods/
 
-display_logic/
+/display_logic/
 
-linkable/
+/linkable/
 
-segment-field/
+/segment-field/
 
-silverstripe-spamprotection-honeypot/
-spamprotection/
+/silverstripe-spamprotection-honeypot/
+/spamprotection/
 
-siteconfig/
+/siteconfig/
 
-reports/
+/reports/
+
+/contentreview/
+/dropzone/
+
+/externallinks/
+
+/gridfieldqueuedexport/
+
+/sharedraftcontent/
+
+/sitewidecontent-report/
+
+/versionedfiles/
+
+/versionfeed/
+
+/kickassets/
