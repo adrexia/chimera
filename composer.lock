@@ -43,12 +43,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-gamesevent.git",
-                "reference": "a1e8c90672ab8efa1a31f02e09ae6042c0f0220c"
+                "reference": "ac95c8fe12735e375b406b5e2893551cd4c86d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/a1e8c90672ab8efa1a31f02e09ae6042c0f0220c",
-                "reference": "a1e8c90672ab8efa1a31f02e09ae6042c0f0220c",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/ac95c8fe12735e375b406b5e2893551cd4c86d53",
+                "reference": "ac95c8fe12735e375b406b5e2893551cd4c86d53",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +77,7 @@
             "keywords": [
                 "silverstripe"
             ],
-            "time": "2016-07-24 09:22:55"
+            "time": "2016-07-24 09:54:07"
         },
         {
             "name": "ajshort/silverstripe-memberprofiles",
