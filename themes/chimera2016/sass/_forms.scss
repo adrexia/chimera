@@ -18,9 +18,9 @@ label {	font-family: $header-font-family;}
 	color: darken($success-color, 20%);
 }
 .bad {
-	background: lighten($danger-color, 20%);
+	background: lighten($danger-color, 25%);
 	border: 1px solid $danger-color;
-	color: darken($danger-color, 20%);
+	color: darken($danger-color, 50%);
 }
 
 .content .alert {

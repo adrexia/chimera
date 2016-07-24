@@ -2001,8 +2001,8 @@ form fieldset legend { padding: 5px 10px; }
 .field .radio.success, .field .checkbox.success { color: #cb0168; color: white; }
 .field .radio.success i, .field .checkbox.success i { color: #cb0168; }
 .field .radio.success span, .field .checkbox.success span { border-color: #cb0168; color: #cb0168; background: #fe80c0; -moz-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; transition-duration: 0.2s; }
-.field .radio span, .field .checkbox span { display: inline-block; height: 20px; width: 20px; line-height: 20px; position: relative; top: 2px; border: solid 1px #2d279f; background: #d3d2f7; color: #2d279f; }
-.field .radio span:focus, .field .radio span:active, .field .checkbox span:focus, .field .checkbox span:active { background: #fff; border: 1px solid #3831c8; }
+.field .radio span, .field .checkbox span { display: inline-block; height: 20px; width: 20px; line-height: 20px; position: relative; top: 2px; border: 1px solid #0e0c31; background: #191740; color: #fff; }
+.field .radio span:focus, .field .radio span:active, .field .checkbox span:focus, .field .checkbox span:active { background: #232148; border: 1px solid #121041; }
 .field .radio span { -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
 .field .checkbox span { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 .field .radio.checked i, .field .checkbox.checked i { position: absolute; top: -1px; left: -6px; line-height: 20px; }
@@ -2261,7 +2261,7 @@ label { font-family: "Quattrocento", georgia, serif; }
 
 .good { background: #e580b3; border: 1px solid #660034; color: #660034; }
 
-.bad { background: #fae8af; border: 1px solid #f5cc4e; color: #d1a10c; }
+.bad { background: #fcefc7; border: 1px solid #f5cc4e; color: #403104; }
 
 .content .alert, .content .message { padding: 10px; margin-bottom: 30px; font-size: 15px; }
 .content .alert.primary a, .content .primary.message a, .content .Actions .message.btn a, .Actions .content .message.btn a, .content .Actions .alert.btn a, .Actions .content .alert.btn a { color: #403104; }

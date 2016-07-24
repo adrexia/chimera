@@ -36,7 +36,8 @@
 		"unclecheese/display-logic": "*",
 		"unclecheese/silverstripe-kickassets": "*",
 		"antons/switchfield": "^0.2.0",
-		"milkyway-multimedia/ss-gridfield-utils": "^0.3.0"
+		"milkyway-multimedia/ss-gridfield-utils": "^0.3.0",
+		"firebrandhq/silverstripe-excel-export": "^0.2.0"
 	},
 	"config": {
 		"process-timeout": 600
