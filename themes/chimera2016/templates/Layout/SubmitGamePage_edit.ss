@@ -4,28 +4,16 @@
 		<article>
 			<h2>$Title</h2>
 			<div class="content">
-
-				<% if $OpenSubmissions %>
-					<% if $CurrentMember %>
-						$Content
-						<% if $SiteConfig.CurrentEvent %>
-							<% if $Form %>
-								$Form
-							<% end_if %>
-						<% else %>
-							<p>There is no current event set to submit games to</p>
+				<% if $CurrentMember %>
+					$Content
+					<% if $SiteConfig.CurrentEvent %>
+						<% if $Form %>
+							$Form
 						<% end_if %>
-						$PageComments
 					<% else %>
-						<% if $LoggedOutMessage %>
-							$LoggedOutMessage
-						<% else %>
-
-						<p>Login or Register to submit a Larp</p>
-						<% end_if %>
+						<p>There is no current event set to submit games to</p>
 					<% end_if %>
-				<% else %>
-					<p>Game submissions are now closed.</p>
+					$PageComments
 				<% end_if %>
 			</div>
 		</article>
