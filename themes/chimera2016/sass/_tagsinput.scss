@@ -4,7 +4,7 @@
 	width: 98%;
 
 	span.tag {
-		background: $exploration;
+		background: $water;
 		border-radius: 3px;
 		color: #fff;
 		display: block;
@@ -32,7 +32,7 @@
 		background: transparent;
 		border-radius: 3px;
 		border: 1px solid transparent;
-		color: #333 !important; //override js
+		color: rgba(#fff, 0.5) !important; //override js
 		font-family: helvetica;
 		font-size: 13px;
 		margin: 5px 5px 5px 0;
@@ -75,7 +75,7 @@
 .ui-autocomplete {
 	max-width:40%; // to stop horozontal scroll
 	li {
-		background: $exploration;
+		background: $water;
 		border-radius: 3px;
 		color: #fff;
 		display: block;
