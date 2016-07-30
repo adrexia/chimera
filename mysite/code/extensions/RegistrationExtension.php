@@ -18,6 +18,20 @@ class RegistrationExtension extends DataExtension {
 		$fields->removeByName('NotPlayWith');
 		$fields->removeByName('EventID');
 	}
+
+	public function updateExportFields(Array &$fields) {
+		$custom = array(
+			'NZLarpsMember' => "NZ Larps Member",
+			'Gender' => 'Gender',
+			'LarpExperience' => "Larp Experience",
+			'Age' => "Age",
+			'EmergencyContact' => 'Emergency Contact',
+			'ComingFrom' => "Coming From"
+		);
+		$fields = array_merge($fields, $custom);
+
+		return $fields;
+	}
 }
 class RegistrationPage_ControllerExtension extends DataExtension {
 
