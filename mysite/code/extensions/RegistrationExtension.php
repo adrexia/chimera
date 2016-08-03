@@ -8,7 +8,7 @@ class RegistrationExtension extends DataExtension {
 		'NZLarpsMember' => "Enum('Yes, No, I\'d like to join (please tell me how)', 'No')",
 		'Gender' => 'Varchar(255)',
 		'LarpExperience' => "Enum('Newbie, Novice (a few games played), Veteran', 'Newbie')",
-		'Age' => "Enum('Under 18 (requires parental consent), 18+', '18+')",
+		'Age' => "Enum('Under 16 (requires supervision), 16 - 18 (requires parental consent), 18+', '18+')",
 		'EmergencyContact' => 'Varchar(255)',
 		'ComingFrom' => "Enum('Auckland, Hamilton, Tauranga, Wellington, Other North Island, Christchurch, Dunedin, Other South Island, Overseas', 'Auckland')"
 	);
