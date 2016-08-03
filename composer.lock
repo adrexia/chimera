@@ -43,12 +43,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-gamesevent.git",
-                "reference": "8bc7730347e3550e8811e005ae313e470cc58703"
+                "reference": "54cd2048ff6c3de97ad2aa3af00e7c45a32da800"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/8bc7730347e3550e8811e005ae313e470cc58703",
-                "reference": "8bc7730347e3550e8811e005ae313e470cc58703",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/54cd2048ff6c3de97ad2aa3af00e7c45a32da800",
+                "reference": "54cd2048ff6c3de97ad2aa3af00e7c45a32da800",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +77,7 @@
             "keywords": [
                 "silverstripe"
             ],
-            "time": "2016-08-03 08:34:02"
+            "time": "2016-08-03 10:35:34"
         },
         {
             "name": "ajshort/silverstripe-memberprofiles",
@@ -2486,12 +2486,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-kickassets.git",
-                "reference": "21f74ae6edf0a07647b89a4c87816ff8da36be95"
+                "reference": "7731b7583579af228eec14107153cf3bce14ed06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-kickassets/zipball/21f74ae6edf0a07647b89a4c87816ff8da36be95",
-                "reference": "21f74ae6edf0a07647b89a4c87816ff8da36be95",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-kickassets/zipball/7731b7583579af228eec14107153cf3bce14ed06",
+                "reference": "7731b7583579af228eec14107153cf3bce14ed06",
                 "shasum": ""
             },
             "require": {
@@ -2526,7 +2526,7 @@
                 "silverstripe",
                 "upload"
             ],
-            "time": "2016-05-30 02:58:18"
+            "time": "2016-08-03 09:38:28"
         }
     ],
     "packages-dev": [],
