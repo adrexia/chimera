@@ -32,6 +32,12 @@ class RegistrationExtension extends DataExtension {
 
 		return $fields;
 	}
+
+	public function updateExcelExportFields(Array &$fields) {
+		unset($fields['HasPlayedString']);
+
+		return $fields;
+	}
 }
 class RegistrationPage_ControllerExtension extends DataExtension {
 
