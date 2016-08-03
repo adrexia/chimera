@@ -393,6 +393,12 @@ form {
 	cursor: pointer;
 	font-family: $font-family;
 	@include font-size($med);
+
+	option {
+		background: #ccc;
+		color: #333;
+	}
+
 	}
 	select::-ms-expand {
 	display: none;
