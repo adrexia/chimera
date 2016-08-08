@@ -77,9 +77,15 @@ class RegistrationPage_ControllerExtension extends DataExtension {
 			'Emergency contact'
 		), 'Age');
 
-		$fields->insertBefore(TextField::create(
+		$fields->insertBefore(DropdownField::create(
 			'Gender',
-			'What gender would you prefer to play?'
+			'What gender would you prefer to play?',
+			array(
+				'Male' => 'Male',
+				'Female' => 'Female',
+				"Don't mind" => "Don't mind",
+				'I will discuss with GMs' => 'I will discuss with GMs'
+			)
 		), 'EmergencyContact');
 
 		return $fields;
