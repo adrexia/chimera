@@ -92,6 +92,6 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
-grunt.registerTask('default', []);
+grunt.registerTask('default', ['watch']);
 
 };

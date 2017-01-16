@@ -4,7 +4,7 @@
 $(function() {
 	"use strict";
 
-	var enableFavs = $('#FavouriteID').length > 0;
+	var enableFavs = $('#Form_Form_FavouriteID').length > 0;
 
 	// Favourite must always be first. If it's not first, clear favourite
 	function validateFavourite(object) {
